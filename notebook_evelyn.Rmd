@@ -38,5 +38,4 @@ Contributed in writing one of the three agreed function for the package which is
 
 ### Links to the github commits:
 - https://github.com/xintian927/534-proejct/commit/28a04a7d21743093d2308a65fafb2221a7024486
-
-
+- https://github.com/xintian927/534-proejct/commit/ef92615d323694671c3a72ae3962d58c72de5750
