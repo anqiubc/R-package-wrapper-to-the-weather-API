@@ -8,7 +8,7 @@ ua
 #weather_api_history function
 weather_api_history <- function(key,q,dt) {
   base_url <- "http://api.weatherapi.com/v1/history.json?"
-  full_url<-POST(base_url, query = list(key=key,q=q,dt=dt),encode = "raw")
+  full_url <- POST(base_url, query = list(key=key,q=q,dt=dt),encode = "raw")
   path<-paste0("key=",key,"&q=",q,"&dt=",dt)
   resp <- GET(full_url)
   if (http_type(resp) != "application/json") {
@@ -38,10 +38,9 @@ weather_api_history <- function(key,q,dt) {
     )
   )
 }
-res<-weather_api_history("1b9ca6d6b4914dfa8d5231606221402","London","2022-02-08")
 
 #use case:
-
+res<-weather_api_history("##samplekeyhere##","London","2022-02-08")
 #(1)data
 #location data
 res$location_data
