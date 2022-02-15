@@ -31,9 +31,12 @@ The group GitHub repository is not created yet.
 3. Setup the project directory structure.
 4. Write one of the three agreed function for the package (get_current_weather).
 5. Write code to set the api key (api_key) to be used in the other functions.
+6. Add more functions to get the time zone and sports events of a location.
 
 ### Role in the bigger group picture:
 Contributed in writing one of the three agreed function for the package which is to get the current weather from the weather api and the set api key function (api_key) to be used in the other functions. Also, set up the project directory for the package.
 
 ### Links to the github commits:
-https://github.com/xintian927/534-proejct/commit/28a04a7d21743093d2308a65fafb2221a7024486
+- https://github.com/xintian927/534-proejct/commit/28a04a7d21743093d2308a65fafb2221a7024486
+
+

@@ -1,0 +1,21 @@
+---
+title: "weatherapi-vignette"
+output: rmarkdown::html_vignette
+description: >
+  This vignette describe how to use the weather api package in more    detail.
+vignette: >
+  %\VignetteIndexEntry{weatherapi-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+  
+)
+library(weatherapi)
+```
+
+This vignette describes the weather api package in more detail.
