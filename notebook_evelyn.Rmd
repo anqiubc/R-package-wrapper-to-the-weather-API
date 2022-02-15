@@ -1,0 +1,40 @@
+---
+title: "daily-log-notebook"
+author: "Evelyn Sugihermanto"
+date: "2/11/2022"
+output: html_document
+---
+
+# Daily Log Notebook
+
+## February 13, 2022
+### What I did for the project:
+1. Read project requirements and resources 
+2. Look at some API candidates for the project
+- https://www.programmableweb.com/api/omdb-rest-api-v1
+- https://www.wordsapi.com/
+- https://weatherapi.com/
+
+### Role in the bigger group picture: 
+Suggest some API for the group members to consider.
+
+### Links to the github commits:
+The group GitHub repository is not created yet.
+
+
+## February 14, 2022
+### What I did for the project:
+1. Look at the documentation more closely for the three API candidates. Sign-up to get the API key for the APIs.
+2. Have a meeting with the team members to discuss which API to use for the project.
+- The team decided to move forward with the Weather API
+- Each team member will write one function each for the package
+3. Setup the project directory structure.
+4. Write one of the three agreed function for the package (get_current_weather).
+5. Write code to set the api key (api_key) to be used in the other functions.
+
+### Role in the bigger group picture:
+Contributed in writing one of the three agreed function for the package which is to get the current weather from the weather api and the set api key function (api_key) to be used in the other functions. Also, set up the project directory for the package.
+
+### Links to the github commits:
+
+
