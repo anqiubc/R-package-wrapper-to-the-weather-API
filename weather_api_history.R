@@ -1,24 +1,89 @@
-library(devtools)
-library(httr)
-library(jsonlite)
-
-#Set a user agent
-ua <- user_agent("https://github.com/anqiubc")
-ua
-#weather_api_history function
-weather_api_history <- function(key,q,dt) {
-  base_url <- "http://api.weatherapi.com/v1/history.json?"
-  full_url <- POST(base_url, query = list(key=key,q=q,dt=dt),encode = "raw")
+get_history_daily_weather<- function(key,q,dt) {
+  df <- data.frame()
+  base_url <- "http://api.weatherapi.com/v1/history.json"
   path<-paste0("key=",key,"&q=",q,"&dt=",dt)
-  resp <- GET(full_url)
-  if (http_type(resp) != "application/json") {
+  resp <- httr::GET(base_url, query = list(key=key,q=q,dt=dt))
+  if (httr::http_type(resp) != "application/json") {
     stop("API did not return json", call. = FALSE)
   }
-  parsed <- jsonlite::fromJSON(content(resp, as = "text", encoding = "UTF-8"), simplifyVector = FALSE)
+  parsed <- jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"), simplifyVector = FALSE)
   if (http_error(resp)) {
     stop(
       sprintf(
-        "GitHub API request failed [%s]\n%s\n<%s>", 
+        "GitHub API request failed [%s]\n%s\n<%s>",
+        status_code(resp),
+        parsed$error$message,
+        parsed$error$code
+      ),
+      call. = FALSE
+    )
+  }
+  return(as.data.frame(parsed[[2]]$forecastday[[1]]$day))
+}
+
+get_history_astro_information<- function(key,q,dt) {
+  df <- data.frame()
+  base_url <- "http://api.weatherapi.com/v1/history.json"
+  path<-paste0("key=",key,"&q=",q,"&dt=",dt)
+  resp <- httr::GET(base_url, query = list(key=key,q=q,dt=dt))
+  if (http_type(resp) != "application/json") {
+    stop("API did not return json", call. = FALSE)
+  }
+  parsed <- jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"), simplifyVector = FALSE)
+  if (http_error(resp)) {
+    stop(
+      sprintf(
+        "GitHub API request failed [%s]\n%s\n<%s>",
+        status_code(resp),
+        parsed$error$message,
+        parsed$error$code
+      ),
+      call. = FALSE
+    )
+  }
+  return(as.data.frame(parsed[[2]]$forecastday[[1]]$astro))
+}
+
+get_history_hourly_weather<- function(key,q,dt,h) {
+  df <- data.frame()
+  base_url <- "http://api.weatherapi.com/v1/history.json"
+  path<-paste0("key=",key,"&q=",q,"&dt=",dt)
+  resp <- httr::GET(base_url, query = list(key=key,q=q,dt=dt))
+  if (!is.numeric(h)||h>23||h<0||!is.integer(as.integer(h))) {
+    stop("Please enter a valid hour (integer, 0-23)", call. = FALSE)
+  }
+  if (http_type(resp) != "application/json") {
+    stop("API did not return json", call. = FALSE)
+  }
+  parsed <- jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"), simplifyVector = FALSE)
+  if (http_error(resp)) {
+    stop(
+      sprintf(
+        "GitHub API request failed [%s]\n%s\n<%s>",
+        status_code(resp),
+        parsed$error$message,
+        parsed$error$code
+      ),
+      call. = FALSE
+    )
+  }
+  return(as.data.frame(parsed[[2]]$forecastday[[1]]$hour[[h+1]]))
+}
+
+
+#weather_api_history function
+weather_api_history <- function(key,q,dt) {
+  base_url <- "http://api.weatherapi.com/v1/history.json"
+  path<-paste0("key=",key,"&q=",q,"&dt=",dt)
+  resp <- httr::GET(base_url, query = list(key=key,q=q,dt=dt))
+  if (http_type(resp) != "application/json") {
+    stop("API did not return json", call. = FALSE)
+  }
+  parsed <- jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"), simplifyVector = FALSE)
+  if (http_error(resp)) {
+    stop(
+      sprintf(
+        "GitHub API request failed [%s]\n%s\n<%s>",
         status_code(resp),
         parsed$error$message,
         parsed$error$code
@@ -40,7 +105,7 @@ weather_api_history <- function(key,q,dt) {
 }
 
 #use case:
-res<-weather_api_history("##samplekeyhere##","London","2022-02-08")
+res<-weather_api_history("1b9ca6d6b4914dfa8d5231606221402","London","2022-02-12")
 #(1)data
 #location data
 res$location_data
@@ -59,4 +124,6 @@ res$response
 #class
 res$class
 
-
+get_history_daily_weather("1b9ca6d6b4914dfa8d5231606221402","London","2022-02-12")
+get_history_astro_information("1b9ca6d6b4914dfa8d5231606221402","London","2022-02-12")
+get_history_hourly_weather("1b9ca6d6b4914dfa8d5231606221402","London","2022-02-12",0)
