@@ -9,6 +9,16 @@ output:
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(eval = FALSE)
 ```
+
+## 2022-02-13
+
+#### 1. What I did:   
+Read the provided documents/books about how to work with the project, and did some research on the APIs that can be used for the project.  
+#### 2. Its role in the bigger group picture: 
+Provided an option for the group to choose.  
+#### 3. Link to github commit:  
+The github repo hasn't been set up yet.  
+
 ## 2022-02-14
 
 #### 1. What I did: 
@@ -95,5 +105,14 @@ The "history" part is one out of the 3 critical parts we are going to query.
 #### 3. Link to github commit:  
 https://github.com/xintian927/534-proejct/commit/5f0d6356411705a902f02411c9bbf6824816dfb9
 
+## 2022-02-15
 
-
+#### 1. What I did: 
+- Wrote 3 functions.  
+- Modified the functions so that they can return in dataframe format.
+- Slightly modified the function to make sure they can handle error in input correctly.    
+- Set up the R package structure for the functions. created, checked and edited the DESCRIPTION of the package.   
+#### 2. Its role in the bigger group picture:   
+- Set up the R package structure, and had some experience about the procedure of develop the code into a r package. Afterwards we can integrate our works into one package quickly.     
+#### 3. Link to github commit:   
+https://github.com/xintian927/534-proejct/commit/8d08fa754f9843ed8563728ea55b8ee561073d88
