@@ -19,7 +19,6 @@ Author:
              family = "Veeramani",
              role = c("aut","cre"),
              email = )
-
 Description: The weatherapi package is a wrapper package for the Weather API (weatherapi.com)
 License: MIT + file LICENSE
 Encoding: UTF-8
