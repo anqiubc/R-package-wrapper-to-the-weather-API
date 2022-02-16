@@ -7,7 +7,8 @@
 api_key(force = FALSE)
 }
 \arguments{
-\item{force}{A boolean to force set new API key for current environment}
+\item{force}{A boolean to force set new API key for current environment.
+To force set a new API key set it to TRUE, the default value is FALSE.}
 }
 \value{
 A vector containing the API key
@@ -16,4 +17,8 @@ A vector containing the API key
 This package will need a Weather API key residing in the environment
 variable \code{API_KEY}. Set it in the \code{.Renviron} file in the home directory.
 See vignette for more details on how to set up the API key.
+}
+\examples{
+api_key() # To display API Key that was set in the .Renviron file
+api_key(force=TRUE) # To change the API key, see vignette for details
 }

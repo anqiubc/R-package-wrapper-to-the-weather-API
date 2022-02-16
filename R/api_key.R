@@ -5,8 +5,12 @@
 #' See vignette for more details on how to set up the API key.
 #'
 #' @md
-#' @param force A boolean to force set new API key for current environment
+#' @param force A boolean to force set new API key for current environment.
+#' To force set a new API key set it to TRUE, the default value is FALSE.
 #' @return A vector containing the API key
+#' @examples
+#' api_key() # To display API Key that was set in the .Renviron file
+#' api_key(force=TRUE) # To change the API key, see vignette for details
 #' @export
 api_key <- function(force = FALSE) {
   # Get API key from system environment

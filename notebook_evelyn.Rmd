@@ -60,11 +60,13 @@ https://github.com/xintian927/534-proejct/commit/de91064f0fae22a14524602ad4db768
 3. Added vignette for the package:
 - Setup
 - Error Codes
-- Functions: get_current_weather, get_time_zone, get_sports_events
+- Functions: api_key, get_current_weather, get_time_zone, get_sports_events
 - Plots: Plot temperature for different locations and Plot local time zone of different locations in world-map
+4. Minor revision on the documentation of api_key (adding examples to the documentation and vignette)
 
 ### Role in the bigger group picture:
 Made it easier for users of the package to understand and search through the source code by reorganizing the functions and adding inline comments, documentation, and vignette for the package.
 
 ### Links to the github commits:
 https://github.com/xintian927/534-proejct/commit/a34d5baab6b59c149640579ad70ec54ec571de6c
+

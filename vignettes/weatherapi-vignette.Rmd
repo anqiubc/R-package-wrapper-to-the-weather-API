@@ -40,7 +40,26 @@ This table provides the description of the possible error codes.
 |403|API Key disabled or has reached maximum calls quota|
 
 ## Functions
-### 1. Get Current Weather 
+### 1. Set API Key 
+This function can be used to see the API key that you have set during the setup step above. To see if you have entered your API key correctly, you can run `api_key()` and it will output the API key that you have set in the .Renviron file.
+
+This function can also be used as second way to set the API key. Note that this will not change the value of the API key in the .Renviron but it will change the API key being used when calling the functions. To set a temporary API key, you can run `api_key(force=TRUE)` which will require you to enter your API key in the interactive console. Enter your API key in the R console and press enter. Now you have changed the API key that will be used by the functions (but not in the .Renviron file). 
+
+#### Usage
+`api_key(force=FALSE)`
+
+#### Arguments
+`force` : A boolean to force set new API key for current environment. To force set a new API key set it to TRUE, the default value is FALSE.
+
+#### Value
+A vector containing the API key
+
+#### Examples
+`api_key()` # To display API key that was set in the .Renviron file   
+`api_key(force=TRUE)` # To change the API key
+
+
+### 2. Get Current Weather 
 
 #### Usage
 `get_current_weather(location, aqi="yes")`
@@ -120,7 +139,7 @@ The table below summarize the data type and description of the returned variable
 |current.air_quality.gb.defra.index|int|UK Defra Index (1-Low, 10-High)|
 
 
-### 2. Get Time Zone
+### 3. Get Time Zone
 
 #### Usage
 `get_time_zone(location)`
@@ -166,7 +185,7 @@ The table below summarize the data type and description of the returned variable
 |location.localtime|chr|Local time in yyyy-MM-dd HH:mm format|
 
 
-### 3. Get Sports Events
+### 4. Get Sports Events
 
 #### Usage
 `get_sports_events(location, sport)`
@@ -208,7 +227,7 @@ The table below summarize the data type and description of the returned variable
 ## Plotting using the weatherapi package
 ### 1. Plot the current temperature and feels like temperature for different locations
 
-The following exercise will show how to get current temperature data using the get_current_weather() function and plot it as a line chart.
+The following exercise will show how to get current temperature and feels like temperature data using the get_current_weather() function and plot it as a line chart.
 
 ```{r, warning=FALSE, message=FALSE, fig.width=6,fig.height=4}
 library(ggplot2)
@@ -231,6 +250,9 @@ ggplot(data=data, aes(x=location.name, y=value, group=variable, linetype=variabl
 
 
 ### 2. Plot local time zone of different locations in world-map
+
+The following exercise will show you how to extract time-zone of different locations and plot it in a world map.
+
 ```{r, warning=FALSE, message=FALSE, fig.width=6,fig.height=4}
 # Get local time zone data
 loc <- c("London", "Los Angeles", "Buenos Aires", "Melbourne", "Singapore")
