@@ -67,3 +67,4 @@ https://github.com/xintian927/534-proejct/commit/de91064f0fae22a14524602ad4db768
 Made it easier for users of the package to understand and search through the source code by reorganizing the functions and adding inline comments, documentation, and vignette for the package.
 
 ### Links to the github commits:
+https://github.com/xintian927/534-proejct/commit/a34d5baab6b59c149640579ad70ec54ec571de6c
