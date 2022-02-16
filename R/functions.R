@@ -25,7 +25,7 @@ get_current_weather <- function(location, air_quality = "yes") {
       stop(
         sprintf(
           "API request failed, status code: [%s]\nRefer to API error codes <%s>",
-          status_code(resp),
+          httr::status_code(resp),
           "https://www.weatherapi.com/docs/"
         ),
         call. = FALSE
@@ -64,7 +64,7 @@ get_time_zone <- function(location) {
       stop(
         sprintf(
           "API request failed, status code: [%s]\nRefer to API error codes <%s>",
-          status_code(resp),
+          httr::status_code(resp),
           "https://www.weatherapi.com/docs/"
         ),
         call. = FALSE
@@ -104,7 +104,7 @@ get_sports_events <- function(location, sport) {
       stop(
         sprintf(
           "API request failed, status code: [%s]\nRefer to API error codes <%s>",
-          status_code(resp),
+          httr::status_code(resp),
           "https://www.weatherapi.com/docs/"
         ),
         call. = FALSE

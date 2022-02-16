@@ -1,12 +1,27 @@
 Package: weatherapi
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Package to wrap the Weather API
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: 
+  c(person(given = "Evelyn",
+             family = "Sugihermanto",
+             role = c("aut", "cre"),
+             email = "evelynsugihermanto@yahoo.com"),
+    person(given = "Anqi",
+             family = "Li",
+             role = c("aut", "cre"),
+             email = ),
+    person(given = "Xin",
+             family = "Tian",
+             role = c("aut","cre"),
+             email = )
+    person(given = "Val",
+             family = "Veeramani",
+             role = c("aut","cre"),
+             email = )
+
+Description: The weatherapi package is a wrapper package for the Weather API (weatherapi.com)
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
@@ -15,5 +30,7 @@ Imports:
 RoxygenNote: 7.1.2
 Suggests: 
     rmarkdown,
-    knitr
+    knitr,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
+Config/testthat/edition: 3

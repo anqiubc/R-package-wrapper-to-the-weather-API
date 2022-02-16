@@ -39,3 +39,12 @@ Contributed in writing one of the three agreed function for the package which is
 ### Links to the github commits:
 - https://github.com/xintian927/534-proejct/commit/28a04a7d21743093d2308a65fafb2221a7024486
 - https://github.com/xintian927/534-proejct/commit/ef92615d323694671c3a72ae3962d58c72de5750
+
+## February 15, 2022
+### What I did for the project:
+Added unit tests to test the get_current_weather, get_time_zone, and get_sports_events functions
+
+### Role in the bigger group picture:
+Adding unit tests is important to ensure that the function works properly inside the weather api package.
+
+### Links to the github commits:

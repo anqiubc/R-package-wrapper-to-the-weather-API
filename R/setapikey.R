@@ -27,7 +27,7 @@ api_key <- function(force = FALSE) {
     stop("Weather API key entry failed", call. = FALSE)
   }
 
-  message("Updating API_KEY env var to PAT")
+  message("Updating API_KEY env var")
   Sys.setenv(API_KEY = pat)
 
   pat
