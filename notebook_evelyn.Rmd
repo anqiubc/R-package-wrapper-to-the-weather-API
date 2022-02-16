@@ -69,4 +69,4 @@ Made it easier for users of the package to understand and search through the sou
 
 ### Links to the github commits:
 https://github.com/xintian927/534-proejct/commit/a34d5baab6b59c149640579ad70ec54ec571de6c
-
+https://github.com/xintian927/534-proejct/commit/d9a13ba6a3a0541ec83e45903ef008fe56592ded
