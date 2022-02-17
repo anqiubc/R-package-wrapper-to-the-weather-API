@@ -177,22 +177,28 @@ pre code {
 <li><p>I checked some API documentations such as <a href="https://docs.github.com/en/rest/reference/activity" class="uri">https://docs.github.com/en/rest/reference/activity</a> to find the best API to write wrapper for, and read the project requirement carefully to make sure that I have fully understood the details.</p></li>
 <li><p>I started to learn how to create R packages and searched for R documentations.</p></li>
 </ol>
+<p><strong>role in the bigger group picture:</strong> I believe it is important to choose the proper API before we start our implementation, and we should try to understand its functionality by reading through the API documentation .</p>
 </div>
 <div id="section-1" class="section level1">
 <h1>2022/02/14</h1>
 <ol style="list-style-type: decimal">
-<li><p>Our group had a meeting today and decided to use the API from weatherapi.com that Evelyn found for our project. We divided tasks for each group member.</p></li>
+<li><p>Our group had a meeting today and decided to use the API from weatherapi.com that Evelyn found for our project. We decided to use this API over the Github activity API because this API provides historical and forecast weather/astornomy information which we found more interesting.</p></li>
+<li><p>We divided tasks for each group member.</p></li>
 <li><p>I explored weatherapi.com, got the API key, and read the API documentation, espically for the astronomy API.</p></li>
-<li><p>We built a github repo for our project, and decided to do our work in our own branch before merge it into main.</p></li>
+<li><p>We built a github repo for our project, and decided to do our work in our own branch before merge it into main. Because by doing this, we will make sure that no broken code in main branch, and this is important in practice.</p></li>
 </ol>
 <p>Github link for our project: <a href="https://github.com/xintian927/534-proejct" class="uri">https://github.com/xintian927/534-proejct</a></p>
+<p><strong>role in the bigger group picture:</strong></p>
+<p>By dividing tasks and creating project repo, we are making sure each team member will have a main focus, and in the main time, we can still help each other and work collaboratively to solve harder questions.</p>
 </div>
 <div id="section-2" class="section level1">
 <h1>2022/02/15</h1>
 <ol style="list-style-type: decimal">
 <li><p>I create R package template for my task.</p></li>
-<li><p>I implemented astronomy API wrapper, include tasks such as write wrapper functions with inline comment.</p></li>
+<li><p>I implemented astronomy API wrapper, include tasks such as write wrapper functions with inline comment. The reason for inline comment is to make the code more readable for other developers.</p></li>
 </ol>
+<p><strong>role in the bigger group picture:</strong></p>
+<p>By completing today’s task, we have a “prototype” of the package, and it is ready for testing.</p>
 </div>
 <div id="section-3" class="section level1">
 <h1>2022/02/16</h1>
@@ -201,7 +207,11 @@ pre code {
 <li><p>I wrote specific test code to test the edge case of the wrapper, making sure the function handles errors gracefully and returns helpful error messages to invaild input.</p></li>
 <li><p>I wrote vignette file to create a full work flow for my task.</p></li>
 </ol>
-<p>Link to commit: <a href="https://github.com/xintian927/534-proejct/commit/ee098dfe4fa0504492daccec713675e5d8af0d22" class="uri">https://github.com/xintian927/534-proejct/commit/ee098dfe4fa0504492daccec713675e5d8af0d22</a></p>
+<p><strong>role in the bigger group picture:</strong></p>
+<p>After documentation, testing, and writing vignette file, I have finish developing astronomy API wrapper, and our team will meet again to do the integration of our tasks.</p>
+<p>Link to commit:</p>
+<p><a href="https://github.com/xintian927/534-proejct/commit/ee098dfe4fa0504492daccec713675e5d8af0d22" class="uri">https://github.com/xintian927/534-proejct/commit/ee098dfe4fa0504492daccec713675e5d8af0d22</a></p>
+<p><a href="https://github.com/xintian927/534-proejct/commit/8e30d6a1d05a8644837d3d833a6e8e96373f642f" class="uri">https://github.com/xintian927/534-proejct/commit/8e30d6a1d05a8644837d3d833a6e8e96373f642f</a></p>
 </div>
 
 
