@@ -32,11 +32,16 @@ Github link for our project: https://github.com/xintian927/534-proejct
 
 2. I implemented astronomy API wrapper, include tasks such as write wrapper functions with inline comment.
 
+
+
+# 2022/02/16
 3. I wrote documentation for my code, and generated `/man` directory which storing the documentation.
 
 4. I wrote specific test code to test the edge case of the wrapper, making sure the function handles errors gracefully and returns helpful error messages to invaild input.
 
 5. I wrote vignette file to create a full work flow for my task.
+
+Link to commit: https://github.com/xintian927/534-proejct/commit/ee098dfe4fa0504492daccec713675e5d8af0d22
 
 
 
