@@ -1,5 +1,3 @@
-#' @export
-
 # Reference: I learnt most of those from https://httr.r-lib.org/articles/api-packages.html
 library(httr)
 library(lubridate)
@@ -12,7 +10,7 @@ library(tidyverse)
 #' @return The http get response containing astronomy information.
 #' @examples
 #' data_request(list(key="abc", q="London", dt="2021-01-01"))
-#'
+#' @export
 data_request <- function(query) {
   url <- modify_url("http://api.weatherapi.com/v1/astronomy.json",
                     query  = query)
@@ -27,7 +25,7 @@ data_request <- function(query) {
 #' @return A dataframe with the columns `sunrise`, `sunset`, `moonrise`, `moonset`, `moon_phase`, and `moon_illumination`.
 #' @examples
 #' get_astronomy("Beijing", "2022-01-10")
-#'
+#' @export
 get_astronomy <- function(city, date) {
 
   # Process and validate here the parameter `city`, which affects the function parameter in the API
