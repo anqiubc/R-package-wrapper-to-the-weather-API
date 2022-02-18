@@ -19,5 +19,4 @@ A wrapper function to obtain the the astronomy data of a the desired city and da
 }
 \examples{
 get_astronomy("Beijing", "2022-01-10")
-
 }

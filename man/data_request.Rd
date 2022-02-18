@@ -17,5 +17,4 @@ get the astronomy data of specific date time and city from weatherapi.com
 }
 \examples{
 data_request(list(key="abc", q="London", dt="2021-01-01"))
-
 }
