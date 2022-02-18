@@ -1,5 +1,4 @@
 # Reference: I learnt most of those from https://httr.r-lib.org/articles/api-packages.html
-library(httr)
 library(lubridate)
 library(tidyverse)
 
@@ -12,9 +11,9 @@ library(tidyverse)
 #' data_request(list(key="abc", q="London", dt="2021-01-01"))
 #' @export
 data_request <- function(query) {
-  url <- modify_url("http://api.weatherapi.com/v1/astronomy.json",
+  url <- httr::modify_url("http://api.weatherapi.com/v1/astronomy.json",
                     query  = query)
-  GET(url)
+  httr::GET(url)
 }
 
 #' A wrapper function to obtain the the astronomy data of a the desired city and date time from the weatherapi.com.
@@ -48,7 +47,7 @@ get_astronomy <- function(city, date) {
   res <- data_request(query)
 
   # Check if the response type is json, if not, raise an error.
-  if (http_type(res) != "application/json") {
+  if (httr::http_type(res) != "application/json") {
     stop("API did not return json", call. = FALSE)
   }
 
@@ -57,7 +56,7 @@ get_astronomy <- function(city, date) {
                                    simplifyVector = FALSE)
 
   # Check if the request was successful, if not, raise an error
-  if (http_error(res)) {
+  if (httr::http_error(res)) {
     stop(
       sprintf(
         "Weather Astronomy API request failed [%s]\n%s\n<%s>",
