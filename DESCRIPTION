@@ -35,5 +35,6 @@ Suggests:
     devtools,
     ggplot2, 
     reshape2,
-    tidyverse
+    tidyverse,
+    maps
 VignetteBuilder: knitr
