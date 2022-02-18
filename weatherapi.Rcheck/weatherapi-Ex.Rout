@@ -1,0 +1,382 @@
+
+R version 4.1.1 (2021-08-10) -- "Kick Things"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "weatherapi"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> options(pager = "console")
+> library('weatherapi')
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("api_key")
+> ### * api_key
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: api_key
+> ### Title: Get or set API_KEY value
+> ### Aliases: api_key
+> 
+> ### ** Examples
+> 
+> # api_key() # To display API Key that was set in the .Renviron file
+> # api_key(force=TRUE) # To change the API key, see vignette for details
+> 
+> 
+> 
+> cleanEx()
+> nameEx("data_request")
+> ### * data_request
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: data_request
+> ### Title: get the astronomy data of specific date time and city from
+> ###   weatherapi.com
+> ### Aliases: data_request
+> 
+> ### ** Examples
+> 
+> data_request(list(key="abc", q="London", dt="2021-01-01"))
+Response [http://api.weatherapi.com/v1/astronomy.json?key=abc&q=London&dt=2021-01-01]
+  Date: 2022-02-18 21:05
+  Status: 401
+  Content-Type: application/json
+  Size: 55 B
+
+> 
+> 
+> 
+> cleanEx()
+> nameEx("get_astronomy")
+> ### * get_astronomy
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: get_astronomy
+> ### Title: A wrapper function to obtain the the astronomy data of a the
+> ###   desired city and date time from the weatherapi.com.
+> ### Aliases: get_astronomy
+> 
+> ### ** Examples
+> 
+> get_astronomy("Beijing", "2022-01-10")
+     city  region country   lat    lon  sunrise   sunset moonrise  moonset
+1 Beijing Beijing   China 39.93 116.39 07:36 AM 05:08 PM 12:09 PM 12:24 AM
+     moon_phase moon_illumination       date
+1 First Quarter                50 2022-01-10
+> 
+> 
+> 
+> cleanEx()
+> nameEx("get_current_weather")
+> ### * get_current_weather
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: get_current_weather
+> ### Title: Get current weather information
+> ### Aliases: get_current_weather
+> 
+> ### ** Examples
+> 
+> get_current_weather("Kelowna")
+  location.name  location.region location.country location.lat location.lon
+1       Kelowna British Columbia           Canada         49.9      -119.48
+     location.tz_id location.localtime_epoch location.localtime
+1 America/Vancouver               1645218328   2022-02-18 13:05
+  current.last_updated_epoch current.last_updated current.temp_c current.temp_f
+1                 1645214400     2022-02-18 12:00              9           48.2
+  current.is_day current.condition.text
+1              1               Overcast
+                          current.condition.icon current.condition.code
+1 //cdn.weatherapi.com/weather/64x64/day/122.png                   1009
+  current.wind_mph current.wind_kph current.wind_degree current.wind_dir
+1              4.3              6.8                 200              SSW
+  current.pressure_mb current.pressure_in current.precip_mm current.precip_in
+1                1025               30.27                 0                 0
+  current.humidity current.cloud current.feelslike_c current.feelslike_f
+1               53           100                 9.3                48.7
+  current.vis_km current.vis_miles current.uv current.gust_mph current.gust_kph
+1             14                 8          1                4              6.5
+  current.air_quality.co current.air_quality.no2 current.air_quality.o3
+1                  293.7                     3.7                   58.7
+  current.air_quality.so2 current.air_quality.pm2_5 current.air_quality.pm10
+1                     1.3                       0.8                      1.5
+  current.air_quality.us.epa.index current.air_quality.gb.defra.index
+1                                1                                  1
+> get_current_weather(c("Kelowna", "Vancouver"), "no")
+  location.name  location.region location.country location.lat location.lon
+1       Kelowna British Columbia           Canada        49.90      -119.48
+2     Vancouver British Columbia           Canada        49.25      -123.13
+     location.tz_id location.localtime_epoch location.localtime
+1 America/Vancouver               1645218177   2022-02-18 13:02
+2 America/Vancouver               1645218178   2022-02-18 13:02
+  current.last_updated_epoch current.last_updated current.temp_c current.temp_f
+1                 1645214400     2022-02-18 12:00              9           48.2
+2                 1645217100     2022-02-18 12:45              7           44.6
+  current.is_day current.condition.text
+1              1               Overcast
+2              1               Overcast
+                          current.condition.icon current.condition.code
+1 //cdn.weatherapi.com/weather/64x64/day/122.png                   1009
+2 //cdn.weatherapi.com/weather/64x64/day/122.png                   1009
+  current.wind_mph current.wind_kph current.wind_degree current.wind_dir
+1              4.3              6.8                 200              SSW
+2              4.3              6.8                 240              WSW
+  current.pressure_mb current.pressure_in current.precip_mm current.precip_in
+1                1025               30.27                 0                 0
+2                1032               30.47                 0                 0
+  current.humidity current.cloud current.feelslike_c current.feelslike_f
+1               53           100                 9.3                48.7
+2              100           100                 6.8                44.2
+  current.vis_km current.vis_miles current.uv current.gust_mph current.gust_kph
+1             14                 8          1              4.0              6.5
+2             32                19          2              3.1              5.0
+> 
+> 
+> 
+> cleanEx()
+> nameEx("get_history_astro_information")
+> ### * get_history_astro_information
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: get_history_astro_information
+> ### Title: Get history astronomical information for a specific day
+> ### Aliases: get_history_astro_information
+> 
+> ### ** Examples
+> 
+> get_history_astro_information("London","2022-02-12")
+   sunrise   sunset moonrise  moonset    moon_phase moon_illumination
+1 07:20 AM 05:10 PM 12:25 PM 05:17 AM First Quarter                74
+> 
+> 
+> 
+> cleanEx()
+> nameEx("get_history_daily_weather")
+> ### * get_history_daily_weather
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: get_history_daily_weather
+> ### Title: Get history weather information for a specific day
+> ### Aliases: get_history_daily_weather
+> 
+> ### ** Examples
+> 
+> get_history_daily_weather("London","2022-02-12")
+  maxtemp_c maxtemp_f mintemp_c mintemp_f avgtemp_c avgtemp_f maxwind_mph
+1       7.9      46.2       4.5      40.1       6.5      43.6        15.7
+  maxwind_kph totalprecip_mm totalprecip_in avgvis_km avgvis_miles avghumidity
+1        25.2            0.1              0        10            6          62
+  condition.text                                 condition.icon condition.code
+1       Overcast //cdn.weatherapi.com/weather/64x64/day/122.png           1009
+  uv
+1  0
+> 
+> 
+> 
+> cleanEx()
+> nameEx("get_history_hourly_weather")
+> ### * get_history_hourly_weather
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: get_history_hourly_weather
+> ### Title: Get history hourly weather information for a specific hour in a
+> ###   specific day
+> ### Aliases: get_history_hourly_weather
+> 
+> ### ** Examples
+> 
+> get_history_hourly_weather("London","2022-02-12",4)
+  time_epoch             time temp_c temp_f is_day condition.text
+1 1644638400 2022-02-12 04:00    4.7   40.5      0  Partly cloudy
+                                    condition.icon condition.code wind_mph
+1 //cdn.weatherapi.com/weather/64x64/night/116.png           1003     10.7
+  wind_kph wind_degree wind_dir pressure_mb pressure_in precip_mm precip_in
+1     17.2         198      SSW        1028       30.37         0         0
+  humidity cloud feelslike_c feelslike_f windchill_c windchill_f heatindex_c
+1       68    37         1.1        33.9         1.1        33.9         4.7
+  heatindex_f dewpoint_c dewpoint_f will_it_rain chance_of_rain will_it_snow
+1        40.5       -0.7       30.7            0              1            0
+  chance_of_snow vis_km vis_miles gust_mph gust_kph
+1              0     10         6     16.6     26.8
+> 
+> 
+> 
+> cleanEx()
+> nameEx("get_sports_events")
+> ### * get_sports_events
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: get_sports_events
+> ### Title: Get sports information
+> ### Aliases: get_sports_events
+> 
+> ### ** Examples
+> 
+> get_sports_events("London", "football")
+      football.stadium football.country football.region
+1  Coface Arena, Mainz          Germany                
+2       Bournemouth Fc   United Kingdom                
+3  Rotherham United Fc   United Kingdom                
+4       Dunfermline Fc   United Kingdom                
+5   Southend United Fc   United Kingdom                
+6              Dundalk          Ireland                
+7        Shelbourne Fc          Ireland                
+8          Juventus Fc            Italy                
+9           Finn Harps          Ireland                
+10  Shamrock Rovers(A)          Ireland                
+                  football.tournament   football.start
+1                   German Bundesliga 2022-02-18 19:30
+2                Sky Bet Championship 2022-02-18 19:45
+3                  Sky Bet League One 2022-02-18 19:45
+4               Scottish Championship 2022-02-18 19:45
+5                     National League 2022-02-18 19:45
+6  League of Ireland Premier Division 2022-02-18 19:45
+7  League of Ireland Premier Division 2022-02-18 19:45
+8                     Italian Serie A 2022-02-18 19:45
+9  League of Ireland Premier Division 2022-02-18 20:00
+10 League of Ireland Premier Division 2022-02-18 20:00
+                            football.match
+1                Mainz vs Bayer Leverkusen
+2         Bournemouth vs Nottingham Forest
+3       Rotherham United vs Wigan Athletic
+4  Dunfermline Athletic vs Partick Thistle
+5          Southend United vs Grimsby Town
+6                    Dundalk vs Derry City
+7       Shelbourne vs St Patricks Athletic
+8                       Juventus vs Torino
+9                   Finn Harps vs Drogheda
+10                Shamrock Rovers vs U.C.D
+> get_sports_events(c("London", "Oxford"), "football")
+      football.stadium football.country football.region
+1  Coface Arena, Mainz          Germany                
+2       Bournemouth Fc   United Kingdom                
+3  Rotherham United Fc   United Kingdom                
+4       Dunfermline Fc   United Kingdom                
+5   Southend United Fc   United Kingdom                
+6              Dundalk          Ireland                
+7        Shelbourne Fc          Ireland                
+8          Juventus Fc            Italy                
+9           Finn Harps          Ireland                
+10  Shamrock Rovers(A)          Ireland                
+11 Coface Arena, Mainz          Germany                
+12      Bournemouth Fc   United Kingdom                
+13 Rotherham United Fc   United Kingdom                
+14      Dunfermline Fc   United Kingdom                
+15  Southend United Fc   United Kingdom                
+16             Dundalk          Ireland                
+17       Shelbourne Fc          Ireland                
+18         Juventus Fc            Italy                
+19          Finn Harps          Ireland                
+20  Shamrock Rovers(A)          Ireland                
+                  football.tournament   football.start
+1                   German Bundesliga 2022-02-18 19:30
+2                Sky Bet Championship 2022-02-18 19:45
+3                  Sky Bet League One 2022-02-18 19:45
+4               Scottish Championship 2022-02-18 19:45
+5                     National League 2022-02-18 19:45
+6  League of Ireland Premier Division 2022-02-18 19:45
+7  League of Ireland Premier Division 2022-02-18 19:45
+8                     Italian Serie A 2022-02-18 19:45
+9  League of Ireland Premier Division 2022-02-18 20:00
+10 League of Ireland Premier Division 2022-02-18 20:00
+11                  German Bundesliga 2022-02-18 19:30
+12               Sky Bet Championship 2022-02-18 19:45
+13                 Sky Bet League One 2022-02-18 19:45
+14              Scottish Championship 2022-02-18 19:45
+15                    National League 2022-02-18 19:45
+16 League of Ireland Premier Division 2022-02-18 19:45
+17 League of Ireland Premier Division 2022-02-18 19:45
+18                    Italian Serie A 2022-02-18 19:45
+19 League of Ireland Premier Division 2022-02-18 20:00
+20 League of Ireland Premier Division 2022-02-18 20:00
+                            football.match
+1                Mainz vs Bayer Leverkusen
+2         Bournemouth vs Nottingham Forest
+3       Rotherham United vs Wigan Athletic
+4  Dunfermline Athletic vs Partick Thistle
+5          Southend United vs Grimsby Town
+6                    Dundalk vs Derry City
+7       Shelbourne vs St Patricks Athletic
+8                       Juventus vs Torino
+9                   Finn Harps vs Drogheda
+10                Shamrock Rovers vs U.C.D
+11               Mainz vs Bayer Leverkusen
+12        Bournemouth vs Nottingham Forest
+13      Rotherham United vs Wigan Athletic
+14 Dunfermline Athletic vs Partick Thistle
+15         Southend United vs Grimsby Town
+16                   Dundalk vs Derry City
+17      Shelbourne vs St Patricks Athletic
+18                      Juventus vs Torino
+19                  Finn Harps vs Drogheda
+20                Shamrock Rovers vs U.C.D
+> 
+> 
+> 
+> cleanEx()
+> nameEx("get_time_zone")
+> ### * get_time_zone
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: get_time_zone
+> ### Title: Get time zone information
+> ### Aliases: get_time_zone
+> 
+> ### ** Examples
+> 
+> get_time_zone("Kelowna")
+  location.name  location.region location.country location.lat location.lon
+1       Kelowna British Columbia           Canada         49.9      -119.48
+     location.tz_id location.localtime_epoch location.localtime
+1 America/Vancouver               1645218329   2022-02-18 13:05
+> get_time_zone(c("Kelowna", "Vancouver"))
+  location.name  location.region location.country location.lat location.lon
+1       Kelowna British Columbia           Canada        49.90      -119.48
+2     Vancouver British Columbia           Canada        49.25      -123.13
+       location.tz_id location.localtime_epoch location.localtime
+1   America/Vancouver               1645218329   2022-02-18 13:05
+2 America/Los_Angeles               1645218330   2022-02-18 13:05
+> 
+> 
+> 
+> ### * <FOOTER>
+> ###
+> cleanEx()
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  0.51 0.05 2.17 NA NA 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

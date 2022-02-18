@@ -19,21 +19,15 @@ Author:
              family = "Veeramani",
              role = c("aut","cre"),
              email = "veeramanival@gmail.com")
-Maintainer: Evelyn Sugihermanto <evelynsugihermanto@yahoo.com>             
+Maintainer: Evelyn Sugihermanto <evelynsugihermanto@yahoo.com>
 Description: The weatherapi package is a wrapper package for the Weather API.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
-Imports: 
-    httr,
-    jsonlite
+Imports: httr, jsonlite
 RoxygenNote: 7.1.2
-Suggests: 
-    rmarkdown,
-    knitr,
-    testthat (>= 3.0.0),
-    devtools,
-    ggplot2, 
-    reshape2,
-    tidyverse
+Suggests: rmarkdown, knitr, testthat (>= 3.0.0), devtools, ggplot2,
+        reshape2, tidyverse
 VignetteBuilder: knitr
+NeedsCompilation: no
+Packaged: 2022-02-18 21:04:43 UTC; Evelyn
+Built: R 4.1.1; ; 2022-02-18 21:05:11 UTC; windows

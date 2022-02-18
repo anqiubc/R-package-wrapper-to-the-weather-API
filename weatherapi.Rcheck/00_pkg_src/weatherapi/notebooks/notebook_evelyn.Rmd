@@ -1,0 +1,86 @@
+---
+title: "daily-log-notebook"
+author: "Evelyn Sugihermanto"
+date: "2/11/2022"
+output: html_document
+---
+
+# Daily Log Notebook
+
+## February 13, 2022
+### What I did for the project:
+1. Read project requirements and resources 
+2. Looked at some API candidates for the project
+- https://www.programmableweb.com/api/omdb-rest-api-v1
+- https://www.wordsapi.com/
+- https://weatherapi.com/
+
+### Role in the bigger group picture: 
+Suggested some API for the group members to consider.
+
+### Links to the github commits:
+The group GitHub repository is not created yet.
+
+
+## February 14, 2022
+### What I did for the project:
+1. Looked at the documentation more closely for the three API candidates. Sign-up to get the API key for the APIs.
+2. Had a meeting with the team members to discuss which API to use for the project.
+- The team decided to move forward with the Weather API as the the interface of the API is convenient to use and comprehend
+- Each team member will write one function each for the package (from start to finish)
+3. Setup the project directory structure so that the package is more organized.
+4. Wrote one function (get_current_weather) and its documentation.
+5. Wrote a function to set the api key (api_key) to be used in the other functions along with its documentation.
+6. Added two more functions (get_time_zone and get_sports_events) to get the time zone and sports events of a location and its documentation.
+
+### Role in the bigger group picture:
+Attended group meeting and suggested some API to work with. Wrote three main functions for the package and a function to set the API (to be used in other functions in the package). Set up the project directory for the package so that the repository is more organized.
+
+### Links to the github commits:
+- https://github.com/xintian927/534-proejct/commit/28a04a7d21743093d2308a65fafb2221a7024486
+- https://github.com/xintian927/534-proejct/commit/ef92615d323694671c3a72ae3962d58c72de5750
+
+
+## February 15, 2022
+### What I did for the project:
+1. Added unit tests to test the get_current_weather, get_time_zone, and get_sports_events functions
+2. Modify the DESCRIPTION file to describe the package
+
+### Role in the bigger group picture:
+Added unit tests to ensure that the function works properly inside the weather api package.
+
+### Links to the github commits:
+https://github.com/xintian927/534-proejct/commit/de91064f0fae22a14524602ad4db768830c8486c
+
+
+## February 16, 2022
+### What I did for the project:
+1. Reorganized the functions (one R file for each function) so that it is easier to search through the source code
+2. Added inline comments to make the source code easier to understand
+3. Added vignette for the package:
+- Setup
+- Error Codes
+- Functions: api_key, get_current_weather, get_time_zone, get_sports_events
+- Plots: Plot temperature for different locations and Plot local time zone of different locations in world-map
+4. Minor revision on the documentation of api_key (adding examples to the documentation and vignette)
+
+### Role in the bigger group picture:
+Made it easier for users of the package to understand and search through the source code by reorganizing the functions and adding inline comments, documentation, and vignette for the package.
+
+### Links to the github commits:
+https://github.com/xintian927/534-proejct/commit/a34d5baab6b59c149640579ad70ec54ec571de6c
+https://github.com/xintian927/534-proejct/commit/d9a13ba6a3a0541ec83e45903ef008fe56592ded
+
+
+## February 17, 2022
+### What I did for the project:
+1. Have a meeting with the other team members to merge our codes together. We each create a pull request for our branch and have the other team members review and/or solve the conflicts.
+2. We did a test run on our package to see if we can install it in our computer through devtools::install_github() and solve any problems that we encouter.
+3. Fixed the vignette builder as it was not displaying the vignette when we install the package to our computer.
+
+### Role in the bigger group picture:
+As a group, we merged all our branches together to create a fully functioning package.
+
+### Links to the github commits:
+https://github.com/xintian927/534-project/commit/90e3d42822bf67bd12e6462968fd87643e9778b9
+https://github.com/xintian927/534-project/commit/54390421bfdb5c1666c21a46111d8757c86b6265

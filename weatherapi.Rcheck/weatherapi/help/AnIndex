@@ -1,0 +1,9 @@
+api_key	api_key
+data_request	data_request
+get_astronomy	get_astronomy
+get_current_weather	get_current_weather
+get_history_astro_information	get_history_astro_information
+get_history_daily_weather	get_history_daily_weather
+get_history_hourly_weather	get_history_hourly_weather
+get_sports_events	get_sports_events
+get_time_zone	get_time_zone

@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>weatherapi-vignette</title>
+
+<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">weatherapi-vignette</h1>
+
+
+
+<p>This package wraps the Weather API, available from: weatherapi.com. The Weather API provides access to real-time and historical weather info, astronomy, time zone, and sports data.</p>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<p>This package rely on the API key provided by the Weather API. To get started in using this package, please follow these steps:</p>
+<ol style="list-style-type: decimal">
+<li>Sign-up for an account here: <a href="https://www.weatherapi.com/signup.aspx" class="uri">https://www.weatherapi.com/signup.aspx</a><br />
+</li>
+<li>Go to your “my account” page and copy your API key<br />
+</li>
+<li>Open RStudio and set your API key in the .Renviron file<br />
+</li>
+<li>You can do this by running the following code in your R console<br />
+<code>usethis::edit_r_environ()</code><br />
+</li>
+<li>Then add this line inside the .Renviron file<br />
+<code>API_KEY = &lt;your_api_key&gt;</code><br />
+</li>
+<li>Save and close the .Renviron file and you are good to go!</li>
+</ol>
+</div>
+<div id="error-codes" class="section level2">
+<h2>Error Codes</h2>
+<p>This table provides the description of the possible error codes.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Error Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>400</td>
+<td>Invalid/missing location argument or internal server error</td>
+</tr>
+<tr class="even">
+<td>401</td>
+<td>Invalid/missing API key</td>
+</tr>
+<tr class="odd">
+<td>403</td>
+<td>API Key disabled or has reached maximum calls quota</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<div id="set-api-key" class="section level3">
+<h3>1. Set API Key</h3>
+<p>This function can be used to see the API key that you have set during the setup step above. To see if you have entered your API key correctly, you can run <code>api_key()</code> and it will output the API key that you have set in the .Renviron file.</p>
+<p>This function can also be used as second way to set the API key. Note that this will not change the value of the API key in the .Renviron but it will change the API key being used when calling the functions. To set a temporary API key, you can run <code>api_key(force=TRUE)</code> which will require you to enter your API key in the interactive console. Enter your API key in the R console and press enter. Now you have changed the API key that will be used by the functions (but not in the .Renviron file).</p>
+<div id="usage" class="section level4">
+<h4>Usage</h4>
+<p><code>api_key(force=FALSE)</code></p>
+</div>
+<div id="arguments" class="section level4">
+<h4>Arguments</h4>
+<p><code>force</code> : A boolean to force set new API key for current environment. To force set a new API key set it to TRUE, the default value is FALSE.</p>
+</div>
+<div id="value" class="section level4">
+<h4>Value</h4>
+<p>A vector containing the API key</p>
+</div>
+<div id="examples" class="section level4">
+<h4>Examples</h4>
+<p><code>api_key()</code> # To display API key that was set in the .Renviron file<br />
+<code>api_key(force=TRUE)</code> # To change the API key</p>
+</div>
+</div>
+<div id="get-current-weather" class="section level3">
+<h3>2. Get Current Weather</h3>
+<div id="usage-1" class="section level4">
+<h4>Usage</h4>
+<p><code>get_current_weather(location, aqi=&quot;yes&quot;)</code></p>
+</div>
+<div id="arguments-1" class="section level4">
+<h4>Arguments</h4>
+<p><code>location</code> : A vector of location<br />
+<code>air_quality</code> : A string of “yes” or “no” to show air quality information. Default is show air quality information (“yes”).</p>
+</div>
+<div id="value-1" class="section level4">
+<h4>Value</h4>
+<p>A data frame of current weather information</p>
+</div>
+<div id="examples-1" class="section level4">
+<h4>Examples</h4>
+<p><code>get_current_weather(&quot;Kelowna&quot;)</code><br />
+<code>get_current_weather(c(&quot;Kelowna&quot;, &quot;Vancouver&quot;), &quot;no&quot;)</code></p>
+<p>This function is used to get the current real-time weather information of a specified location. Air quality information of that location is included by default and can be omitted by setting <code>aqi=&quot;no&quot;</code>. The resulting information will be a data frame.</p>
+<p>For instance, if you want to get the current real-time weather condition for Kelowna, you can use:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_current_weather</span>(<span class="st">&quot;Kelowna&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   location.name  location.region location.country location.lat location.lon</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1       Kelowna British Columbia           Canada         49.9      -119.48</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      location.tz_id location.localtime_epoch location.localtime</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 America/Vancouver               1645218128   2022-02-18 13:02</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.last_updated_epoch current.last_updated current.temp_c current.temp_f</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                 1645214400     2022-02-18 12:00              9           48.2</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.is_day current.condition.text</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1              1               Overcast</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                           current.condition.icon current.condition.code</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 //cdn.weatherapi.com/weather/64x64/day/122.png                   1009</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.wind_mph current.wind_kph current.wind_degree current.wind_dir</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1              4.3              6.8                 200              SSW</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.pressure_mb current.pressure_in current.precip_mm current.precip_in</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                1025               30.27                 0                 0</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.humidity current.cloud current.feelslike_c current.feelslike_f</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1               53           100                 9.3                48.7</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.vis_km current.vis_miles current.uv current.gust_mph current.gust_kph</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1             14                 8          1                4              6.5</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.air_quality.co current.air_quality.no2 current.air_quality.o3</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                  293.7                     3.7                   58.7</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.air_quality.so2 current.air_quality.pm2_5 current.air_quality.pm10</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                     1.3                       0.8                      1.5</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.air_quality.us.epa.index current.air_quality.gb.defra.index</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                                1                                  1</span></span></code></pre></div>
+<p>If you want to get a list of current real-time weather condition for Kelowna, Vancouver, and Toronto, you can use:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cities <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Kelowna&quot;</span>, <span class="st">&quot;Vancouver&quot;</span>, <span class="st">&quot;Toronto&quot;</span>) </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_current_weather</span>(cities)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   location.name  location.region location.country location.lat location.lon</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1       Kelowna British Columbia           Canada        49.90      -119.48</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     Vancouver British Columbia           Canada        49.25      -123.13</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3       Toronto          Ontario           Canada        43.67       -79.42</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      location.tz_id location.localtime_epoch location.localtime</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 America/Vancouver               1645218128   2022-02-18 13:02</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 America/Vancouver               1645218128   2022-02-18 13:02</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   America/Toronto               1645218128   2022-02-18 16:02</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.last_updated_epoch current.last_updated current.temp_c current.temp_f</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                 1645214400     2022-02-18 12:00              9           48.2</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2                 1645217100     2022-02-18 12:45              7           44.6</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3                 1645217100     2022-02-18 15:45             -5           23.0</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.is_day current.condition.text</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1              1               Overcast</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2              1               Overcast</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3              1          Partly cloudy</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                           current.condition.icon current.condition.code</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 //cdn.weatherapi.com/weather/64x64/day/122.png                   1009</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 //cdn.weatherapi.com/weather/64x64/day/122.png                   1009</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 //cdn.weatherapi.com/weather/64x64/day/116.png                   1003</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.wind_mph current.wind_kph current.wind_degree current.wind_dir</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1              4.3              6.8                 200              SSW</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2              4.3              6.8                 240              WSW</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3             17.4             28.1                 280                W</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.pressure_mb current.pressure_in current.precip_mm current.precip_in</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                1025               30.27                 0                 0</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2                1032               30.47                 0                 0</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3                1018               30.07                 0                 0</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.humidity current.cloud current.feelslike_c current.feelslike_f</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1               53           100                 9.3                48.7</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2              100           100                 6.8                44.2</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3               53            50               -10.3                13.5</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.vis_km current.vis_miles current.uv current.gust_mph current.gust_kph</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1             14                 8          1              4.0              6.5</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2             32                19          2              3.1              5.0</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3             14                 8          1              9.8             15.8</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.air_quality.co current.air_quality.no2 current.air_quality.o3</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                  293.7                     3.7                   58.7</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2                  337.1                    22.3                   35.8</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3                  287.1                     3.7                   68.0</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.air_quality.so2 current.air_quality.pm2_5 current.air_quality.pm10</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                     1.3                       0.8                      1.5</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2                     9.1                       6.9                     11.5</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3                     3.4                       1.0                      2.5</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   current.air_quality.us.epa.index current.air_quality.gb.defra.index</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                                1                                  1</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2                                1                                  1</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3                                1                                  1</span></span></code></pre></div>
+</div>
+<div id="variable-description" class="section level4">
+<h4>Variable description</h4>
+<p>The table below summarize the data type and description of the returned variables in the dataframe.</p>
+<table>
+<colgroup>
+<col width="34%" />
+<col width="20%" />
+<col width="44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>location.name</td>
+<td>chr</td>
+<td>Name of the requested location</td>
+</tr>
+<tr class="even">
+<td>location.region</td>
+<td>chr</td>
+<td>Name of the location region</td>
+</tr>
+<tr class="odd">
+<td>location.country</td>
+<td>chr</td>
+<td>Name of the location country</td>
+</tr>
+<tr class="even">
+<td>location.lat</td>
+<td>num</td>
+<td>Latitude in decimal degree</td>
+</tr>
+<tr class="odd">
+<td>location.lon</td>
+<td>num</td>
+<td>Longitude in decimal degree</td>
+</tr>
+<tr class="even">
+<td>location.tz_id</td>
+<td>chr</td>
+<td>Time zone</td>
+</tr>
+<tr class="odd">
+<td>location.localtime_epoch</td>
+<td>int</td>
+<td>Local time in epoch</td>
+</tr>
+<tr class="even">
+<td>location.localtime</td>
+<td>chr</td>
+<td>Local time in yyyy-MM-dd HH:mm format</td>
+</tr>
+<tr class="odd">
+<td>current.last_updated_epoch</td>
+<td>int</td>
+<td>Local time when the real time data was updated</td>
+</tr>
+<tr class="even">
+<td>current.last_updated</td>
+<td>chr</td>
+<td>Local time when the real time data was updated in unix time</td>
+</tr>
+<tr class="odd">
+<td>current.temp_c</td>
+<td>num</td>
+<td>Temperature in celsius</td>
+</tr>
+<tr class="even">
+<td>current.temp_f</td>
+<td>num</td>
+<td>Temperature in fahrenheit</td>
+</tr>
+<tr class="odd">
+<td>current.is_day</td>
+<td>int</td>
+<td>Show day condition icon or night icon (1 = Yes 0 = No)</td>
+</tr>
+<tr class="even">
+<td>current.condition.text</td>
+<td>chr</td>
+<td>Weather condition text</td>
+</tr>
+<tr class="odd">
+<td>current.condition.icon</td>
+<td>chr</td>
+<td>Weather icon url</td>
+</tr>
+<tr class="even">
+<td>current.condition.code</td>
+<td>int</td>
+<td>Weather condition unique code</td>
+</tr>
+<tr class="odd">
+<td>current.wind_mph</td>
+<td>num</td>
+<td>Wind speed in miles per hour</td>
+</tr>
+<tr class="even">
+<td>current.wind_kph</td>
+<td>num</td>
+<td>Wind speed in kilometer per hour</td>
+</tr>
+<tr class="odd">
+<td>current.wind_degree</td>
+<td>int</td>
+<td>Wind direction in degrees</td>
+</tr>
+<tr class="even">
+<td>current.wind_dir</td>
+<td>chr</td>
+<td>Wind direction as 16 point compass. e.g.: NSW</td>
+</tr>
+<tr class="odd">
+<td>current.pressure_mb</td>
+<td>num</td>
+<td>Pressure in millibars</td>
+</tr>
+<tr class="even">
+<td>current.pressure_in</td>
+<td>num</td>
+<td>Pressure in inches</td>
+</tr>
+<tr class="odd">
+<td>current.precip_mm</td>
+<td>num</td>
+<td>Precipitation amount in millimeters</td>
+</tr>
+<tr class="even">
+<td>current.precip_in</td>
+<td>num</td>
+<td>Precipitation amount in inches</td>
+</tr>
+<tr class="odd">
+<td>current.humidity</td>
+<td>int</td>
+<td>Humidity as percentage</td>
+</tr>
+<tr class="even">
+<td>current.cloud</td>
+<td>int</td>
+<td>Cloud cover as percentage</td>
+</tr>
+<tr class="odd">
+<td>current.feelslike_c</td>
+<td>num</td>
+<td>Feels like temperature as celcius</td>
+</tr>
+<tr class="even">
+<td>current.feelslike_f</td>
+<td>num</td>
+<td>Feels like temperature as fahrenheit</td>
+</tr>
+<tr class="odd">
+<td>current.vis_km</td>
+<td>num</td>
+<td>Visibility in kilometer</td>
+</tr>
+<tr class="even">
+<td>current.vis_miles</td>
+<td>num</td>
+<td>Visibility in miles</td>
+</tr>
+<tr class="odd">
+<td>current.uv</td>
+<td>num</td>
+<td>UV Index</td>
+</tr>
+<tr class="even">
+<td>current.gust_mph</td>
+<td>num</td>
+<td>Wind gust in miles per hour</td>
+</tr>
+<tr class="odd">
+<td>current.gust_kph</td>
+<td>num</td>
+<td>Wind gust in kilometer per hour</td>
+</tr>
+<tr class="even">
+<td>current.air_quality.co</td>
+<td>num</td>
+<td>Carbon Monoxide (μg/m3)</td>
+</tr>
+<tr class="odd">
+<td>current.air_quality.no2</td>
+<td>num</td>
+<td>Nitrogen dioxide (μg/m3)</td>
+</tr>
+<tr class="even">
+<td>current.air_quality.o3</td>
+<td>num</td>
+<td>Ozone (μg/m3)</td>
+</tr>
+<tr class="odd">
+<td>current.air_quality.so2</td>
+<td>num</td>
+<td>Sulphur dioxide (μg/m3)</td>
+</tr>
+<tr class="even">
+<td>current.air_quality.pm2_5</td>
+<td>num</td>
+<td>PM2.5 (μg/m3)</td>
+</tr>
+<tr class="odd">
+<td>current.air_quality.pm10</td>
+<td>num</td>
+<td>PM10 (μg/m3)</td>
+</tr>
+<tr class="even">
+<td>current.air_quality.us.epa.index</td>
+<td>int</td>
+<td>US - EPA standard(1-Good, 2-Moderate, 3-Unhealthy for Sensitive group, 4-Unhealthy, 5-Very unhealthy, 6-Hazardous)</td>
+</tr>
+<tr class="odd">
+<td>current.air_quality.gb.defra.index</td>
+<td>int</td>
+<td>UK Defra Index (1-Low, 10-High)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="get-time-zone" class="section level3">
+<h3>3. Get Time Zone</h3>
+<div id="usage-2" class="section level4">
+<h4>Usage</h4>
+<p><code>get_time_zone(location)</code></p>
+</div>
+<div id="arguments-2" class="section level4">
+<h4>Arguments</h4>
+<p><code>location</code> : A vector of location</p>
+</div>
+<div id="value-2" class="section level4">
+<h4>Value</h4>
+<p>A data frame of local time-zone information</p>
+</div>
+<div id="examples-2" class="section level4">
+<h4>Examples</h4>
+<p><code>get_time_zone(&quot;Kelowna&quot;)</code> <code>get_time_zone(c(&quot;Kelowna&quot;, &quot;Vancouver&quot;))</code></p>
+<p>This function is used to get the time zone and local time information of a specified location. The resulting information will be a data frame.</p>
+<p>For instance, if you want to get the time zone and local time information for Kelowna, you can use:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_time_zone</span>(<span class="st">&quot;Kelowna&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   location.name  location.region location.country location.lat location.lon</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1       Kelowna British Columbia           Canada         49.9      -119.48</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      location.tz_id location.localtime_epoch location.localtime</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 America/Vancouver               1645218128   2022-02-18 13:02</span></span></code></pre></div>
+<p>If you want to get the time zone and local time information of multiple locations, you can use:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cities <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Kelowna&quot;</span>,<span class="st">&quot;Vancouver&quot;</span>,<span class="st">&quot;Toronto&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_time_zone</span>(cities)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   location.name  location.region location.country location.lat location.lon</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1       Kelowna British Columbia           Canada        49.90      -119.48</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     Vancouver British Columbia           Canada        49.25      -123.13</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3       Toronto          Ontario           Canada        43.67       -79.42</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      location.tz_id location.localtime_epoch location.localtime</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 America/Vancouver               1645218128   2022-02-18 13:02</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 America/Vancouver               1645218129   2022-02-18 13:02</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   America/Toronto               1645218129   2022-02-18 16:02</span></span></code></pre></div>
+</div>
+<div id="variable-description-1" class="section level4">
+<h4>Variable description</h4>
+<p>The table below summarize the data type and description of the returned variables in the dataframe.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>location.name</td>
+<td>chr</td>
+<td>Name of the requested location</td>
+</tr>
+<tr class="even">
+<td>location.region</td>
+<td>chr</td>
+<td>Name of the location region</td>
+</tr>
+<tr class="odd">
+<td>location.country</td>
+<td>chr</td>
+<td>Name of the location country</td>
+</tr>
+<tr class="even">
+<td>location.lat</td>
+<td>num</td>
+<td>Latitude in decimal degree</td>
+</tr>
+<tr class="odd">
+<td>location.lon</td>
+<td>num</td>
+<td>Longitude in decimal degree</td>
+</tr>
+<tr class="even">
+<td>location.tz_id</td>
+<td>chr</td>
+<td>Time zone id</td>
+</tr>
+<tr class="odd">
+<td>location.localtime_epoch</td>
+<td>int</td>
+<td>Local time in epoch</td>
+</tr>
+<tr class="even">
+<td>location.localtime</td>
+<td>chr</td>
+<td>Local time in yyyy-MM-dd HH:mm format</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="get-sports-events" class="section level3">
+<h3>4. Get Sports Events</h3>
+<div id="usage-3" class="section level4">
+<h4>Usage</h4>
+<p><code>get_sports_events(location, sport)</code></p>
+</div>
+<div id="arguments-3" class="section level4">
+<h4>Arguments</h4>
+<p><code>location</code> : A vector of location <code>sport</code> : A string of sport type (“football”,“cricket”,“golf”)</p>
+</div>
+<div id="value-3" class="section level4">
+<h4>Value</h4>
+<p>A data frame of upcoming sports events in a location</p>
+</div>
+<div id="examples-3" class="section level4">
+<h4>Examples</h4>
+<p><code>get_sports_events(&quot;London&quot;, &quot;football&quot;)</code> <code>get_sports_events(c(&quot;London&quot;, &quot;Oxford&quot;))</code></p>
+<p>This function is used to get a list of all upcoming sports events (football, cricket, golf) of a specified location. The resulting information will be a data frame.</p>
+<p>For instance, if you want to get a list of all upcoming sports events (football, cricket, golf) for London, you can use:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_sports_events</span>(<span class="st">&quot;London&quot;</span>, <span class="st">&quot;football&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       football.stadium football.country football.region</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  Coface Arena, Mainz          Germany                </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2       Bournemouth Fc   United Kingdom                </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  Rotherham United Fc   United Kingdom                </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4       Dunfermline Fc   United Kingdom                </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5   Southend United Fc   United Kingdom                </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6              Dundalk          Ireland                </span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7        Shelbourne Fc          Ireland                </span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8          Juventus Fc            Italy                </span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9           Finn Harps          Ireland                </span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10  Shamrock Rovers(A)          Ireland                </span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                   football.tournament   football.start</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                   German Bundesliga 2022-02-18 19:30</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2                Sky Bet Championship 2022-02-18 19:45</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3                  Sky Bet League One 2022-02-18 19:45</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4               Scottish Championship 2022-02-18 19:45</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5                     National League 2022-02-18 19:45</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  League of Ireland Premier Division 2022-02-18 19:45</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7  League of Ireland Premier Division 2022-02-18 19:45</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8                     Italian Serie A 2022-02-18 19:45</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9  League of Ireland Premier Division 2022-02-18 20:00</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 League of Ireland Premier Division 2022-02-18 20:00</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                             football.match</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                Mainz vs Bayer Leverkusen</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2         Bournemouth vs Nottingham Forest</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3       Rotherham United vs Wigan Athletic</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4  Dunfermline Athletic vs Partick Thistle</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5          Southend United vs Grimsby Town</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6                    Dundalk vs Derry City</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7       Shelbourne vs St Patricks Athletic</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8                       Juventus vs Torino</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9                   Finn Harps vs Drogheda</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10                Shamrock Rovers vs U.C.D</span></span></code></pre></div>
+</div>
+<div id="variable-description-2" class="section level4">
+<h4>Variable description</h4>
+<p>The table below summarize the data type and description of the returned variables in the dataframe.</p>
+<table>
+<colgroup>
+<col width="34%" />
+<col width="20%" />
+<col width="44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>football.stadium</td>
+<td>chr</td>
+<td>Name of stadium</td>
+</tr>
+<tr class="even">
+<td>football.country</td>
+<td>chr</td>
+<td>Country</td>
+</tr>
+<tr class="odd">
+<td>football.region</td>
+<td>chr</td>
+<td>Region</td>
+</tr>
+<tr class="even">
+<td>football.tournament</td>
+<td>chr</td>
+<td>Tournament name</td>
+</tr>
+<tr class="odd">
+<td>football.start</td>
+<td>chr</td>
+<td>Start local date and time for event in yyyy-MM-dd HH:mm format</td>
+</tr>
+<tr class="even">
+<td>football.match</td>
+<td>chr</td>
+<td>Match name</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="send-request" class="section level3">
+<h3>5. Send request</h3>
+<div id="introduction" class="section level4">
+<h4>Introduction</h4>
+<p>This function is a helper function to send request to retrieve data from weatherapi.com.</p>
+</div>
+<div id="usage-4" class="section level4">
+<h4>Usage</h4>
+<p><code>data_request(query)</code></p>
+</div>
+<div id="arguments-4" class="section level4">
+<h4>Arguments</h4>
+<p><code>query</code>: A list contain information of city, date, and api_key, represented by <code>q</code>, <code>dt</code>, and <code>key</code>, respectively.</p>
+</div>
+<div id="value-4" class="section level4">
+<h4>Value</h4>
+<p>A HTTP response.</p>
+</div>
+<div id="examples-4" class="section level4">
+<h4>Examples</h4>
+<p><code>data_request(list(key=&quot;9d56997213e54667a41172101221602&quot;, q=&quot;Shanghai&quot;,dt=&quot;2022/01/01&quot;))</code></p>
+</div>
+</div>
+<div id="get-astronomy-data" class="section level3">
+<h3>6. Get Astronomy Data</h3>
+<div id="introduction-1" class="section level4">
+<h4>Introduction</h4>
+<p>This function is an API wrapper to retrieve astronomy data from weatherapi.com. Given a desired city and date, the wrapper will return astronomy data such as sunset time and moon rise time. Error messages are given when a user enters invalid input. An helper function is used for sending request.</p>
+</div>
+<div id="usage-5" class="section level4">
+<h4>Usage</h4>
+<p><code>get_astronomy(city, date)</code></p>
+</div>
+<div id="arguments-5" class="section level4">
+<h4>Arguments</h4>
+<p><code>city</code> : A string indicating city (e.g., “London”, “Beijing”).<br />
+<code>date</code>: A string of the form yyyy-mm-dd indicating date (e.g., “2022-02-10”).</p>
+</div>
+<div id="value-5" class="section level4">
+<h4>Value</h4>
+<p>A dataframe with the columns <code>sunrise</code>, <code>sunset</code>, <code>moonrise</code>, <code>moonset</code>, <code>moon_phase</code>, and <code>moon_illumination</code>.</p>
+</div>
+<div id="examples-5" class="section level4">
+<h4>Examples</h4>
+<p><code>get_astronomy(&quot;Beijing&quot;, &quot;2022-01-10&quot;)</code><br />
+<code>get_astronomy(&quot;Kelowna&quot;, &quot;2021-06-06&quot;)</code></p>
+</div>
+</div>
+<div id="get-history-astronomical-weather" class="section level3">
+<h3>7. Get History Astronomical Weather</h3>
+<div id="usage-6" class="section level4">
+<h4>Usage</h4>
+<p><code>get_history_astro_information(key,q,dt)</code></p>
+</div>
+<div id="arguments-6" class="section level4">
+<h4>Arguments</h4>
+<p><code>key</code> : A string containing the API key<br />
+<code>q</code> : A string containing the location, which can be US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name.<br />
+<code>dt</code> : A string containing the date for query, which should be within the last 7 days.</p>
+</div>
+<div id="value-6" class="section level4">
+<h4>Value</h4>
+<p>A data frame containing the astronomical information for the day.</p>
+</div>
+<div id="examples-6" class="section level4">
+<h4>Examples</h4>
+<p><code>get_history_astro_information(&quot;YourAPIKeyHere&quot;,&quot;London&quot;,&quot;2022-02-12&quot;)</code><br />
+<code>get_history_astro_information(&quot;YourAPIKeyHere&quot;,&quot;Beijing&quot;,&quot;2022-02-14&quot;)</code></p>
+</div>
+<div id="variable-description-3" class="section level4">
+<h4>Variable description</h4>
+<p>The table below summarize the data type and description of the returned variables in the dataframe.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>sunrise</td>
+<td>chr</td>
+<td>The sunrise time</td>
+</tr>
+<tr class="even">
+<td>sunset</td>
+<td>chr</td>
+<td>The sunset time</td>
+</tr>
+<tr class="odd">
+<td>moonrise</td>
+<td>chr</td>
+<td>The moonrise time</td>
+</tr>
+<tr class="even">
+<td>moonset</td>
+<td>chr</td>
+<td>The moonset time</td>
+</tr>
+<tr class="odd">
+<td>moon_phase</td>
+<td>chr</td>
+<td>The moon phase</td>
+</tr>
+<tr class="even">
+<td>moon_illumination</td>
+<td>chr</td>
+<td>The illumination of the moon</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="get-history-daily-weather" class="section level3">
+<h3>8. Get History Daily Weather</h3>
+<div id="usage-7" class="section level4">
+<h4>Usage</h4>
+<p><code>get_history_daily_weather(key,q,dt)</code></p>
+</div>
+<div id="arguments-7" class="section level4">
+<h4>Arguments</h4>
+<p><code>key</code> : A string containing the API key<br />
+<code>q</code> : A string containing the location, which can be US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name.<br />
+<code>dt</code> : A string containing the date for query, which should be within the last 7 days.</p>
+</div>
+<div id="value-7" class="section level4">
+<h4>Value</h4>
+<p>A data frame containing the daily weather information for the day.</p>
+</div>
+<div id="examples-7" class="section level4">
+<h4>Examples</h4>
+<p><code>get_history_daily_weather(&quot;YourAPIKeyHere&quot;,&quot;London&quot;,&quot;2022-02-12&quot;)</code><br />
+<code>get_history_daily_weather(&quot;YourAPIKeyHere&quot;,&quot;Beijing&quot;,&quot;2022-02-14&quot;)</code></p>
+</div>
+<div id="variable-description-4" class="section level4">
+<h4>Variable description</h4>
+<p>The table below summarize the data type and description of the returned variables in the dataframe.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>maxtemp_c</td>
+<td>num</td>
+<td>Daily max temperature (Celsius)</td>
+</tr>
+<tr class="even">
+<td>maxtemp_f</td>
+<td>num</td>
+<td>Daily max temperature (Fahrenheit)</td>
+</tr>
+<tr class="odd">
+<td>mintemp_c</td>
+<td>num</td>
+<td>Daily min temperature (Celsius)</td>
+</tr>
+<tr class="even">
+<td>mintemp_f</td>
+<td>num</td>
+<td>Daily min temperature (Fahrenheit)</td>
+</tr>
+<tr class="odd">
+<td>avgtemp_c</td>
+<td>num</td>
+<td>Daily average temperature (Celsius)</td>
+</tr>
+<tr class="even">
+<td>avgtemp_f</td>
+<td>num</td>
+<td>Daily average temperature (Fahrenheit)</td>
+</tr>
+<tr class="odd">
+<td>maxwind</td>
+<td>num</td>
+<td>Daily max wind speed (miles per hour)</td>
+</tr>
+<tr class="even">
+<td>maxwind_kph</td>
+<td>num</td>
+<td>Daily max wind speed (kilometers per Hour)</td>
+</tr>
+<tr class="odd">
+<td>totalprecip_mm</td>
+<td>num</td>
+<td>Daily total Precipitation(mm)</td>
+</tr>
+<tr class="even">
+<td>totalprecip_in</td>
+<td>num</td>
+<td>Daily total Precipitation(in)</td>
+</tr>
+<tr class="odd">
+<td>avgvis_km</td>
+<td>num</td>
+<td>Daily average visibility in kilometer</td>
+</tr>
+<tr class="even">
+<td>avgvis_miles</td>
+<td>num</td>
+<td>Daily average visibility in mile</td>
+</tr>
+<tr class="odd">
+<td>avghumidity</td>
+<td>num</td>
+<td>Daily average humidity</td>
+</tr>
+<tr class="even">
+<td>condition.text</td>
+<td>chr</td>
+<td>Weather condition text</td>
+</tr>
+<tr class="odd">
+<td>condition.icon</td>
+<td>chr</td>
+<td>Weather icon url</td>
+</tr>
+<tr class="even">
+<td>condition.code</td>
+<td>num</td>
+<td>Weather condition unique code</td>
+</tr>
+<tr class="odd">
+<td>uv</td>
+<td>num</td>
+<td>UV Index</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="get-history-hourly-weather" class="section level3">
+<h3>9. Get History Hourly Weather</h3>
+<div id="usage-8" class="section level4">
+<h4>Usage</h4>
+<p><code>get_history_hourly_weather(key,q,dt,h)</code></p>
+</div>
+<div id="arguments-8" class="section level4">
+<h4>Arguments</h4>
+<p><code>key</code> : A string containing the API key<br />
+<code>q</code> : A string containing the location, which can be US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name.<br />
+<code>dt</code> : A string containing the date for query, which should be within the last 7 days.<br />
+<code>h</code> : An integer containing the hour for query, which be in the range of 0 to 23.</p>
+</div>
+<div id="value-8" class="section level4">
+<h4>Value</h4>
+<p>A data frame containing the daily weather information for the hour in the day.</p>
+</div>
+<div id="examples-8" class="section level4">
+<h4>Examples</h4>
+<p><code>get_history_hourly_weather(&quot;YourAPIKeyHere&quot;,&quot;London&quot;,&quot;2022-02-12&quot;,4)</code>get_history_daily_weather(“YourAPIKeyHere”,“Beijing”,“2022-02-14”,23)</p>
+</div>
+<div id="variable-description-5" class="section level4">
+<h4>Variable description</h4>
+<p>The table below summarize the data type and description of the returned variables in the dataframe.</p>
+<table>
+<colgroup>
+<col width="34%" />
+<col width="20%" />
+<col width="44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>city</td>
+<td>chr</td>
+<td>The desired city</td>
+</tr>
+<tr class="even">
+<td>region</td>
+<td>chr</td>
+<td>The region of the city</td>
+</tr>
+<tr class="odd">
+<td>country</td>
+<td>chr</td>
+<td>The country of the city</td>
+</tr>
+<tr class="even">
+<td>lat</td>
+<td>num</td>
+<td>The latitude of the city</td>
+</tr>
+<tr class="odd">
+<td>lon</td>
+<td>num</td>
+<td>The lognitude of the city</td>
+</tr>
+<tr class="even">
+<td>sunrise</td>
+<td>chr</td>
+<td>The sunrise time of the city on a given date</td>
+</tr>
+<tr class="odd">
+<td>sunset</td>
+<td>chr</td>
+<td>The sunset time of the city on a given date</td>
+</tr>
+<tr class="even">
+<td>moonrise</td>
+<td>chr</td>
+<td>The moonrise time of the city on a given date</td>
+</tr>
+<tr class="odd">
+<td>moonset</td>
+<td>chr</td>
+<td>The moonset time of the city on a given date</td>
+</tr>
+<tr class="even">
+<td>moon_phase</td>
+<td>chr</td>
+<td>The moon phase of the city on a given date</td>
+</tr>
+<tr class="odd">
+<td>moon_illumination</td>
+<td>chr</td>
+<td>The illumination of the moon of the city on a given date</td>
+</tr>
+<tr class="even">
+<td>date</td>
+<td>chr</td>
+<td>The given date</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="plotting-using-the-weatherapi-package" class="section level2">
+<h2>Plotting using the weatherapi package</h2>
+<div id="plot-the-current-temperature-and-feels-like-temperature-for-different-locations" class="section level3">
+<h3>1. Plot the current temperature and feels like temperature for different locations</h3>
+<p>The following exercise will show how to get current temperature and feels like temperature data using the get_current_weather() function and plot it as a line chart.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get current weather data</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>loc <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;London&quot;</span>, <span class="st">&quot;New York&quot;</span>, <span class="st">&quot;Paris&quot;</span>, <span class="st">&quot;Melbourne&quot;</span>, <span class="st">&quot;Singapore&quot;</span>) </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">get_current_weather</span>(loc,<span class="st">&quot;no&quot;</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Get temperature info and melt dataframe</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data[<span class="fu">c</span>(<span class="st">&quot;location.name&quot;</span>, <span class="st">&quot;current.temp_c&quot;</span>, <span class="st">&quot;current.feelslike_c&quot;</span>)]</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">melt</span>(data)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot temperature</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>data, <span class="fu">aes</span>(<span class="at">x=</span>location.name, <span class="at">y=</span>value, <span class="at">group=</span>variable, <span class="at">linetype=</span>variable)) <span class="sc">+</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Temperature by Location&quot;</span>, <span class="at">subtitle=</span><span class="st">&quot;(in celcius)&quot;</span>, <span class="at">x=</span><span class="st">&quot;&quot;</span>, <span class="at">y=</span><span class="st">&quot;&quot;</span>, <span class="at">linetype=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkAAAAGACAMAAAByRC0tAAABZVBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZrYzMzM6AAA6ADo6AGY6OgA6Ojo6OmY6OpA6ZmY6ZpA6ZrY6kJA6kLY6kNtNTU1NTW5NTY5Nbo5NbqtNjqtNjshmAABmADpmAGZmOgBmOmZmOpBmZjpmkNtmtrZmtttmtv9uTU1uTW5uTY5ubk1ubo5ubqtujqtujshuq6tuq+SOTU2OTW6OTY6Obk2Obm6ObquOjm6Ojo6OjsiOq6uOyP+QOgCQOjqQZgCQZmaQkDqQkGaQkLaQtpCQttuQ2/+rbk2rbm6rbo6rjk2rjqurq26rq46ryKur5P+2ZgC2kDq2tpC2ttu225C22/+2/7a2///Ijk3Ijm7IyI7I5KvI/8jI/+TI///bkDrbkGbbtmbbtpDb25Db29vb/7bb/9vb///kq27kq47k/8jk///r6+vy8vL/tmb/yI7/25D/27b/5Kv//7b//8j//9v//+T///+wX+hRAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAZHklEQVR4nO2di3vcxnXFIdmiGbtxHuVKVUlbTRpTUqsmlJRXS7pt0pBuG5tsGpd0nJB1HyFbqiRDLom/v/PAc3cA3HlcYLB7zveR3AUGBzNzfzszwM6ASQpBHkqGzgA0bgEgyEsACPISAIK8BIAgLwEgyEsACPISAIK8ZAnQzUaS6f6h13mv/qzz+JuNFfOOE9q55Sludx6c2mQLstVQABEg8AVIJgNA3HLowoIEpSeAIG55AfSHJ0ny9c9FZ7G69tXqvT9PL1aTb56KwK+JF2/vVlPc7qycJPc/T796L0lEwtsd0YataSOxq9idJ1cSAEkf8fYi2VTv1/SOChnygLfVAV/lpzScIk8l3v3qPbkTCiYfgK5WZV92b1e8+IZ4ee8f5PsVEWj5Tm4vU9zuvLWaPDg90d3f5jxAaneRXOlm463MR7dFF/mOEqCL4oCL/IXhFBdlLrKdvrUGFfIA6Hbn3kdp+h+rK5KTj9KvRLzEqwenYpy0cnr7L8lKJYUI3Zo84r5qr1aqAxQNkN6dJ1cSPn+sfdIDicxB3vAVAInDPpLIPDgVh+6KHKyZTlFNJXImXjV0jZCDPAASHZf8I+Kk4nWzITbLfeqFCnqZQsT1UB38X7/6u9XEAJDcXSZXSbWP2iX7sKIHKwG60qwd3NvNDjWeokylT9M4toIc5AHQRXY9loVPx+VAAqQCdHJvt0yRHaP7KBNA8lWZXJ0nI+Yk68OKHqwKkOqMLmQO8m5p/hRlqvKEUCj1CpDolL7x83/97w1rgGRzVvRgrQAZTgGAOOXVhZWf+jpAeddTptDH6PfFAEUPbeRx1d2FtKHudi6S7xU9WGsXNnOK2S4MAIWW3yD6F+ISeScb61QAyge/ZYqcEDGGFdfU4rVuVxJ1ub1StEV5cnUe4SMGxWoQLXb9UdGDNQ6irzYULdVTzA6iAVBo+VzGZ13O2lwLpC6/dcORpchDp9/L6MqtavfbT3KAyuRK2e0ATctJ5dZ3dqUuDeqX8WKoPXOK2ct4ABRaXjcSr54kyVsfzXdh8gbgNz+vpsiOUXf0fiF7rpsn8or630W63xdjoDK5kr4h+b6+r3i1Wka9BEgdUNxIlDcBZk7xe93ylTcSAVBgMXwbz3KZfIG7f3FqJAD94Qm+FI1TowBIzgFY604GDaBRACRGxt8KbAkFEmYkQl4CQJCXABDkJQAEeQkAQV4CQJCXABDkJQAEeckaoNudzauv7balqOw2pLz5oPVgaGSyBuik8zZzB18X+FZrkWQLEKEB6QBINGGW54Qili1AJ6L9EIRcfU0uAstIkJO4VrK/9w8VQNkmlXJXM6Vmu8sj0AQtkiwBut1Z01isyil/epKgnKB1s7GpJ2oJwMTufFMFIP1XzljuaKGgUcn64QqbGUAlCTkQF3qK/GZOS1prga7ePax6QAsiV4DyjinNwEmLmaZrYnO+qZryIMlWhKpWDFoQhQQoXzJvBkjNC5PbAdAiKQBARRd2r95vpXMp9eHowhZJtldhB2tzWGTPZ9FrHuQqUT2Ilj/ipVxfKldtqUapRhO0CLIF6CK/jK+QUL2Ml+v7apfx6vL9ex/sqpVbqo06wWX8AonhRmKHcCNxocTwVUaHcB9xoeTyZarXCfFl6mIJ0zkgLwEgyEsACPISAIK8BIAgLwEgyEuWAL0hyyIpt0tEWbFw4Yl3cLUAdDmZPDpO0+nLyePzfBtHTbG7RJSVZQLo+vlxerae3u1tyz+ZOGqK3SWirCwTQFICounrY8WSFkdNsbtElJVlA0g0PdcvztPpq33x5h2hfjIFjUdtAF0/fbifXj7OAZLi+Kixu0SUlWVrgQQ5ZQskxVFT7C4RZWXZAEqPtjEGGsiFPfRh1AxQ1nfd7W3hKmwIl17C76+WFuhsMhFjINwHGsilh+CHEO5Ex+rCE+/gAkC9uiRJQj7fOASA+nRRS3ep5xuHAFCfLgCIXlfxRC2irAAgel3FE7WYsoIxEFkRRS2irCS4CiOX36F6mVziyUqCy3h6+R3ql8kloqwAIIaaYneJKCsAiKGm2F3iyQq6MHpdxRO1eLKSoAWiV1Y0UYsqKwCIoabYXSLKCgBiqCl2l1iykli58MQ7uABQfy4ACAD16MIT7+ACQLG68MQ7uABQby6JnQtPvIMLAPXlkli68MQ7uABQrC488Q4uABSrC0+8gwsA9eWCLkyKXl9xRC2cia9LYuvCE+/gAkCxuvDEO7gAUKwuPPEOLgDUj0vWg2FSPVkxRC2kSRCAsKyHXmMxRC2kCdaFmQWA+nQBQPS6iidqMWQlpwZjILIiiFpQEy+XghosLKSX36qGWV3iyQpWZdDrKp6oRZQVAESvq3iiFkFWkuIPACKX37KOGV0Gz0pS/l12gCAPLWRdowXqzwWrMgCQk5LKHwBELr9VHbO6DJyVpPoXAJHLb1PHvC5xZAUzEqXo9RVH1MKZACCzABC7S3UIBIDo5bepY16XYbNS4wcA0ctvUcfMLlFkBQAp0SssiqgFNAkzpRUA0ctvV8GcLoNmpd6DASB6+elJuV0iAKiYEASAyOWnJ+V2iSArACgTvcoiiFpQkzAzEgEQvfw2FczrMmRWZnowAEQvPz0pt8uAWZnlBwDRy09Pyu0yeFYAUCF6pQ0etcAm/tM5LF144h1cAIjVJSl+WbvwxDu4ABCny9wQCADRy09Pyu0Sx7fxti488Q4uAMTuAoAqolcbADKMgAAQvfIAEAAyiF55AEhr5mkcAIhcfnpSbhcAxCgAxOeSvJnjBwDRy09Pyu0yUFYMIyAARK8+ACQ19zwyAEQuPz0ptwsAYhQAYnNJDPwAIHr56Um5XYbJimkIDYDo9bf0AEkBoFnR6w4AmfgBQPTy05NyuwySFXMPBoDo5acn5XYZCiDTM8UBELn89KTcLkPeiXZ34Yl3cAEgNhfjPzUAQOTy05NyuwyRlYYeDADRy09Pyu0yQFaa+FkqgK6fTibbaTp9OXl8nm+jV+FyA/QGAKXTV/vp9bP9u73t9Gw930ivv2UHqOHfOi0RQJeSmqPt6evj9Pr5cbaRXoHLDVACgJREK3T94lw1Rmn6jlA/mRq9kgX9vwYGtZbzbm8rvXycAyRF/wwudwvU1AAtVws0fbklhtIvAJCDCwCSV2HiGizFGMjepXEEtFQAaX5UN4arMDsXACR1NpHaxn0gB5fmf828RAAZRa9DAOTpwhPv4AJA4V3a/jc8ACKXn56U26XnrLSMgAAQufhLDFAbPwCIXn56Um4XAMQoABTcpY0fAEQvPz0pt0u/WWkbQgMgcvGXFyC0QG0iF395AWrlBwDRy09Pyu3Sa1baezAARC8/PSm3S78ABXF5A4AAkI/LGwC0pAB18AOA6OWnJ+V2AUCMAkBBXbr4AUD08tOTcrsAIEYBoJAunfwAIHr56Um5XXoECC1Qh8jFX0qAuvkBQPTy05Nyu/QHUBCXPOU4BIACugCgTpGLv4wAEXowAEQvPz0pt0tvAAVxKVKOQwAomAuFHwBELz89KbcLAGIUAArl0rqah+xSSTkOAaBQLpQhNAAiF3/pACLhA4DIxQdATi7VlOMQAArjQhsBASBy8QGQi0st5TgEgIK4EDswAEQuPgBycKmnHIcAUBAXag8GgOjlpyflduHPCpkfAEQvPz0pt0sfAIVwmUk5Di3LA9VZ1WMl/p9Z/WVgVmiBArg0/nMnn7yYAwCA7DQKgCz4AUD08tOTcrv0AFAAl7mURgEgO40BIBt+ABBDTbG78APU31UYALJSQptk0yFegJI3AIgucvGDRC1JghDED5C/iyGlUQDIRmMAyDJ/gwN09e5h8TuEAJCni10PBoAYaqpZIwEoosv4m43k3q6kQ/xcff3J/V+Ln0Ox8b7Y8v7fJsmmfq1+65e3H/8sSdYuxE968+Hfi6PTmtcCAORPECdAtrnzByiZUwnQ7c5mevHgPzOAVjdT+ZMerKUnK+Llmth3WrZAevPtjty1IrfcbDw4vbh/WPM6HTNACQAyANTWApV0SID0n/Tmg13RuBxWtqok2ebbj3dT+SPe3mxsqpdVr05FDFCSXcZ7E8QIUFL8Cp4XJ4DePzUAtCGqsezYCoD05ipAAqn0YLPmNWKAVFhSyzEqT1aaXayzN0QL9OFhWt+qAdKbZwBanBZIhyYtXnuIDyD7jPECJMctV+/+mwDh5H4BkBzsZIOfKkDZ5loXtlIZ9WivTohiBSj7aKflO3ctD0DZldNJknz7wxIgvTF7e7tz/9fq96HeXGuBvrs4V2FJ4WI9zAidlWYXh6wNfh+oRWoMZKtIAcqjkr4JQBAAokkDdLWqrn0JjY9SnAAVkUlrWxzFBZBLnmIGyElRAlR+stP6NjcBIEbFCFAlMJWrMHeCmABKKr8Z8mIOAADqVjUk1ct4Z4I4AYrrTvQAGgVAhh02Ym2BfF2aUxoFgDpVa25Swy5r8QDklhkAFL6m6qp3V6lxq6U4AUIXZpeco6ZqmglIHSD2T72FiyPSACh8TVU1C0qQfoMRIF+XtpRGAaB2zX6ug4xcOQDiH9CbAwCAWjUXlvkbiQ6R4wMoui9T+1dUAM3Hw3AnmjNoZBfnMRkACl9ThQyNTJA5FHwAebq0pzTKGyA9xed2J1kzbM5eyVkfH4/vy1RTJxUpQH18rWIOQCCA5maK1QBK03SEABmDYowa370Xqov7XYU+JpSRlvXc29Uv02yvOOYiyV7pFuh258FplqbqPl6AnAniAmiYb+PlMp7ZH49lPflePUlav9IAiR15mqr7zFT7aAAy09HgwjWJi+jSy9SSJoDaWiCHZT3l3mxCYg7Qe2tpfmjNfUaxANTQujS5MK2EILrEC5D9sp7q3tVs7rSaOv3t75zmh9bc4wSoKSSNt3951mLRXDxuScW3rKeyV0j3cboLO1mrtD6VNDEC1BiK5u8PWB5oQHPx+WKOFyCHZT3lXvmmCpC8EMvSVN1nIGoF6Pr5cZpOX04en/MC1MxFs8twAPW0QsQFIPKynqxrk71TufegfhWW9XMdC33aALqcPDpO7/a207P1vgCaDU6LCz2OSwRQ/2oB6OjhZ6IFmr4+1i2REkdNtUWk7ctUciDDAuQzAhonQK0LfTq7sOsX5+n01b54944QR/6shmFJw+v+lMz87VdjaoE0QJePc4CkGD5qScNrgguxEQjaAvW2Tt8ckvEBVLZAUuFrqpWfLhdaNAEQozoB4h4DtQfE4JI0vvHNCsXFY1aJZV7MIRkfQHd7W5xXYR1xiBagoWYkRqeB7wN10dDpQgkkSwvk5UJKOQ4Neye6szXpdiFENCBAvvwAoKA11R0Oo0vS8s41K92qA4QuLNOQADk3HpYEhQPImx8AFLKmCMNh+47Q1aRTNYC8XIgpx6EBAaJcTsUFkD8/AChcTXldgVt1YuEBGm5SfXQaDCC/m8hJ61vLrNCUhuAHAIWqKSIBQe5nBwfIy4WcchwaCCBqC+L0layzSavSEPwAoEA1RQ0GfUaizaQiF1X/6wu6sFLDABRgLticRbNnCICq/zfIpykCQCFqit56BJnXGBogHwGgADXF1Pv4D6RavAFQgwYAKNSSLnIn5g2Q+q9lQXowABSgptgA8rqd3XyajJw4VmVEp/4Bshj9Wsfe4wu1JsfCMvDioO6U41DvAFnxYx01o5l76KvDHgBkVN8AWbb/1pPq3Walmc3ro+bcxW8oDYD8asq29ocDaO6aK45VGdGpX4AMtR/6e1CXidUGF+sVRkQBIK+aIl84tbq0yz/05js+AMioXgGyb/5dZhVZLm+dO7z9ZgC6sLr6BMih7p2mpTWMXkhqvt2cNp7PRgDIvaYose52oWjGlT4npO3bCnRhRvUHkAs/zlfgLiYd33UBIKN6A8it7bdd22HcRpuZT2oMsbBwVosJUH0jYYEI4Zt2AGRUXwA51rxzv1E9X+f8fq8FInYCQG411d1MUFxsRP4WizrNBwAZ1Q9Arvz4LCwst7bNbaPPEksbz2QjAORSU8zr8BrsuydiWM0xTLEy1aThAGIfeHQBZDlFFV2YUX0A5M6PX9TyUxi/VbGe4QyAjOoBoD5WwbQOgww3xd2+VUEXNi9+gHqZQtw6DJq7JeWUJSxtNoodoK4RLs3FVcmcifPqHHRhRnE/b73Bv7fHvM+cKBnm+fILLO4WqLfpM00nSqq9qddwDA9XMIkZoP6mz3QC5LuyFAAZxQtQS1QtXPyk1yR7r0sOs7IZAFnVlDc/8Sxrx9r4BnEC1Ottk+brvSChB0ANYgSo3/oGQMOIC6C2+rYIRIibL2EijzGQWUwAtX1gLb8C95e3yfztSGcBIJr6b/HVWUOYNNkCIKMWCiCGx7sQZhVZCQARFaYHG74LI81rtBAA8q2pAWZx9R36MC488Q6uYf/hXHiXoI9FsFwcRBEACl9TQV1CAuS0vrVDAMizpixH1sN1YZ7P+GgSAPKrqUEmIruY4AFTRC1aFxZD6MO48MQ7uAAQycItK14uPPEOrrE/oYzDhOF2pIMLT7yDa+xPKAtu0vGEMl8BoPA1FdzF6xF3YbPi4cIT7+ACQFQBIKMGfkaivQunSWsOAZBRwz4j0d6F0wTPSHTQInZhbs9IZMqKswtPvINrMQGy/xqU+IxEbwEg15pie8hmTyYAyKxFfcimlQkesumuBe3CLB6y2cuzrhxceOIdXEsPUJ+rrK1ceOIdXEM+5tfahcGk11XWVi488Q6uAR/za+0yqAkAMmthuzDSY377yoqLC0+8g2uZAcJjfgNoER407mRinScAZNRgz4m2dglrMtDcNgDEUFN8Lo3PiXYRADJqKQEabmIAAHKoqT6eVG9lMuDXcssI0PTl5PF5/sahpnp5Uj3dZNhbUksI0N3ednq2nr/jqClOl7lHQw18QbiEAE1fH6fXz4+zdxw1xeqShDBRAkBGdQJ0/eI8nb7aF6/eEeohR4zC/zkIr846vXycAyRl/VHr7V8dEEw8n1TvnxErF+bAh5JFCyRlW1P9/auDRiXaxPuBewDIqEUfA+UA+T+wEQAZRbgK23K/CoviY9/7E57DuPDGPZhY7wNF8bEf6IGx3i6sYQ+nhf4qQwkAsQoAUQWAjFqg/9bTJIyBOLVA/62H1wQAmbX4XVhUWQFADDXF7hJRVgAQVTENPAAQoxbrv/UwmgAgswBQrC488Q4uABSrC0+8gwtjoFhdeOIdXLgKi9WFJ97BBYBideGJd3ABoFhdeOIdXAAoVheeeAcXAIrVhSfewQWAYnXhiXdwAaBYXXjiHVwAKFYXnngHFwCK1YUn3sEFgGJ14Yl3cLGt9g2zCjqIS0RZCeQSkQDQGF0iEgAao0tEAkBjdIlIeOIJ5CUABHkJAEFeAkCQlwAQ5KUQAJXPn5qRfMJr99FP5dOHjh7lHtLtiHDcvM92U17u9tQp1qubPtmfTzdrOBHaqm1qKmlN05eTyaNjYuKxKwKAnv3VeTr90XN/gCSD5rxcP9uf2UMBSB5QPt2PrOlLkfuz8plKi62QAIlPnvzgvfinyWRbvfuTH27PbDQe/RMR3Z8KjyypBOinuUW2Qfxc/+UPH31Zej+aBeX6+W/WdV7UXgmv5OZSRVK0PkdbhaFw+t0n+3d77UFWxVI2T+VJ1fnFpsvJ/LnnjxPgyTxX6uJH+5nR9PUvJw/3q5k5NpVnJAoJkAiRCNf1U/VHvRPVVd9oPPo32+n/fCaxUQ/TUwCJI/SGS/1KBuOpDGXhfbY+53MsGq7rwudM/BbnP1N90PTVZy/OyxxuyxboaMuQm9liCQZlI5Sf//mxfGbk3LlrysFUx5R18TA3mr58fH756LiSGWN5RqKAAMmq1R+8vKLFx7e+0Xz0l9+/+0fx2Zb1K5LnXdjRzLG5xXWRci4X0x+fl3uvX5x/8el63lWdqYagNLz75C86+MnGQLrZzPKVuXdJNFIP9yt5VnWhMyJeyi5OvKtkxliekSggQDou1XgLCOobzUf/7p//96/VJ1PE66FK+sX+/LFVgHTK+VycbZV7p69/+/rL57/N4qKbk9Lwbu8HP+4YpZT5PZK9VnH+p3OnNh38bL/Ms3xUsgJIGSkEa6UzlmckiqEFOv7i063siLQYRM8dWwXI9GnVAfms3Hv0N9+/++TT9Uoeay3Q/hmlC0v1oLhy/jRt6owzXapTKkLqLVBmJAGaaYFG2vpIMYyBsoquj4FaAbrU7U6Z9Gg9LTfICj97VAUo22HIhboUy/ZeTvQoqJLH8gwigl0XYnl+1Umf5Rwr51aA1FVYNoiu5FeXUY6pXq4XAyOdGWN5RqIgAKnBwnr9okk0IdWrsFaAsqoWSfXQQV6FldcpgoLJD17XANIp53zEb0Favlddg+UXN3pvmRlJT0OG6oapOr8oSQFD11WY6pFqYyC55U/FCbXR9NVPqldhqmk0lGckwp3onlTS6nBrKWIBoB4kGuNKCwOAIKgQAIK8BIAgLwEgyEsACPISAIK8BIAgLwEgyEsACPISAIK8BIAgLwEgyEsACPISAIK8BIAgLwEgyEsACPISAIK8BIAgLwEgyEsACPISAIK8BIAgLwEgyEsACPLS/wNaSxSk2ErEKgAAAABJRU5ErkJggg==" /><!-- --></p>
+</div>
+<div id="plot-local-time-zone-of-different-locations-in-world-map" class="section level3">
+<h3>2. Plot local time zone of different locations in world-map</h3>
+<p>The following exercise will show you how to extract time-zone of different locations and plot it in a world map.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get local time zone data</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>loc <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;London&quot;</span>, <span class="st">&quot;Los Angeles&quot;</span>, <span class="st">&quot;Buenos Aires&quot;</span>, <span class="st">&quot;Melbourne&quot;</span>, <span class="st">&quot;Singapore&quot;</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">get_time_zone</span>(loc)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the world map coordinates</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">&quot;world&quot;</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot time zone of different location in world map</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_map</span>(</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> world, <span class="at">map =</span> world,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(long, lat, <span class="at">map_id =</span> region),</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;lightgray&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data=</span>data, </span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(location.lon, location.lat, <span class="at">label=</span>location.name)) <span class="sc">+</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data=</span>data, </span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(location.lon, location.lat, <span class="at">label=</span>location.localtime),<span class="at">nudge_y =</span> <span class="sc">-</span><span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Current Time-zone of Different Locations in the World&quot;</span>, <span class="at">x=</span><span class="st">&quot;&quot;</span>, <span class="at">y=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+<div id="plot-the-max-and-min-temperature-in-celsius-in-the-past-7-days" class="section level3">
+<h3>3. Plot the max and min temperature in Celsius in the past 7 days</h3>
+<p>The following exercise will show how to get min and max temperature in the past 7 days using the get_history_daily_weather() function and plot it as a line chart.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>min_temp<span class="ot">&lt;-</span> <span class="fu">vector</span>()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>max_temp<span class="ot">&lt;-</span> <span class="fu">vector</span>()</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>dates<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;2022-02-11&quot;</span>,<span class="st">&quot;2022-02-12&quot;</span>,<span class="st">&quot;2022-02-13&quot;</span>,<span class="st">&quot;2022-02-14&quot;</span>,<span class="st">&quot;2022-02-15&quot;</span>,<span class="st">&quot;2022-02-16&quot;</span>,<span class="st">&quot;2022-02-17&quot;</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(dates)){</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  max_temp<span class="ot">&lt;-</span><span class="fu">append</span>(max_temp,<span class="fu">get_history_daily_weather</span>(<span class="st">&quot;London&quot;</span>,dates[i])<span class="sc">$</span>maxtemp_c)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  min_temp<span class="ot">&lt;-</span><span class="fu">append</span>(min_temp,<span class="fu">get_history_daily_weather</span>(<span class="st">&quot;London&quot;</span>,dates[i])<span class="sc">$</span>mintemp_c)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(dates,max_temp, min_temp)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>mdf <span class="ot">&lt;-</span> <span class="fu">melt</span>(df,<span class="at">id.vars=</span><span class="st">&quot;dates&quot;</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mdf, <span class="fu">aes</span>(<span class="at">x=</span>dates, <span class="at">y=</span>value, <span class="at">colour=</span>variable, <span class="at">group=</span>variable )) <span class="sc">+</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkAAAAGACAMAAAByRC0tAAABnlBMVEUAAAAAADoAAGYAOmYAOpAAZrYAv8QzMzM6AAA6ADo6AGY6OpA6kNtNTU1NTVNNTVlNTWlNTW5NTY5NY6tNaatNbqtNeXlNg8hNjqJNjrVNjshTTYNZTU1ZTVlZTW5ZTY5ZjuReTU1eTW5eTY5eXk1jTU1kTW5kov9mAABmADpmAGZmOgBmZjpmZmZmtttmtv9pTU1pTVNuTU1uTVluTV5uTW5uTY5ubo5ubqtunZ1uq81uq+Rutf9vTW5vtf95eU15yP9/U01/zf+DTU2DTVODyP+OTU2OTV6OTWSOTW6OTY6Obk2ObquOg02OtauOyMiOyOSOyP+O5P+QOgCQOjqQZgCQkDqQkGaQtpCQ27aQ2/+raU2rbk2rbm6rbo6rjk2rtY6ryKurzaur5Mir5OSr5P+2ZgC225C22/+2/7a2///Ig03Ijk3I/8jI/+TI///bkDrb/7bb/9vb///kq27kyI7k/8jk/+Tk///r6+vy8vL4dm3/tmb/yI7/25D/27b/29v/5I7/5J3/5Kv//7b//8j//83//9v//+T///8mlwUYAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAZDUlEQVR4nO2di38cyVHHV8be8120wB0cAXMQICHojofAcHcOAi68DL6EBEWQI0JHSLAEGINELIidlUTCSkjzXzM9O7M7MzszXV1d1V2trd/HlnZn5zfV3ftVz6Nfo0yl8tAodgJUaUsBUnlJAVJ5SQFSeUkBUnlJAVJ5yRGgV1YBdknaJzChPGQApQBJD6gAUZWTDJ/AhPKQAZQCJD2gAkRVTjJ8AhPKQwZQCpD0gAoQVTnJ8AlMKA8ZQClA0gMqQFTlJMMnMKE8ZAClAEkPqABRlZMMn8CE8pABlAIkPaACRFVOMnwCE8pDBlAKkPSAChBVOcnwCUwoDxlAKUChjFO2eDxkAKUABTJOFSAjivym7UMDlCEJUoCoykmGD2mcvlKAjCjym7YPDxDyKkgBoionGT6ccfpKAVLhNa39vGXSGiiEcTr3oaqg21UDUeQ3bR/GOC19CpAChDFOFz4MQQoQVTnJ8ClATSlA7Mbp0qcAUeQ3bZ8XQBiCFCCqcpLhczZWzChARhT5TdvnalwgkzXfEsbjIQMoBYjZqAA1RJHftH2OxiUwCpARRX7T9rkZa7xkK1uo4vGQAZQCxGpUgFqiyG/aPidjnZasYxtNPB4ygFKAOI0KUFsU+U3b52JssJJ1bqWIx0MGUAoQn7FJigJkRJHftH0KUFMKEJuxBUrW94F3PB4ygFKAuIxtTBQgI4r8pu0jAMiNIAWIqpxk+KDGFUgUICOK/KbtU4CaUoB4jKuMZIOf+sTjIQMoBYjF2EHIOgI0++A4//FwMtmttlDkN20fCUAuBCUM0PnkrePs6slhNnv/sNxEkd+0fSBjFx/rB9DzN7+T10DnD8zLqgqiyG/aPoixE4/1A6g8heUytVCWvZYrRJLSF2AQ/K0ZJw8B6OZgp9pC8QeTtg9g7K5eMsA+uHjcjAwKANDV4wU/ChAVQHCCkgdo9nB3uYUiv2n77MYeNNYVoAY/CpDd2EfGugJ0OjHSuzCwEQgQmKCUAVoVRX7T9tmMvVwoQEYU+U3bZzH2Y7HiAxKkAFGVkwyfAtSUAkRqHIBCATKiyG/aPjqAgAQpQDCl4hs0DiGhABlR5Ddt35BxkIgOH4ggBQimVHwKUFMKEJ1xmAcFyIgiv2n7KAECEaQAwZSKr99ooUEBMqLIb9q+XqMNhk4fgCAFCKZUfApQUwoQkdGKQrfPTpACBFMqPmIQFCD3/KbtU4CaUoBIjPhrGeSpr7FHTClAJEYFCCh0Od0aH/nzHNTdW3OPmFKACIxeTRIKkGt+0/YpQE0pQP5Gz349iCaQ1h4xpevGe8t3mHvaw+S1BvI2evdtdm/Fb+0RUwqQr9F/fJcC5JbftH0KUFMKkKeRYoy7a1fY9h4xpQD5GUnm+VGAnPKbto8DIMfhQCt7xJQC5GUkmutQAXLJb9q+hpFqvmcFyCW/aftYAHIbEr2yR0wpQB5GujUvFCCH/Kbt4wHIZVqY1T1iSgHCGykXjlOA4PlN27c0kq59qgDB85u2jwkg+NyKHXvElAKENTryowAV8i6n5H2V0ZUfa0Do9MAde8SUAoQ0KkBzKUA4ozM/ClAh/3JK3ccGEHCNja49YkoBQhnd+VGAChGUU+K+wojgBxAQtExU1x4xpQBhjArQQgoQwojhRwEqRFFOaftyI4ofSED7Yr3dR44p+4qFV48nb7+stpCUU9I+Bagp67rxNwe72emDahNJOSXte5Xh+AEFtK43333kmLKuG3/18fFi+W8F6JUC1JJ9zdRHL3Xd+LpYh7KnN07eCtD52xVARjR/aCn7pqwBO6qg21MDGRGVU7K+6ZQ34C0ESK+BapqyB1wlKHWAbg529C6s1JQ/4O0DSJ8DLTQNEXCFoJQBWhVZOZH5kDfV7vGmU6TRLaACBCsnKt80m7I9GG4GwhodfQoQrJyIfFPGts1WIKTR2dfOjQIEE/auqOhdwdG/qxGnFkABaihpgJZ31Qw9TFtxUEaUr5UXBQgm7F1RVnvNFK95bAWooYQBat5Vu57G4PGcv1DPgAoQSu631W0f5VwHtTDu1yR+Ad1rPB4ygEoWoKqUaz6nSgh7V60ANZUoQNPuxzJEUxYOHjBABh0v2nnIACpNgHrvquGVELZxXAFqihygEE0L9Rhtn//E8ctDIfsoowMuArv5eMgAir4GYuzxWWq4fL3XPrEcKEQVO/QX0nHkmGI4heEap+iuMWHxrfHwkx34+9YbIK6Bm6UAj0l8ljC1HiPuRV7nkWOK5yKasW0K9FgGUAkNxxs4gALUENNdmPtpjLi3gzX+YDy/meMJfGsPEPkUgr1H7fPZEB6K57l6DoXPpfsIDxlA8T0H4mibcnquN5yAAR/WOCwFyMilnNxOY5DydXyuh6tIbKkO1Fbj0AOShwygWJ9EE7dNOT/XG0K499RnS4UC1BBvUwZp2xRm+hznmynf2zcy3y0FyFVTusHeuCO5JYAwud4SlJQhsTemUrVNoR8MO7RI0DzCJvJ19FfpO3JM8bfG07RNeTwYBreJwlIaCqDVHnO9Rwbr4vX99svaJpQCdOegaJvyezAMu3sja4Ul8jEAVFNCAPm3TWHupmwHWDnVEvYDIfJBh1KjvvikAIIQRP48x3KMzPK5b0ACnxdA13ub+c+TO88u7o9Go83s4o1vju78c05L9f71T0ajuy8KgK73RqM7zyQDBPj7pn+iPHyUbPBTgoD+Pr8a6CSnI6focmu75OheUd0s3999cb13z2wyv4rdBQPk8YDXo02reZyBfkQMvfEpfPWBb0NH7pSpWvL/P3wxf31xfzvrep//OzO1TwGWZICwIBC2LPT1ZKRvcyHyeQFkzmFFtXKWn7I29otrneJH+f6NOTX5ppNRoU3hAFm+J5ZuGQMpqLXZORzBMaCvbzl2e/DI3Tq7+72cocutjf2ypilPYeX7GkDIs1dogDDdbKhbFjoauXn6ndD4vAC6fPfvckjOikpoWQO135tNGx43YmGH9bjejvvdvXUesfWAl63nG4nPC6DsaHSvYCW/8aoBVL2vX0TnUGEpCjwurP/74nh+1J2Euo+x7y2Jb+oD0Nlou8BotPGt4lQ1vwZavM9v4+c3ZsVtPLYWCj6w0KFNi6lpqnZ3zNr7n8LnBVAQhR+ZCm7cZGuamlZnBubxRxQ+yLzUPGQAFWFoM7Bxk7NpqvjDDjS5op9PAeouFbuPt2lqOsWOoFWAmmoCdDIabQ8+FSAqJ3vnePDXi/0+sfwEBgiyNgczIsNqAHR09z+3touWkT5RldPq6QPbNhX4+1SAWqoDdLm1bVpEzgYaZunKabBxU2TbZqSAgGepMRUNoKEx7kLbNuMETKgGyk7MKexya6BVjbKcmqexeuMm+BBO8Wh8yQD0g25RwmPUvIg+s7XK0pZTnZRl25Tb5a0CJAkgq4jLqaN1XHLbZpSACtCQVibLFN22GSVgQgBdbs17FoW5iC7VbB13fzqjAMkBaK7Ld5vtsrOHZvn4UgzlVG8dl944HiNgcgDNuyAtZBbcPV0sWchRTtNFz03xjeMxAiYIUOMUVqza/DHvortl63gCjeMRAqYH0FFPDfRaLurwpaaLHyoqxbuIbvVNC7LoLr51XGsghhqo6HHvDlCnZu8fZudv8a8bn0bviggBUwfoPK9+zGmMG6BUfAITigHo+m8+GY02z4p2BzPYeTs72sxOyn4Y+anozrPiR32/y/e+2dFzegFQ9RCo/RwoVA2Uik9gQvsAmq6oBpAZkHH/nqlrzHMb8+u9f32v+uJNDTQHqr7f1t0Xqw3t9ifR55PJm1UFpABJTGgfQMM10H7xv3zqd5mzc7JsBS2xyrfW9jM9NcxLV4AaillOMnwCE+oN0FFx1qnPPmXqm+J+qg5QsWt7BH0DoGLmj8BNGan5BCbUEyBTsxTnrN9cdEUtzmjP2vu9u2+pga73Nq/3tgenaYhZTjJ8AhPqCZCBx4xx/sz3FnSU10Bnd180QLvXaqVoA2TQmdsUIDkB+U9hJ6PRj/36b+1tL7/5673iLmxjv1kD/cbQXVgJUH7hHahLa6I+gQnFAIRQu5V9FaDsqKBnaFxPzHKS4UMbx2zx6AAqL4K7x8kDADJzEh0NDrOnyG/aPjxASILE1EDd0tv4QMZxhqyDFCCqcpLh8wAIVwklBNDggJ65KPKbtg9pHM99CIISAsjcz42G5+qkyG/aPj+AEASlBFA2n89KL6LJjeOFz5mgxADKdaTPgciNS4CcCUoMoKPhSe8p8pu2D2Uc132OBKUEkOX8lSlASGMDIMebsYQAAsx2T5HftH0Y47jtcyEoIYAAoshv2j4SgFwIUoCoykmGD2Ecd/jgBClAVOUkw0cEEJwgdoBWhmA4jMlQgAIYx90+KEHhayAFiNNHBhD0ZowHoNpwnZyXi8/87bINwmVQjwLEb6ww6fCBCMIDNF7RD7qG9Zh/9+sdUR0G9TgDpHLWGPmZr2w1UL1PdNEt+o3aqDDooB6tgdiNi1qm0weog7hOYcMAAQf1KEDsxmGAAATFAQg4qEcBYjdaALITFAUg6KAeBYjbuOSjz2e7GQsPkMOgHgWI22gHyFYJCXkS3T0mQwFiNtbYGPANEhQOIMSgHgWI2QgDaJAgITVQnxQgTmMdjEHfAEEKEEyp+HgAGiBIAYIpFZ+LsUGFxdd7M4YFKJAUIEajC0C9lZACBFMqPgdjkwi7r5sgBQimVHyMAHUTpADBlIoPbmzhAPF1EaQAwZSKjxWgLoIUIJhS8YGNbRZgvtWbMQUIplR8zABhfDxkAKUAMRkRNUm3UwGCKRUfP0DOd288ZAClAPEYV6+G2R5AKkBJ+UIA5NCGVuwRU8kDVAxXCRiP8Xa87od0RFvsEVOpAzQufIuBT+zxAgFk70tdP3JMJQ7QuOUbg1GSDtDQgMT2kWPKDtDNgdj1wsbjfp+NJFaAcE0S3QdJHqDnu8Wyl3PZsx0QoNVpdzr36iZJPkDds3p0HTmmrAAt14w3suc6HEDQ8l3s30CJEyBkq3r3cVIHaPbo2+UpjHHdeIw8xpUXFNGlZPX4ZAfiTCWN7AA93M0hkncKg19j9sTjWz0H2zGs+1jp10Ail/12uMvti8e2eg4lQOVzikExIzIs+zXQVwUC5PScrS8eF0Dovs1YHzMiwwLdhUk7hbk96e+Nx7T8kgLU1NXjyVuLGzGK/Hr7HNsa++OhCLIFpH7wlDxADVHk19fn3Fe9Px5HI5oCNCSK/Hr6iB4IcgHUe0gFyIgiv34+bE/R7nj0C8ApQIOiyK+PD9PnfDAe9QJwPmPcsT4eMoBKCyCCRu62j3gBOAVoWBT5xfto2ihbPtIF4LymacH6eMgAKiWAqNoomz4FyEsJAUTaQlDzEa4g6DfTGNbHQwZQ6QDE94DXjSAFqKFUACLvWVj3kS1BqQDZRJFfjI/35oYKIM/ZVrE+HjKASgMg7mtTojVMFSCrKPLr7uM/M5CMB/KdMBzr4yEDqBQACvGHTbGGqQJkF0V+XX1hvhf/NUy917zA+njIAEo8QP5rkcB8ChBO0gFiG2G64oMS1Es60oeNV9sjpoQDRLEeG9QHJEgBakg2QIDvlDAejKDoVeXqHjElGiDINxo6ngLUlGSAfL5PlM8jYMhz7coeMSUXIOBkP6FPmQpQU2LXjY8zKhwbVf4Ydi5JrYH8H8vgfMiaJOzVfnuPmBIKEEXLAsqHAyj01X5rj5iSCVCAuQ6xj3MUoKZEAkTUuwLnQzwQDH672NojpgQC5DZrb+jGWwWoKXkAEfZxR/qcm/8VILD4y4l0lA3O5wpQhAdWzT1iShpAxANFcT7HHmwKEFzc5UQ9VB3pc+pD69mK7+/jIQMoWQDRT5aB9Ln04leAHMRaTkEXTSEDyLcjmr+PhwygBAHENGUhzgcfiKYAuYixnNhm3cX5oBNFxWq0q+8RU2IA4pv3G+kDjqVWgJzEVk6A+bRJ4wF8oNkcorX61veIKSEAQWb0p4ynAFFJBkBjzvJF+wATEkXsNlDbI6ZEADRG+rDxoD77lGgKkASAxkgfNh7cZ5uUMWq/k+UeMSUAoDHSh43n4FOArIoP0Bjpw8Zz8g3PKxy549Jij5iKDlD1JcgEqIMRBaih2AAtvgOhAK1CkvV/RBLQ3cdDBlCRAVp+B1IBGlicQwHKYgNU+wrSAyh+39tqj5iCAHRzsFu9pC2n+lcgFqA2KApQQxCATic8ADW+AbkAtUhRgBoCADT78CssAPV8L44K4eskXUDv/2qPmLIDdPPp0/kp7LVchJFTmo+gK60ppZ9RdoBOd1iugfpvbtwUxNdxsSZi+Ei5R0xZAZo9eskB0MDjFTeF8a3eLipAc1kBOp0Y7ZTvqMpp8AGvkwL52g+shIw/mu8RU3Fu44ebmJwUytd6ZK4AlYoCkK2R20VxABIzgK3YI6ZiPIm299NyUDBfo9VXAaoUASBAT1EHhfPV+p3IGQFZ7BFT4QEC9VWHK6Bv2fNNAVooOEDA4VZghfRVfW9RY9gUICPv/EIHfIKlAK0VQPAh51AF9c2Hj4gaxP9qrQBymTUFqLC+sQLUUlCAnOZtAiqwbyxuFoh1AugW+BSglkIC5Dj1IEyhfahZsHwCKkCVnGfPBSm0T948NOsCkPv83SAFB0heQnnIACoYQIgVBEBSgNYDINQaJhApQGsBEHIZLoAUoHUAKOp6bLQ+gQnlIQOoIADFXU6L1icwoTxkABUCoMiL2dD6BCaUhwygAgAUey0SWp/AhPKQARQ/QNGXkqD1CUwoDxlAsQMUfyUAWp/AhPKQARQ3QAImcqf1CUwoDxlAOQLkKh1AftvFWwOJmEaZ1icwoTxkAMUKkIxZcGl9AhPKQwZQnAAJmcSU1icwoTxkAMUIkJQ5KGl9AhPKQwZQfACJmQGO1icwoTxkAMUGkJwZ4Gh9AhPKQwZQXAAJmn+J1icwoTxkAMUEkKTpc2h9AhPKQwZQPACJmv2E1icwoTxkAMUCkKzJK2h9AhPKQwZQHAAJm3uA1icwoTxkAMUAkLSh47Q+gQnlIQMoeoDEjfyl9QlMKA8ZQJEDJG/gJq1PYEJ5yABKJ1eQHlABoionGT6BCeUhAygFSHpABYiqnGT4BCaUhwygFCDpARUgqnKS4ROYUB4ygFKApAdUgKjKSYZPYEJ5yABKAZIeUAGiKicZPoEJ5SEDKDtAs4cTpmW/k/QJTCgrIDZZAbp6cpjN3j8s38UsJxk+gQllRmRYVoDOH+Q/nldVUMxykuETmFBeQiwCXQOZWoh83XjVrRBszdQd+06VsIyl4ksnoWEEAOjqsQM/yZSvAkQjyF3YrnWfmlIpXwWIRlaAHPlJpnwVIBpZATqdGLlBpFofMc9QprrtUoBUXlKAVF5SgFRecgeobFy9ejx5++XiXa3FtflB6fnguNjwuWOcL9+C8r2FiFds+TVMBn97YiKiEvrmoXs8Gbc3zgCVjas3B7vZ6YPqXa3FtfnB3HNuyvXJ4fnkJ77h7vvLPzyc/d6vPHX2/cXnj2e/81nneGbL6eQXMRn8q11cweS+3/3p7zsntHhh0IoqZ4DKxtWrj4/Nn0H5rtbi2vygsDx/8ztmQ/7rV7/s7vuZfMvzj77uHi9/9W+f+3dXX57B2Ydf+QiRwZ/79BBVMD+bf4DwFZ89qbpJRBPqGihP9+zRyyr5zV+rH2TlqSHLfvQL30D58lrouyjfn30WEe/m06cHX0RkMD/VTCZ/5O6bPfr25Mf/BFUwpw8s3xS/MACZxlVTd87zUza1Vi2uKx8YzfN78/c/f4zyHXxhB+P731/+yUOE73Tn//74lxAZnL3/9OD3P/1Hd9/Dvz740qP/QmRQQAWEAahoXF38XZRNrcWv55PJg+YHZktW5vfq8Zc+OEb53tnBxdu5evJdZ9/s0X8//sIuMmD2/GvuAT/8U1RCJVwB4e7CzIm4PDNXTWXLFrPWB6VnviH/hfG9s4uMl5f3151985ubnXABf/TOn+eE/JOzLw/m0k2CSc4Alfkw1Wl+Bl7JbuuDypRXPfmG/BfCZ/jBxPsp85f71NVntpgbH1zAm3/4D3ffR6a++75zQvOLtfhnMHeAqqcP86cT5bv6I4nGB6Upz+98w5eRvskuzvcHzvE8M+geEFswMi6B9Em0yk8KkMpLCpDKSwqQyksKkMpLCpDKS+sE0NmdZ4vX//MvERNym7SmAF28vh8zJbdICpDKS+sC0OXWaOOTHKCL+6PRaNP83Myu90Yjw1SxbTt2ChPVmgB0ubWZ/7/z7HIrB+XkzjNTA13v3ctf331R1EYX95UglNYEoOLslYPzwxdZcf4y0BTbcqIu3nhm9av6tCYA5RVNDo4h5Sw/XW0UAJ2MCm1mR6PRvdgJTFZrBtDl1sZ+VQMV2+bKr5DuaDWE0poAVJyu8h9nBpqzeQ2U/1ruUFwcqdy1JgBdbt0rLqINNBf3N/YNL9d7OU35hgIuva9Hak0AWtzG59c7G9/K6TnKL3vMbbypheaXRbFTmKjWBSAVkxQglZcUIJWXFCCVlxQglZcUIJWXFCCVlxQglZcUIJWXFCCVl/4fwSnPV1C/EdcAAAAASUVORK5CYII=" /><!-- --></p>
+</div>
+<div id="plot-the-24-hour-temperature-in-celsius-for-a-specific-day" class="section level3">
+<h3>4. Plot the 24 hour temperature in Celsius for a specific day</h3>
+<p>The following exercise will show how to get hourly temperature in a day using the get_history_hourly_weather() function and plot it as a line chart.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>temp<span class="ot">&lt;-</span> <span class="fu">vector</span>()</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>hour<span class="ot">&lt;-</span><span class="dv">0</span><span class="sc">:</span><span class="dv">23</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(hour)){</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  temp<span class="ot">&lt;-</span><span class="fu">append</span>(temp,<span class="fu">get_history_hourly_weather</span>(<span class="st">&quot;London&quot;</span>,<span class="st">&quot;2022-02-14&quot;</span>,hour[i])<span class="sc">$</span>temp_c)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(hour,temp)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>hour, <span class="at">y=</span>temp)) <span class="sc">+</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkAAAAGACAMAAAByRC0tAAAArlBMVEUAAAAAADoAAGYAOpAAZrYzMzM6AAA6ADo6AGY6kNtNTU1NTW5NTY5NbqtNjshmAABmADpmtrZmtv9uTU1uTW5uTY5ubqtuq+SOTU2OTW6OTY6ObquOyP+QOgCQkDqQkGaQ2/+rbk2rbm6rbo6rjk2ryKur5P+2ZgC2///Ijk3I///bkDrb/7bb///kq27k///r6+v/tmb/yI7/25D/5Kv//7b//8j//9v//+T///8nkA65AAAACXBIWXMAAA7DAAAOwwHHb6hkAAARcUlEQVR4nO2dC3fcthGF6WeStR03cupX5dZOG9W2GmktyWvx//+xLvfNXT6AwcxgMLxzTuI43ut7AX4CsSQIVjUKlVBV7gCosgsAoZIKAKGSCgChkgoAoZIKAKGSKhSgeU/1/sFAUTRqRu7CCTUIADFqTIcDQLpG7sIBIF0jd+EAkK6Ru3AASNfIXTgjAKFQnYURiEFjOpyREYgznrtjZDocANI1chcOAOkauQsHgHSN3IUDQLpG7sIBIF0jd+EAkK6Ru3AASNdILVyl5AOAdI20wlU1gSBDDQJAjJp4UVXNARA5HgCqVpp4ggw1CAAxamJF1VoDgIjxpg5QtdVEE2SoQQCIURMlqqq9JpYgQw0CQIyaGNGOGQBEjjdlgPbI1O3fMvukaQCQriZcdABMffw/OH0SNQBIVxMsOsQFAJHjTRWgqkXLRhNFkKEGASBGTZjoCBUARI43TYCOSal7/n+qD4cGAOlqQkQnnNS9f5Lkw6IBQLqacVF1SgkAIsebHkBdjNSDf0rz4dIAIF3NiKhj+JkDoIR40wKoG5+WJpggEw3afAIA8WkGRH34tDWhBBlo0O4TAIhP0yeq+vEBQAnxJgLQED3HmkCCDPU2AGLUdIlG8DnWhBFkqLcBEKPmRDR47urUACDWdBmNGMIF0HNqRNEEFQDSNUoOF4YPAEqI5xmgUHw6TnsEDcWHSQSAGDU897UCtIZ6GwAxarai8OGnywgA8aXLaJQQLnV5auw3N6oPiwgAMWrWovQnLEb/BkO9HQDQ3avZ868AKFTE8IyXL4AW7y7qqxfXAChIFDX96TWKu3pN92EQjQN09/q6XrzfDkGc8RwCxLRViyuA9iPQk2X1fQqvSmiKrRfK686BxIu3s90ZrH8EUtomyfQIVLEZjfRmUSPQ3e8X9c3z8VOYzi43lgGqGI0iloAk+SSLxgG6WQ4/zWlsDKD4+aMvgJrmA6CEEWiusseEWYAqZqPBviwKoPpmNnu2HYBGvoXJbxFgFaDdbmNcRo4AatWIk/gT3kYBOthtjMtoqCv9AiT+hLdJgHazPwCUDJD0A7oWATrabYzLKPBJjmSfNBE7QAlLqcREspqT3caYjKYKkOzTTRMCaKAfnQMk+XSTPYBOt6vjMpouQIIPp0wJoP5udA+Q3LMF5gDq2u+Qy2jCAIk9WzApgHp7cQIAhXwZA0BjmikDJLQw0xpA7UayG43vKcTjQxcJAiSyrg4AifjQRZIASSyLMgZQ957PjEbdXTgVgARWtQAgGR+ySBYg/kUJUwOouwcBUGA6JpGYpm/XeUajiQPEvigBAAn5UEXSAHHfUzYFUP9rCxiNhjcn5/MhisQBYr4lCICkfIgieYB47+hMD6Cu/gNAgemYREKagRencBpNHiDWOzoTBEjNhyTSAIjzgrwhgNRGBgDEeD11igApzbVoIh2A+K5mACBBH4oIAFE1ml+vFS5YUkVKALF1NwCS9CGItADiGvDNAKR7i0H+pi1VpAYQ03cJACTqEy/SA4hnKmgFIO11OsIrH+kiRYBYzuQASNYnWgSAaBr1lYKiT38kiDQB4jiTGwFIf7E7AGoqfSCeLECSj1CniHQBSv85sgFQjgf+ANCqUrthugDJbSOTJAJAFA0A2n9CGaDUbjABUKZdM4S20ksTxQKUXuW9BuKkMjXBdM8pvnBu94NU6giUbeewpJ4zMgJxxNvu/AKAIjUAaFv0fd0nDdDOefIA0d8sYQCgjNvvAqBdVQQNyYhfk3P/ZoFXKiSKcgHUTITKBCjvKwjoJ39vAM1p7/cDQDo+waKMAEW9mCXJyBFA9NmjQ4Ao71nNDhD7jkdas0ePAFHGIACk5BMoygtQ/HtWcwPEv+tj/NcPAHSoiSUIAAGgtiaSIAA053y9eLIoP0CRBOUFSGDna60LIH4BipsIASAAdKqJICgrQBIvb9C6guYaoIgeAUABObh8ygEovEsA0Jx2CRYA8RilaEZD6oWLJ8g5QME9AoDmAKhLUwBA4xEVw6lcwi8JoNAeAUAbjcYl/KIACuyRfAAF5ANAAKhfYwwgjXtAZQEU1iPZAApJB4CyAmTvGB2WvXDyNxEBEJ/G4vAYRdAUADI3zTgoANTzCQAUpLE5w5dexlAcQMYutRyUTYCklzGUB5CluwWHZfUqJwA6LgAUp5FdB1MgQHZWTBz+xu6NOgB0XAAoTiO6DqZEgIwsO25pTC9WkoS7SIBMPDkDgEJFAGhcY3zBtuAEv0yA8j9+fqQBQEOfMAhQ7h1UjjTmnzmSu8jJAtDVrKlzACRuRNUYB6ipmxfXmgBl3YbwWFPAY7NiN3q5AFq8u1A9hQGgSI3UOhgugK5+Xf3yZFmDAxVf2dnV306SgTIQcijCwQCkNAJle5/JqUZ8zQ2LRmgdDNMItJ8BTQ+gQvaesQ3Qlzf7/+aMN6jp6xIA1KmRWUjFA9D9H/szmB5AfV2ie4yK2T7NMkCHUyAAJGSUrBFZSFXqleh1dXeJ6jEqaQdQiXUwAChRA4DGP2EXoO4u0TxGZW1iLbCQCgClaQBQ2QB1doniMdLZxIlPw7+QCgAlaQBQ6QB1dYneMVLayJJRw74SDwClaMoDiH0hVfEAdfSI2jHS2ovZJUCX1bLOAJCKEaeGeSEVFaDLh5/r+vvLX/IDdNojWseIwg8AWtf3l6vB51uDEQCSNuLV9MeeKEAnPQKABjUmAKq/Pfho5RSWC6BC30nOvBKPPAJV2zoZhDjjhWmOegQAjWg4V+KV/zV+ngkg2lslAZBFgI56BACNaRhX4lEBun3aff4CQOxGLgH68eGxpRGo3SMqx6gS628NDd9KvLSv8QBI3khEkx2gHx9sAdTqEY1jVBF9jADEtxKPfB2oa/YDgPiNpDRcC6l8TKLnrQ4BQCEapnUw5FNY1zXo6QBUUX3sAMS0jMHJJHp+2B8AKEiTFSBzk2hdgCqyjyGAeJYxkOdAP9uaRM8P+gMABWo47kKTT2E9d1IBEKuRsIbhJqKPe2Hr2naHllH5ADHcAwJAdCMHAKVfwicDdFlVZ5eP/rIEUMqBpZwrAVCYqBOg/z7638uz7luqdKdUDQCK16RewqdfB2ouBdlYE70v+uR2sgClXoEFQNFGSd/27AGUeAGNegq7bE5hRhbVHxT5CvGEARJvUCdA9bfmMlDnDTG6U7pGASDxH1h9jfA5uRug/qI7MWiod8kBENGHPgdaDUP9q4IylfiO/gZeGcBfOo0y+2Rqq4hLTQ19acmhEb03cwrQ5e6pQlvXgZoCQCSN5PqUgRGos+hOLBra4zaGrrvl0QgusewCaKjoTiwaAETTyD1mUhhAtGfWDd06yqQBQNsCQDSN2KO2pQFE2rcHAMltNwKAev5mbwBJ7ZhVHECUzS8B0JzWcQAowkhnCXFGDQDaiITeQOAeIJmd0wHQtgAQyahAgGTewqT0GFVWjcSPXokARXcEAJrTOg4ABRtpPQmcVwOANqLIjgBAc1rHAaBgIwBENCoToMiOGDdS2w0lt4b9R69QgOI6AgDNaR0HgAKN9HaEy64BQJtfYzoCAM1pHQeAAo0AENmoWIBiOmLMSHFXXAMa1h+9ggGK6AgANKd1HAAKMtLc2N2CBgBtKrgjho2qqQHEOHYDoB58AFCoUckABXdEr1HVh49vgLjG7tUnSgYotCO6jQbo6dWQjAxqkn/09p+YKkCD9PRoSEYmNQBoU2EdcWI0PPh0a0hGZjVJY3frE9MDKICeE01gAaDSAArriNb8ka3rmESZNMSx+/QThQPU2xFVT6mGs6yJ/tHr+YRPgNqgZAtnWQOANtXREcfjDADq0vDMBB0CdHqaAkBdGgC0qVZHdM5yAFCnJoCgSQB00BE9c2QA1K0ZJ4gFoPtPs2cXJQDU+xULAHVrlAD6cl7fvLg2DNC6Iwa+oQOgHg3D9fhxgBbvvxo/hTX9wH5jFACFGY0DdPf6P5tT2JNl9Q9UOaty+Y4CheLrtwGAXp0vITJ9CrOiMR2uUzM2BPGMQNf14t12Fk134tGYPkamw3Vrkhe1jAO0+AcAsmZUFEDNtzCcwmwZMWqGCWIBaPF29nz3RYzuxKPJ3d82jMoCqFV0Jx5N7v62YQSAyJrc/W3DiFMzSBAAUtWYDgeAdI3chevVpF3DB0CMGtPhAJCukbtwAEjXyF24fs0AQQBIVWM6HADSNXIXbkCTspIKADFqTIcDQLpG7sIBIF0jd+GGNAm7JAEgRo3pcABI18hduEEN/XkWAMSoMR0OAOkauQsHgHSN3IUb1pD3qgVAjBrT4QCQrpG7cCMa6q4CAIhRYzocANI1chcOAOkauQs3piG+MQQAMWpMhwNAukbuwo1qaG9NA0CMGtPhAJCukbtw4xrS7pIAiFFjOhwA0jVyFw4A6Rq5CxegOSUIAKlqTIcDQLpG7sKFaAh7/AMgRo3pcABI18hdOACka+QuXJDmmCAApKoxHQ4A6Rq5CxemiX7TGgBi1JgOZwQglO8ic4ARiEFjOlygpj0E4RSmqjEdDgDpGrkLF6qJfN81AGLUmA4HgHSN3IUDQLpG7sIFaw4JAkCqGtPhAJCukbtw4ZoDggCQqsZ0OACka+QuHADSNXIXLkKzJwgAqWpMhwNAukbuwsVodgQBIFWN6XAASNfIXbgozZYgAKSqMR0OAOkauQsXp6lCRQCIUWM6HADSNXIXLlJTBYoAEKPGdDgApGvkLlyspgoTASBGjelwAEjXyF24aE0VJAJAjBrT4QCQrpG7cPGaCgApa0yHA0C6Ru7CETQVANLVmA4HgHSN3IWjaCoApKoxHQ4A6Rq5C0dqUO8L5fd/LQDi05gOB4B0jdyFozVolCAAxKgxHQ4A6Rq5C0ds0BhBAIhRYzocANI1cheO2qARggAQo8Z0OACka+QuHLlBwwQFAHQ1m82efwVAhozKAujLOUYgY0a6DRokaByg+z8uAJAxo6IAWrxdnsJWg9CTZfUPVCi3FTJB7v/M3e8XB6MQJ9/ufshNh0to0NAQFAjZbh7EGc/dMTIdLqVBAwQBIEaN6XDZALp5cV3f/xtf4y0ZqTeon6CAEehqNnu2+yLGGc/dMTIdLh9AreKM5+4YmQ6X1qBeggAQo8Z0OACka+QuXGKD+ggCQIwa0+GEGgSAGDWmwwEgXSN34QCQrpG7cABI18hdOACka+QuHADSNXIXDgDpGrkLB4B0jdyFA0C6Ru7CASBdI3fhAJCukbtwAEjXyF04AKRr5C4cANI1chfOCEB9pfbAmJYRGhRXACiTj5cGAaBMPl4aBIAy+XhpUCpAqIkXAEIlFQBCJRUAQiUVAEIlVRJAi7ezF9dcSYaqtV2jXN39/atOo1ZG4o26e7XaIUy2QSkA3X86r69+ZYsyUK3tGsXqpjmeGo1aGYk3avHuotklTLhBKQAt3n9d/yxJV3u7Rqn68uzPZWMUGrU2Em/UTUPNl3PhBqUAdPf6eoW5eO23a5Stpp9VGtUYqTRq2RLhBqUA1GxBpQJQe7tGQZ/lcVVp1IpUhUbdf3oj3aAiRqBVKcyDVEegVck2avH2jfhRKmIOtColgFQapQPQ3avmbzc8B2oGSJVvYe3tGuWq6WeVRm3PlaKNWvMj3aBirgM905hraV8HEm1Uc52pmabbvQ6EQgEgVFoBIFRSASBUUgEgVFIBIFRSAaCxuv3pY+4IlgsAjRUAGiwANFYAaLAA0Fjd/vSvqqrO6vrHh6p6vAFq+a/bn/9ZPfycO132AkBjdfv00V/15cPPPz48rpt/dgA9fZw7moUCQGN1+/RsBcy3ZrhZ/msP0FnuaBYKAI3VFphvy4FoBc4WIMyNmgJAYwWABgsAjdUOoAcf26cwANQUABqrLTDbSfT3l78sf30AgNYFgMZqC9D2a/xyVl1Vv/0NAK0LAKGSCgChkgoAoZIKAKGSCgChkgoAoZIKAKGSCgChkgoAoZIKAKGS6v9YSWRCDTMncgAAAABJRU5ErkJggg==" /><!-- --></p>
+</div>
+<div id="plot-the-moon_illumination-at-beijing-on-same-date-of-different-years" class="section level3">
+<h3>5. Plot the moon_illumination at Beijing on same date of different years</h3>
+<p>The code below describe how to get moon_illumination at Beijing on same date from year 2011 to year 2021 using the <code>get_astronomy</code> function and plot the result.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>moon_illuminations <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2021</span>){</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  year <span class="ot">&lt;-</span> <span class="fu">as.character</span>(i)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  date <span class="ot">&lt;-</span> <span class="fu">paste</span>(year, <span class="st">&quot;-06-06&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># get astronomy data on desired date at Beijing</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">get_astronomy</span>(<span class="st">&quot;Beijing&quot;</span>, date)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># extract moon_illumination </span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  moon_illumination <span class="ot">&lt;-</span> data<span class="sc">$</span>moon_illumination</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  years <span class="ot">&lt;-</span> <span class="fu">c</span>(years, year)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  moon_illuminations <span class="ot">&lt;-</span> <span class="fu">c</span>(moon_illuminations, moon_illumination)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year=</span>years, <span class="at">moon_illumination=</span>moon_illuminations)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot moon_illumination</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>result, <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>moon_illumination, <span class="at">group=</span><span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Moon illumination at Beijing on July 6th&quot;</span>, <span class="at">x=</span><span class="st">&quot;&quot;</span>, <span class="at">y=</span><span class="st">&quot;&quot;</span>, <span class="at">linetype=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkAAAAGACAMAAAByRC0tAAABJlBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZpAAZrYzMzM6AAA6ADo6AGY6OgA6Ojo6OmY6ZmY6ZpA6ZrY6kNtNTU1NTW5NTY5NbqtNjshmAABmOgBmOjpmOmZmZjpmkJBmkLZmkNtmtpBmtrZmtttmtv9uTU1uTW5uTY5ubo5ubqtuq8huq+SOTU2OTW6OTY6Obk2ObquOyP+QOgCQZjqQZmaQkDqQkLaQtpCQttuQ29uQ2/+rbk2rbm6rbo6rjk2ryKur5OSr5P+2ZgC2Zjq2kDq2kGa2tpC2ttu225C22/+2/9u2///Ijk3I///bkDrbkGbbtmbbtpDb29vb/7bb/9vb///kq27k///r6+v/tmb/yI7/25D/27b/5Kv//7b//8j//9v//+T///8mkre0AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAYdUlEQVR4nO2djXvdtnXGqTSbpi5LE8uJ7e6jW+Osib20ctcui92u9rq2aWTHXRvFkiLL4v//T5QAycuPiwMcfBAAwfd9nuReX748PAB/AkFe4KKqIchDVeoEoHULAEFeAkCQlwAQ5CUABHkJAEFeAkCQlwAQ5CVbgJ69+3n37k8/vMXZ4c2jv/mm/0/nUW64/Mev6I0Kb6sXldR7X86P8fruITucQq/vjkusCvTdz6vqez+2THzdsgaoOvhCvrk8qpYH6MVb/PMgvN27FqBq90F/jKUBen1XHvcju8TXLWuADt5pa/HF945YAAmZACL1YsIA19u+e/O/4kyGlBGgZ9X739SXd5vPARClZ2/9QlbLm0f/LAH67l5VvS2vFf27pt5+90518KNuh3EL1Fbpm0eHTft16+VR4zk/qt77pvfsdnv5TiXevXnU/Dnfancios+87UcdSpe7BN/9ctoCTY51VB38S5NRJ/I4dQvQUATx7lwy2oP1+m5HzC7xP9+bhShP9gD94fviGnb5938Q56cBoJG4qu3eydprG3IhCqAfNP6D/xI79Sd1t1t3CfpoBBAVfebtPmtboN+KtC6HHccAzY/VA0QeR2gfIBGw2am7qp8PZW4Tf/vePER5sgfoj4/EeXp2KP7Am5r6sTgJ8pwM7w6bNrw/JxRAjf2lOOWXR/22frc3j976Upz5w6EroYk+8bbq+0C3xPaDZsc/HR3OAeqCvL578Hn93aMhHHEcqX2AmupoDvqsa3jOD/77/47aTnSbeBOn/noSojzZA/SVqK/Xdz8SAMkzJzpGXwzvmnP6lahsA0CHXZM/bBvt9v+/+8+jagQQGX3mbdUDJDokbUet2TYFqA9yLlutLnxd646jBEg0Oruu0YuDd3pw28T3Q5QnB4BEi33+1lctQLJ9PhcA9e+GKpYi+0B93T6bb+suO1OAiOgzb6vu3ctKANKq3XHUB+qCvJBXn104+jhCCoAkhN0VrAFX9J5eHjWHHzrR0xDlyQEgUY/PWgYWAai5Gf7BL3//57scgGbeVv07AfvCAPUtct3tJg/fvAAgSuKi33Skm4qmL2EkQG2XQZxGHUDtWZz0gcjoM2+rEUAdEfXeXVgXRHMJmxzn67ZDfqseitA6zqt/293cdwcDQDqJ+js/+Kfm/3QnWgNQJW+4TQA13dfmdlo8Tulun8joM2+r3SVM2JtOctNLnveBhtaO7ERPjnPedKnf/FbcUO2K0Dv+YXfc9mAvj0aJA6C5BEDNdeOw+3tU3sbTAMkrytv39AD1d9DiPChu42fRJ972w74TLc73eX9DpgZIcxs/v1R2j7Z3ReieE74YPfDuOmTt04FbAEil9r5V1FF7g3O5e5B4OTyCIwGqvz6q3vuLqRMtH+Z9LlG9Vx3+RW4gos+8bWekg+LdL/q0xJ01AZB8kPivw52S9jiynH0ROoB2lz/p+mHjEocdEgdABYm6pZ5+R2Gn88IfFJq0KYAmrUX3yd9+U7955g7Bd/e28IWXRlsCaOgl7dT1oVwhEF0j98arCG0IoKaheW8PlDc/b/rM77s2Ig1/73tmtXZtCCBoCQEgyEsACPISAIK8BIAgLwEgyEuWAL3SSLvR177e4IXmAoBiBS80FwAUK3ihuQCgWMELzQUAxQpeaC4AKFbwQnMBQLGCF5oLAIoVvNBcAFCs4IXmAoBiBS80FwAUK3ihuQCgWMELzQUAxQpeaC4AKFbwQnNhAHR1//iD57sXABTHvpZczABdPzypzz789vo/nooXABTJvpZczABdffJt3dAjXz7rm6BwyeVUr2s5abHtQQAaWqC/a0Rf8KA1KPwAVMMl7PbT5vV4dwVDC7S4fdlcqmDBGUg2vedPnzy9+vhpffEBLmGx7AUBJFqhz55ffCivZAAokn3R4FVtRZDnXZjo/Nyp0QLFtZcDUH1xLDs/zcvtvgECQIvbCwJIJdfDedvXGzynXADQCoPnlAsAWmHwjHKpGrsNQQAoh+AZ5QKA1hg8o1wA0BqDZ5QLAFpj8IxyEQDZEASAcgieUS4AaI3B88mlegWAVhg8n1wA0CqD55MLAFpl8HxyaQGyIAgA5RA8n1wA0CqDZ5NL9QoArTF4NrkAoHUGzyYXALTO4Nnk0gPEJwgA5RA8m1yiA4SpzSnsiwWvdvZIAHUzCjG1Oa69HIC6Oc2Y2hzXXg5Aey1Q4KnNWOYlrirl25Bh5+rmNC81tTncJElv+8ZaIHbVe17C2hmFS00srABQ1ODVyB4HoG5O81JTmwPOMPG2AyD74OlbIAAUNfgYIC5Bns+BujnNC01tBkBxgycASCXXw+2pegWAogYHQFbK46S52AEQTwAobvBqYl8/QHJwXKg5bt72zQHErHoAlEPwPHIBQBZeazsAsg8OgGIFzyOXwgBqxzYBoGjB+6ouC6BQc9y87dsDiFf1ACiH4FnkUhhA/cgCABQrOABa4UlzswMghgBQ5OC7ii4MoEBz3LztGwSIVfW5AjR8rweA4gQHQCs8aY52AGQWAIodvCyARk/VAVCU4EM116oPnYKbATo7FjoJP7UZAMUOngYgoYsPv+0Wb14GoDCTJL3tAMg+OAsgMZ2nW3sXAEWyFwXQ2Z16BFCgqc0V+Y9Clb6MygwCpaULI7npF29u5crrSJOn6htogdJPwR0lUKs/dgjOAehCdn3axZsBkKM9g9kDyQA6fdA3RQF/3mX2SCLELFtv+4LBxdDLrQJ0I9udbvFmAORmz2HsbiqAunuvbvFmAORiz2LsbrJLmEKuh1OkvQWA8hi3QgBkzipHgOaPJIoGaPelX1KAxgcvD6AQs2y97QsFH56YAiAAZG8fP69I+aVfUQDtX46LBWjS2QNAAMjWPr1bSPjElATImBQAWsTtdK1OB9DkyACIqeQAzQsKgIIApGpNeVW7MoD2C5rseQUA4gZ3t8c4aQAIALHt0yIlvlZrADLllB1AyrKUB9CsRGkBUsKs3mgVHAAtF1wNUKKClg8Qr2JXBNC8PAAIANnY94qTMUCGnHIDiChLWQDtlyZtQQEQM7iPPWBwRWGSFpTojxGbLYIDoEWCq8pSa7cul4vqkKsGiCpLQQApi7JVgEZz45v/LwhQinpdKPjqANKn5N8CXbSL7opF5wCQ2a4uSG0yLJKL+oiRARLwXIgpPad9E+R6OEWu5QFElGPDAJ3dGUDynhtPHyn55PEwCXCixC6q8XjeCRnnxje6edxPUfVpgagHtOlboKq2m7+uDk6GqDkmQ3BXO13phIEdnANQOze+vn6442cZgBK07GNVwm2DkDI4vf/E7jUO2d5uBEibkC9A7dz4q/snw0e6ZB2f8BsKwQruY686Nx8hAPSKBVA7N37CT8kA+Y350uy7WYDaLlD/OKhUgKqRm9kIKYLzT4PPKEBru67SKQszOOcSppAu21UCVE3dLITszgIACgKQ5ktqQykYwd3t1X4qDrlYfSHgMQbH2s4AiH3xnW8DQMNx7doIyy+UAFC5APWHnZ/ioEQAoBAA6YbJ6AvBCO5sJwAyIeQHkMc34LZ2/V+tOR0ApNfuqKpqZddr4CtedIC4T7Dm2wDQcNBFnwwG/PrA1r4dgGI/X5sdUu0mGyE79AFQAIBUOSYGaHxEyk0gZPcEK+CzF1s7AGIFd7JPDki7lXnV+s3mXCIBZGr2jdkAIFpMgJSN0M7u+s1HXgDxBqLsbYsJkOHvWFcGc3An+/R4+usA/TBlia/OABA3Q7ub4bAAzY5mchN25rf3AKg4gMyDHLQ71OooNrm49Tss7QCIFdzeznnAP99l/6aNyw8A8gbIeDOsK4QpuL2dd3O7t9fsuSObn2QAGe9cjNkAIGY6vOA7hGplELtcnP7q7ezbAijel9Tchp3etbbiZ+sA+Q9pJdJLBBC/WlU7V53dGyCnk2ZnzwQgoQuvZb+zAojRn9dKIGS3ABgAGq36vXqAWFdTvarKbg1LKjqvWhyDU/HD5WID0Fk7w9lxajOzlxVl0m+8OcyxooSJ75ELY9dRA+TSAjHbxygt0NJ/9Tnlkk8LNPSAlgQoxkC95fsdNvYAl9N1AHQ6TI1fN0ARbp1t7BkB5JALH6B2hrMzQOyztjhAUb4+sLH73hHaB08C0LgLtGaA4nwDbmPfCEATaSJmDlCkQVxWdq+HmgZ7KQBZXDe0BAEgy+AAiBHcwr4snY72fACyv5xuDKAIzwhc7B5f7BrstjfmAEhrj/ZVv6UdAJkOZ3PrsxxAUcfLWtldxyYZ7VsEaLF+rvG7TwAEgHR2AMSIbtuhjwOQHRILAWQefJEOIJcB/hy7/bd+AIiyMwbvACAARNo5g78SArSXHwDilENtXwIg1uBBAJQpQLY35uG/7+QNPk0J0DzFVADZPpMCQP7Bw9gBEH245AAxR78XB5DL0LkMAbL+Aio0QNzZE0kBmmUJgBjFoLILDBCXHwBE7LQ6gMKOOmXzkxigaaIAiFEMMruQAPH5AUDETp4AiVnxHzyvbx4f33aameowhgIABQnuVo3BAeqWam5e3ObGpwXIgp/UAE1yLQegbjrP9WfPHS9hSQGy4QcAEbv5AXT9UP6sy9Unv+4uYZZz413mWwebL558JXE7BU7XMZzTbvROVx8/Fa2QWDP16hOHS5jTMECn3p9NnBDBw9tH6ZbTAkmdngh4hrmFuuNnBFBlZ08O0KjcAYK7Pk5bBqDrnwGg5e0lAiRuvW5+9VzchblcwtzGkQKghABZDS1htEBnx7L33HSmP9jdiOkOnw9AleVpSA/QUPCCAFJJd/gQALmMQ1AFAUAuueQEkOtI9q0CtCu4f3D3gZ0AaBcDALnkAoB2MQCQUy4Wg9sAkGPwxexVqOBFAMR4EkzEIva0qNfKzm7tBkByGwByCr6gvQoUHABZuKkIGwbIdiaDZud0AHG+y1wKoMrObu9ezO6QOQAyFMHkpgIAILdcABAA2jpAxL52Z2GdADn03goFiDWcCwDtKQRA9lNh6N23CJDT05RcALJ/BAqADEUwuom9AZBjLlkAxBuQDID2BYAYZTBmp9zd7vuAtQJkPRAFAJnKYHSr990sQIa6N0cfB/AG6ObxSV1f3bcd0gqA3O2Wo7kzB+js+KS+fnhSn1lNbebxswhAjgNDAZA6gC9AVz/5aTsjw25aDwDysTNrjwqeE0A3T37zeAwQd2qz9zxd9wArm9GskmcRole+blrPA9EHkpew2xYtEPdPiI6lisD6Mx52XG8LZPezEPPgpp0ZuYxC+LVATdPTd6I/fQKAYtnLAUj8vtTxsVzye/iJF0ZyAMjLbvfLRjkDVLe38aL/c3an/4SRXDqAmEV3Cx7LXhxA9cXx8e4ungEQu/gAiHLbEJQ3QPsyJxcAIFUMAMQKHgAgZkegQIC4TzCcgkezC7cFQdPgxh3zB4hfdgBEu11rEQDNi8Bxq/YCQO65bBUg9kAEl+Dx7F4dgSAA8b4QyhogRRQAxAm+foCcu39EEVhuxT5rB8jtaZp5JwDE3AUAeeQCgAoAyGlQzPoB8ngEpi4Cy63YZf0AuYzrDAQQa1xnaQDN9gBAPrmsH6D9QNsDiFeZ4+CMHQAQcwcA5JNLMoB8BiKoi8Bz7/tLAIhVnQBIXwSeGwBx/cxcKrMbADm7owFkS8TqAfIazasugqO7EIDsbqtsGyyNABAA8solDEAXctHm/gUAxbFP3TbfjuYG0NW/P6/P7vQvWQPk8t2ru3sDAHWx/C9hgp7hxQCQHT8AiOW2GOScI0Bd09O+WK7a7CmLzlkBE5pJJaoGfiztjyvcl1OauxepEHTz7BaPlh0ncbi6o7ZApnbF48G1TqFaoO5nOZwW3TUJAPHcejAWAqiNFuA2/vRk/JInQKqaA0CeuQQASKza3DQ93QsAimTfd2vJyBigftXm7gUAxbEXBJBKQZLj2blDDJUVVxJAWjRqjskhFwAUMpWY9kwAkvEAUKBUYtpVbg0cAEhbAoZbXXFlAaShAwBpS8BwAyCTxS2X9QM0rZJtA0TjUZsMrrlsBSCi4gCQdy4VAAqXSkQ74aYAAUDaEpjdAEi/3T2XbQBkqtdAqUS0O/6lACB1EUzu7QCkv1vgDuYDQBqLey4ASH3A8gEy3pyESiWe3e2ROwBSl8DkBkAASFsCk3tTAOnGrQAgdQkMbsYT/kCpxLPr3OTYXfaEGKtctKsnrgGgcb0AoFcAyNoOgGaiJsABIKIEejdnmEyoVKLZCwLo6v7x8YlY8ynJmGhZAr17ewDtFzljgMRUjKuPn4opPRdWy34zBYAc3FEB0o+lNQJ0IeYzn54My13GB2hUAoWbNVQ4WCqx7Aa38jcD2PxEBahrha4++XV3CYs7N15Km13JU+JpqUqdsiYMS14+aHpC7drxrcLRjRbIza2aL7dUC+R7F3b98IFc/TvJzFQpHUDM+XahUollN7oVY8UzBUi0PQ1FPwNAMe3lANTyI39YIdklbKiaPTf3NweCpRLJbvcNj7Tz+YkK0Nmx0ElzIeP+RqJVcgDI1b0WgJQKlxwAcnbPv2QGQLRIgAyVVjRA8wesAIgWAFIJALHtAEipyd2pBT/bA2hXO7X64zC5ACB7NwBydmcA0KRlBkA6ASClAJAfQMY6Kx2gcb0AIJ0AEKGqt9vws0GAhopSfBgqFwBk7141QOY6Kx+grhIAkEkAiBAA4tkAEKWqtQMgvRQAMaoMAC2dCwByducCkKyHoMtE2rhXA9DuWj//JEhwF3c2AImKAEBG7QHEqTIAtHQuAMjZnQ9A4hdYMgaom9rMX/bbKjkAFMCdNUDd1GaLZb+tknMGiFVjGwHoVWXHT1SAuqnNsi1iLfu9VL1WUzcAGilngPpWqE6z7PegSvvPjSt5bRinNqda9nvQtAXi/cltpQVKlwsHIDm1Wb5JNTNVCgClsnvfhfWLfadY9nsQAEpl9wOo4yfVst8jVSM3s9NY5kmLbfcDqJ/anGjZ75EAUCJ7GU+iAVAye4EAcR97lHnSYtsB0CJuACS3ASBXNwCS21YEkBy20L8JHtzaDYDkNgDk6gZActsaAUrxW4Cx7WvJBQA5uwGQ3AaAXN0ASG5bE0Cv2sXzkvwSV2z7WnIBQM5uACS3ASBXNwCS29YHUJrfwYltX0suAMjZDYDktlUBJBfPA0Cx7WUBlOhHBGLb15ILAHJ2AyC5DQC5ugGQ3LY2gFJN4Y1tX0suLIDkjNSEy34PAkAp7L4AXchfVUi47PdIlnN4yzxpse2eAJ3e/p+mBUq67PegZHPAY9vXkgv7EpZ02e9ByeeAQ2qZAUq57HcJwQvNhQ9QymW/SwheaC5sgJIu+11C8EJzYQOUdtnvAoIXmgsfoKTLfhcQvNBcWADtK1xyOdXrWk5abDsAyiF4obkAoFjBC80FAMUKXmguAChW8EJzAUCxgheaCwCKFbzQXABQrOCF5gKAYgUvNBcAFCt4obk4AqST5WAhO/t6gxeeCwBaOnjhuQCgpYMXngsAWjp44blgrDHkJQAEeQkAQV4CQJCXABDkJT+AuqXlrx8et5Ofu+Wdh1WeGfbuQ6Z7soo9J5ebx/zgYok0dXSlffKrAUZ7v/4av1psCsq1z3dmuekz6glQt7S8OEdnYmHndjJ9/8Kzdx8y3dNV7Bm5NOdNdc7U7lMlazr7hfI0ULmo7WS1nPGDXz88YdnnO7Pc9BmtPQHqlpYX0+fFmW0n0/cvTPtoeXpO8Jr6ayDsVz/5qYoKpfvmibo9IezTXw3gpD7MrzO65XxO5QFoOyP6bGeemz6jdYA+UJP2kL3hEkbYiaJTbnULpLbfPPmN+hKmcjftNnE1VdqHXw3gpm6ROd0CEblQAO3ZZ/9iuOvFLmF1u7T8sC6vESClvV2enuker2Jvtp89IPpAKrdorclWSGGf/GoAI3X6DCvcZC9FaZeXMKpipvbpvzjuekGA5NLy/BZIad8tT88LTpZcYW/+RQFEBKf6QergNrkQPSAqeAPzBdHxUAVvurufEuxP7bOdOe56OYDapcGHK6rxLkxhHy1PzwpOnWOVvb3zUfEZIPj0VwMY0U+JPxSVW9NGUKkTfbKpfb4zx10vBlAXXzRz7eVdD5DSbuBn5qbrlcpF3QKRwW9+RVfrPPgpdQlT26mro7payBZIaZddJmUPa2rf25njrhcDqH+0wXwOpLSTj0fUwSer2HNyUQMUJPjkVwMYduJyp3Zf2OXS2NUXyKl9b2eWe8lONLRxASDISwAI8hIAgrwEgCAvASDISwAI8hIAgrwEgCAvASDISwAI8hIAgrwEgCAvASDISwAI8hIAgrwEgCAvASDISwAI8hIAgrwEgCAvASDISwAI8hIAgrwEgCAvASDISwAI8tJfAbLLB8++iSTgAAAAAElFTkSuQmCC" /><!-- --></p>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
