@@ -1,0 +1,46 @@
+---
+title: "daily-log-notebook"
+author: "Val Veeramani"
+date: "2/11/2022"
+output: html_document
+---
+
+# Daily Log Notebook
+
+## February 14, 2022
+### What I did for the project:
+
+This was our first meeting
+
+1. Helped with coming up with which API to use
+2. Had a meeting with teammates to identify the scope of the project
+
+### Role in the bigger group picture: 
+Bring all the codes from different team members together
+
+### Links to the github commits:
+
+## February 15, 2022
+### What I did for the project:
+1. Helped resolve RStudio errors with my teammates' codes
+2. Resolved conflicts of different merges
+
+### Role in the bigger group picture: 
+Bring all the codes from different team members together
+
+### Links to the github commits:
+
+## February 17, 2022
+### What I did for the project:
+
+We had a team meeting today
+
+1. Identified conflicts and helped merge the different branches together
+2. Had a meeting with the team members to discuss which API to use for the project.
+
+### Role in the bigger group picture:
+1. Attended group meeting to hep merge the different repositories together.
+2. Helped with Integration testing
+
+### Links to the github commits:
+https://github.com/xintian927/534-proejct/commit/d5b04eb3693a7105e1eae655ac5ebfb53ba0ff58
