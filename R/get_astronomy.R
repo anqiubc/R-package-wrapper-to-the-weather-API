@@ -50,7 +50,7 @@ get_astronomy <- function(city, date) {
   }
 
   # parse the response
-  parsed_res <- jsonlite::fromJSON(content(res, "text", encoding = "UTF-8"),
+  parsed_res <- jsonlite::fromJSON(httr::content(res, "text", encoding = "UTF-8"),
                                    simplifyVector = FALSE)
 
   # Check if the request was successful, if not, raise an error
