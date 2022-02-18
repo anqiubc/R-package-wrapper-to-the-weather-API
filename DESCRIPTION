@@ -31,7 +31,7 @@ RoxygenNote: 7.1.2
 Suggests: 
     rmarkdown,
     knitr,
-    testthat (>= 3.0.0),
+    testthat,
     devtools,
     ggplot2, 
     reshape2,
