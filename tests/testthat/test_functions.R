@@ -125,9 +125,9 @@ test_that("get_current_weather returns a dataframe", {
 
 
 test_that("get_current_weather returns correct location", {
-  expect_identical(get_current_weather("Kelowna")[[1]], "Kelowna")
-  expect_identical(get_current_weather("Kelowna")[[2]], "British Columbia")
-  expect_identical(get_current_weather("Kelowna")[[3]], "Canada")
+  expect_equal(get_current_weather("Kelowna")[[1]], "Kelowna")
+  expect_equal(get_current_weather("Kelowna")[[2]], "British Columbia")
+  expect_equal(get_current_weather("Kelowna")[[3]], "Canada")
 })
 
 
@@ -156,9 +156,9 @@ test_that("get_time_zone returns a dataframe", {
 
 
 test_that("get_time_zone returns correct location", {
-  expect_identical(get_time_zone("Kelowna")[[1]], "Kelowna")
-  expect_identical(get_time_zone("Kelowna")[[2]], "British Columbia")
-  expect_identical(get_time_zone("Kelowna")[[3]], "Canada")
+  expect_equal(get_time_zone("Kelowna")[[1]], "Kelowna")
+  expect_equal(get_time_zone("Kelowna")[[2]], "British Columbia")
+  expect_equal(get_time_zone("Kelowna")[[3]], "Canada")
 })
 
 
