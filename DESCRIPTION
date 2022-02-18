@@ -1,0 +1,35 @@
+Package: weatherapi
+Type: Package
+Title: Package to wrap the Weather API
+Version: 0.1.0
+Author: 
+  c(person(given = "Evelyn",
+             family = "Sugihermanto",
+             role = c("aut", "cre"),
+             email = "evelynsugihermanto@yahoo.com"),
+    person(given = "Anqi",
+             family = "Li",
+             role = c("aut", "cre"),
+             email = ),
+    person(given = "Xin",
+             family = "Tian",
+             role = c("aut","cre"),
+             email = )
+    person(given = "Val",
+             family = "Veeramani",
+             role = c("aut","cre"),
+             email = )
+Description: The weatherapi package is a wrapper package for the Weather API (weatherapi.com)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    httr,
+    jsonlite
+RoxygenNote: 7.1.2
+Suggests: 
+    rmarkdown,
+    knitr,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
