@@ -11,9 +11,8 @@ library(tidyverse)
 #' data_request(list(key="abc", q="London", dt="2021-01-01"))
 #' @export
 data_request <- function(query) {
-  url <- httr::modify_url("http://api.weatherapi.com/v1/astronomy.json",
-                    query  = query)
-  httr::GET(url)
+  url <- "http://api.weatherapi.com/v1/astronomy.json"
+  httr::GET(url, query = query)
 }
 
 #' A wrapper function to obtain the the astronomy data of a the desired city and date time from the weatherapi.com.
