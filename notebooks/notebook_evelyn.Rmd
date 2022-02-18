@@ -70,3 +70,17 @@ Made it easier for users of the package to understand and search through the sou
 ### Links to the github commits:
 https://github.com/xintian927/534-proejct/commit/a34d5baab6b59c149640579ad70ec54ec571de6c
 https://github.com/xintian927/534-proejct/commit/d9a13ba6a3a0541ec83e45903ef008fe56592ded
+
+
+## February 17, 2022
+### What I did for the project:
+1. Have a meeting with the other team members to merge our codes together. We each create a pull request for our branch and have the other team members review and/or solve the conflicts.
+2. We did a test run on our package to see if we can install it in our computer through devtools::install_github() and solve any problems that we encouter.
+3. Fixed the vignette builder as it was not displaying the vignette when we install the package to our computer.
+
+### Role in the bigger group picture:
+As a group, we merged all our branches together to create a fully functioning package.
+
+### Links to the github commits:
+https://github.com/xintian927/534-project/commit/90e3d42822bf67bd12e6462968fd87643e9778b9
+https://github.com/xintian927/534-project/commit/54390421bfdb5c1666c21a46111d8757c86b6265
