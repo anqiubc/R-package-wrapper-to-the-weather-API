@@ -4,11 +4,9 @@
 \alias{get_history_hourly_weather}
 \title{Get history hourly weather information for a specific hour in a specific day}
 \usage{
-get_history_hourly_weather(key, q, dt, h)
+get_history_hourly_weather(q, dt, h)
 }
 \arguments{
-\item{key}{A string containing the API key}
-
 \item{q}{A string containing the location, which can be US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name.}
 
 \item{dt}{A string containing the date for query, which should be within the last 7 days.}
@@ -22,5 +20,5 @@ A data frame containing the daily weather information for the hour in the day.
 Get history hourly weather information for a specific hour in a specific day
 }
 \examples{
-get_history_hourly_weather("YourAPIKeyHere","London","2022-02-12",4)
+get_history_hourly_weather("London","2022-02-12",4)
 }

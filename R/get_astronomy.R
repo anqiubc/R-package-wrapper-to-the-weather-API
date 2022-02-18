@@ -43,7 +43,7 @@ get_astronomy <- function(city, date) {
 
   # Requesting the data
   query <- list()
-  query$key <- "9d56997213e54667a41172101221602"
+  query$key <- api_key()
   query$q <- city
   query$dt <- date
 

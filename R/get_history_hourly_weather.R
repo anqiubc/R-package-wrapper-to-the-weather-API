@@ -1,6 +1,5 @@
 #' Get history hourly weather information for a specific hour in a specific day
 #'
-#' @param key A string containing the API key
 #' @param q A string containing the location, which can be US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name.
 #' @param dt A string containing the date for query, which should be within the last 7 days.
 #' @param h An integer containing the hour for query, which be in the range of 0 to 23.
@@ -9,12 +8,11 @@
 #' @export
 #'
 #' @examples
-#' get_history_hourly_weather("YourAPIKeyHere","London","2022-02-12",4)
-get_history_hourly_weather<- function(key,q,dt,h) {
+#' get_history_hourly_weather("London","2022-02-12",4)
+get_history_hourly_weather<- function(q,dt,h) {
   df <- data.frame()
   base_url <- "http://api.weatherapi.com/v1/history.json"
-  path<-paste0("key=",key,"&q=",q,"&dt=",dt)
-  resp <- httr::GET(base_url, query = list(key=key,q=q,dt=dt))
+  resp <- httr::GET(base_url, query = list(key=api_key(),q=q,dt=dt))
   if (!is.numeric(h)||h>23||h<0||!is.integer(as.integer(h))) {
     stop("Please enter a valid hour (integer, 0-23)", call. = FALSE)
   }

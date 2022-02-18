@@ -10,15 +10,15 @@ Author:
     person(given = "Anqi",
              family = "Li",
              role = c("aut", "cre"),
-             email = ),
+             email = "lianqi20209@gmail.com"),
     person(given = "Xin",
              family = "Tian",
              role = c("aut","cre"),
-             email = )
+             email = "tjyh111@163.com"),
     person(given = "Val",
              family = "Veeramani",
              role = c("aut","cre"),
-             email = )
+             email = "veeramanival@gmail.com")
 Description: The weatherapi package is a wrapper package for the Weather API (weatherapi.com)
 License: MIT + file LICENSE
 Encoding: UTF-8

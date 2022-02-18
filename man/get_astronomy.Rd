@@ -12,7 +12,7 @@ get_astronomy(city, date)
 \item{date}{A string of the form yyyy-mm-dd indicating date (e.g., "2022-02-10").}
 }
 \value{
-A dataframe with the columns \code{sunrise}, \code{sunset}, \code{moonrise}, \code{moonset}, \code{moon_phase}, and \code{moon_illumination}.
+A dataframe with the columns `sunrise`, `sunset`, `moonrise`, `moonset`, `moon_phase`, and `moon_illumination`.
 }
 \description{
 A wrapper function to obtain the the astronomy data of a the desired city and date time from the weatherapi.com.
