@@ -1,7 +1,7 @@
 
 R version 4.1.1 (2021-08-10) -- "Kick Things"
 Copyright (C) 2021 The R Foundation for Statistical Computing
-Platform: x86_64-w64-mingw32/x64 (64-bit)
+Platform: aarch64-apple-darwin20 (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -20,7 +20,6 @@ Type 'q()' to quit R.
 > pkgname <- "weatherapi"
 > source(file.path(R.home("share"), "R", "examples-header.R"))
 > options(warn = 1)
-> options(pager = "console")
 > library('weatherapi')
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
@@ -57,7 +56,7 @@ Type 'q()' to quit R.
 > 
 > data_request(list(key="abc", q="London", dt="2021-01-01"))
 Response [http://api.weatherapi.com/v1/astronomy.json?key=abc&q=London&dt=2021-01-01]
-  Date: 2022-02-18 21:05
+  Date: 2022-02-18 21:37
   Status: 401
   Content-Type: application/json
   Size: 55 B
@@ -102,21 +101,21 @@ Response [http://api.weatherapi.com/v1/astronomy.json?key=abc&q=London&dt=2021-0
   location.name  location.region location.country location.lat location.lon
 1       Kelowna British Columbia           Canada         49.9      -119.48
      location.tz_id location.localtime_epoch location.localtime
-1 America/Vancouver               1645218328   2022-02-18 13:05
+1 America/Vancouver               1645220241   2022-02-18 13:37
   current.last_updated_epoch current.last_updated current.temp_c current.temp_f
-1                 1645214400     2022-02-18 12:00              9           48.2
+1                 1645219800     2022-02-18 13:30             11           51.8
   current.is_day current.condition.text
 1              1               Overcast
                           current.condition.icon current.condition.code
 1 //cdn.weatherapi.com/weather/64x64/day/122.png                   1009
   current.wind_mph current.wind_kph current.wind_degree current.wind_dir
-1              4.3              6.8                 200              SSW
+1              4.3              6.8                 210              SSW
   current.pressure_mb current.pressure_in current.precip_mm current.precip_in
-1                1025               30.27                 0                 0
+1                1024               30.24                 0                 0
   current.humidity current.cloud current.feelslike_c current.feelslike_f
-1               53           100                 9.3                48.7
+1               50           100                11.5                52.7
   current.vis_km current.vis_miles current.uv current.gust_mph current.gust_kph
-1             14                 8          1                4              6.5
+1             14                 8          2                4              6.5
   current.air_quality.co current.air_quality.no2 current.air_quality.o3
 1                  293.7                     3.7                   58.7
   current.air_quality.so2 current.air_quality.pm2_5 current.air_quality.pm10
@@ -128,11 +127,11 @@ Response [http://api.weatherapi.com/v1/astronomy.json?key=abc&q=London&dt=2021-0
 1       Kelowna British Columbia           Canada        49.90      -119.48
 2     Vancouver British Columbia           Canada        49.25      -123.13
      location.tz_id location.localtime_epoch location.localtime
-1 America/Vancouver               1645218177   2022-02-18 13:02
-2 America/Vancouver               1645218178   2022-02-18 13:02
+1 America/Vancouver               1645220274   2022-02-18 13:37
+2 America/Vancouver               1645220274   2022-02-18 13:37
   current.last_updated_epoch current.last_updated current.temp_c current.temp_f
-1                 1645214400     2022-02-18 12:00              9           48.2
-2                 1645217100     2022-02-18 12:45              7           44.6
+1                 1645219800     2022-02-18 13:30             11           51.8
+2                 1645218900     2022-02-18 13:15              8           46.4
   current.is_day current.condition.text
 1              1               Overcast
 2              1               Overcast
@@ -140,17 +139,17 @@ Response [http://api.weatherapi.com/v1/astronomy.json?key=abc&q=London&dt=2021-0
 1 //cdn.weatherapi.com/weather/64x64/day/122.png                   1009
 2 //cdn.weatherapi.com/weather/64x64/day/122.png                   1009
   current.wind_mph current.wind_kph current.wind_degree current.wind_dir
-1              4.3              6.8                 200              SSW
-2              4.3              6.8                 240              WSW
+1              4.3              6.8                 210              SSW
+2              2.5              4.0                 280                W
   current.pressure_mb current.pressure_in current.precip_mm current.precip_in
-1                1025               30.27                 0                 0
-2                1032               30.47                 0                 0
+1                1024               30.24                 0                 0
+2                1031               30.44                 0                 0
   current.humidity current.cloud current.feelslike_c current.feelslike_f
-1               53           100                 9.3                48.7
-2              100           100                 6.8                44.2
+1               50           100                11.5                52.7
+2               93           100                 7.6                45.7
   current.vis_km current.vis_miles current.uv current.gust_mph current.gust_kph
-1             14                 8          1              4.0              6.5
-2             32                19          2              3.1              5.0
+1             14                 8          2              4.0              6.5
+2             32                19          2              3.8              6.1
 > 
 > 
 > 
@@ -239,102 +238,102 @@ Response [http://api.weatherapi.com/v1/astronomy.json?key=abc&q=London&dt=2021-0
 > 
 > get_sports_events("London", "football")
       football.stadium football.country football.region
-1  Coface Arena, Mainz          Germany                
-2       Bournemouth Fc   United Kingdom                
-3  Rotherham United Fc   United Kingdom                
-4       Dunfermline Fc   United Kingdom                
-5   Southend United Fc   United Kingdom                
-6              Dundalk          Ireland                
-7        Shelbourne Fc          Ireland                
-8          Juventus Fc            Italy                
-9           Finn Harps          Ireland                
-10  Shamrock Rovers(A)          Ireland                
+1       Bournemouth Fc   United Kingdom                
+2  Rotherham United Fc   United Kingdom                
+3       Dunfermline Fc   United Kingdom                
+4   Southend United Fc   United Kingdom                
+5              Dundalk          Ireland                
+6        Shelbourne Fc          Ireland                
+7          Juventus Fc            Italy                
+8           Finn Harps          Ireland                
+9   Shamrock Rovers(A)          Ireland                
+10               Lille           France                
                   football.tournament   football.start
-1                   German Bundesliga 2022-02-18 19:30
-2                Sky Bet Championship 2022-02-18 19:45
-3                  Sky Bet League One 2022-02-18 19:45
-4               Scottish Championship 2022-02-18 19:45
-5                     National League 2022-02-18 19:45
+1                Sky Bet Championship 2022-02-18 19:45
+2                  Sky Bet League One 2022-02-18 19:45
+3               Scottish Championship 2022-02-18 19:45
+4                     National League 2022-02-18 19:45
+5  League of Ireland Premier Division 2022-02-18 19:45
 6  League of Ireland Premier Division 2022-02-18 19:45
-7  League of Ireland Premier Division 2022-02-18 19:45
-8                     Italian Serie A 2022-02-18 19:45
+7                     Italian Serie A 2022-02-18 19:45
+8  League of Ireland Premier Division 2022-02-18 20:00
 9  League of Ireland Premier Division 2022-02-18 20:00
-10 League of Ireland Premier Division 2022-02-18 20:00
+10                     French Ligue 1 2022-02-18 20:00
                             football.match
-1                Mainz vs Bayer Leverkusen
-2         Bournemouth vs Nottingham Forest
-3       Rotherham United vs Wigan Athletic
-4  Dunfermline Athletic vs Partick Thistle
-5          Southend United vs Grimsby Town
-6                    Dundalk vs Derry City
-7       Shelbourne vs St Patricks Athletic
-8                       Juventus vs Torino
-9                   Finn Harps vs Drogheda
-10                Shamrock Rovers vs U.C.D
+1         Bournemouth vs Nottingham Forest
+2       Rotherham United vs Wigan Athletic
+3  Dunfermline Athletic vs Partick Thistle
+4          Southend United vs Grimsby Town
+5                    Dundalk vs Derry City
+6       Shelbourne vs St Patricks Athletic
+7                       Juventus vs Torino
+8                   Finn Harps vs Drogheda
+9                 Shamrock Rovers vs U.C.D
+10                           Lille vs Metz
 > get_sports_events(c("London", "Oxford"), "football")
       football.stadium football.country football.region
-1  Coface Arena, Mainz          Germany                
-2       Bournemouth Fc   United Kingdom                
-3  Rotherham United Fc   United Kingdom                
-4       Dunfermline Fc   United Kingdom                
-5   Southend United Fc   United Kingdom                
-6              Dundalk          Ireland                
-7        Shelbourne Fc          Ireland                
-8          Juventus Fc            Italy                
-9           Finn Harps          Ireland                
-10  Shamrock Rovers(A)          Ireland                
-11 Coface Arena, Mainz          Germany                
-12      Bournemouth Fc   United Kingdom                
-13 Rotherham United Fc   United Kingdom                
-14      Dunfermline Fc   United Kingdom                
-15  Southend United Fc   United Kingdom                
-16             Dundalk          Ireland                
-17       Shelbourne Fc          Ireland                
-18         Juventus Fc            Italy                
-19          Finn Harps          Ireland                
-20  Shamrock Rovers(A)          Ireland                
+1       Bournemouth Fc   United Kingdom                
+2  Rotherham United Fc   United Kingdom                
+3       Dunfermline Fc   United Kingdom                
+4   Southend United Fc   United Kingdom                
+5              Dundalk          Ireland                
+6        Shelbourne Fc          Ireland                
+7          Juventus Fc            Italy                
+8           Finn Harps          Ireland                
+9   Shamrock Rovers(A)          Ireland                
+10               Lille           France                
+11      Bournemouth Fc   United Kingdom                
+12 Rotherham United Fc   United Kingdom                
+13      Dunfermline Fc   United Kingdom                
+14  Southend United Fc   United Kingdom                
+15             Dundalk          Ireland                
+16       Shelbourne Fc          Ireland                
+17         Juventus Fc            Italy                
+18          Finn Harps          Ireland                
+19  Shamrock Rovers(A)          Ireland                
+20               Lille           France                
                   football.tournament   football.start
-1                   German Bundesliga 2022-02-18 19:30
-2                Sky Bet Championship 2022-02-18 19:45
-3                  Sky Bet League One 2022-02-18 19:45
-4               Scottish Championship 2022-02-18 19:45
-5                     National League 2022-02-18 19:45
+1                Sky Bet Championship 2022-02-18 19:45
+2                  Sky Bet League One 2022-02-18 19:45
+3               Scottish Championship 2022-02-18 19:45
+4                     National League 2022-02-18 19:45
+5  League of Ireland Premier Division 2022-02-18 19:45
 6  League of Ireland Premier Division 2022-02-18 19:45
-7  League of Ireland Premier Division 2022-02-18 19:45
-8                     Italian Serie A 2022-02-18 19:45
+7                     Italian Serie A 2022-02-18 19:45
+8  League of Ireland Premier Division 2022-02-18 20:00
 9  League of Ireland Premier Division 2022-02-18 20:00
-10 League of Ireland Premier Division 2022-02-18 20:00
-11                  German Bundesliga 2022-02-18 19:30
-12               Sky Bet Championship 2022-02-18 19:45
-13                 Sky Bet League One 2022-02-18 19:45
-14              Scottish Championship 2022-02-18 19:45
-15                    National League 2022-02-18 19:45
+10                     French Ligue 1 2022-02-18 20:00
+11               Sky Bet Championship 2022-02-18 19:45
+12                 Sky Bet League One 2022-02-18 19:45
+13              Scottish Championship 2022-02-18 19:45
+14                    National League 2022-02-18 19:45
+15 League of Ireland Premier Division 2022-02-18 19:45
 16 League of Ireland Premier Division 2022-02-18 19:45
-17 League of Ireland Premier Division 2022-02-18 19:45
-18                    Italian Serie A 2022-02-18 19:45
+17                    Italian Serie A 2022-02-18 19:45
+18 League of Ireland Premier Division 2022-02-18 20:00
 19 League of Ireland Premier Division 2022-02-18 20:00
-20 League of Ireland Premier Division 2022-02-18 20:00
+20                     French Ligue 1 2022-02-18 20:00
                             football.match
-1                Mainz vs Bayer Leverkusen
-2         Bournemouth vs Nottingham Forest
-3       Rotherham United vs Wigan Athletic
-4  Dunfermline Athletic vs Partick Thistle
-5          Southend United vs Grimsby Town
-6                    Dundalk vs Derry City
-7       Shelbourne vs St Patricks Athletic
-8                       Juventus vs Torino
-9                   Finn Harps vs Drogheda
-10                Shamrock Rovers vs U.C.D
-11               Mainz vs Bayer Leverkusen
-12        Bournemouth vs Nottingham Forest
-13      Rotherham United vs Wigan Athletic
-14 Dunfermline Athletic vs Partick Thistle
-15         Southend United vs Grimsby Town
-16                   Dundalk vs Derry City
-17      Shelbourne vs St Patricks Athletic
-18                      Juventus vs Torino
-19                  Finn Harps vs Drogheda
-20                Shamrock Rovers vs U.C.D
+1         Bournemouth vs Nottingham Forest
+2       Rotherham United vs Wigan Athletic
+3  Dunfermline Athletic vs Partick Thistle
+4          Southend United vs Grimsby Town
+5                    Dundalk vs Derry City
+6       Shelbourne vs St Patricks Athletic
+7                       Juventus vs Torino
+8                   Finn Harps vs Drogheda
+9                 Shamrock Rovers vs U.C.D
+10                           Lille vs Metz
+11        Bournemouth vs Nottingham Forest
+12      Rotherham United vs Wigan Athletic
+13 Dunfermline Athletic vs Partick Thistle
+14         Southend United vs Grimsby Town
+15                   Dundalk vs Derry City
+16      Shelbourne vs St Patricks Athletic
+17                      Juventus vs Torino
+18                  Finn Harps vs Drogheda
+19                Shamrock Rovers vs U.C.D
+20                           Lille vs Metz
 > 
 > 
 > 
@@ -354,14 +353,14 @@ Response [http://api.weatherapi.com/v1/astronomy.json?key=abc&q=London&dt=2021-0
   location.name  location.region location.country location.lat location.lon
 1       Kelowna British Columbia           Canada         49.9      -119.48
      location.tz_id location.localtime_epoch location.localtime
-1 America/Vancouver               1645218329   2022-02-18 13:05
+1 America/Vancouver               1645220242   2022-02-18 13:37
 > get_time_zone(c("Kelowna", "Vancouver"))
   location.name  location.region location.country location.lat location.lon
 1       Kelowna British Columbia           Canada        49.90      -119.48
 2     Vancouver British Columbia           Canada        49.25      -123.13
-       location.tz_id location.localtime_epoch location.localtime
-1   America/Vancouver               1645218329   2022-02-18 13:05
-2 America/Los_Angeles               1645218330   2022-02-18 13:05
+     location.tz_id location.localtime_epoch location.localtime
+1 America/Vancouver               1645220242   2022-02-18 13:37
+2 America/Vancouver               1645220242   2022-02-18 13:37
 > 
 > 
 > 
@@ -370,7 +369,7 @@ Response [http://api.weatherapi.com/v1/astronomy.json?key=abc&q=London&dt=2021-0
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.51 0.05 2.17 NA NA 
+Time elapsed:  0.238 0.018 1.919 0.002 0.003 
 > grDevices::dev.off()
 null device 
           1 

@@ -26,7 +26,7 @@ Encoding: UTF-8
 Imports: httr, jsonlite
 RoxygenNote: 7.1.2
 Suggests: rmarkdown, knitr, testthat (>= 3.0.0), devtools, ggplot2,
-        reshape2, tidyverse
+        reshape2, tidyverse, maps
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2022-02-18 21:04:43 UTC; Evelyn
+Packaged: 2022-02-18 21:37:33 UTC; xintian
