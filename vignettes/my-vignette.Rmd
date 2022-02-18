@@ -1,5 +1,5 @@
 ---
-title: "Astronomy API"
+title: "my-vignette"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{my-vignette}
@@ -66,6 +66,93 @@ A dataframe with the columns `sunrise`, `sunset`, `moonrise`, `moonset`, `moon_p
 `get_astronomy("Beijing", "2022-01-10")`   
 `get_astronomy("Kelowna", "2021-06-06")`
 
+### 1. Get History Astronomical Weather   
+
+#### Usage
+`get_history_astro_information(key,q,dt)`  
+  
+#### Arguments
+`key` : A string containing the API key  
+`q` : A string containing the location, which can be US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name.  
+`dt` : A string containing the date for query, which should be within the last 7 days.  
+
+#### Value
+A data frame containing the astronomical information for the day.
+
+#### Examples
+`get_history_astro_information("YourAPIKeyHere","London","2022-02-12")`   
+`get_history_astro_information("YourAPIKeyHere","Beijing","2022-02-14")`     
+
+#### Variable description
+The table below summarize the data type and description of the returned variables in the dataframe.  
+
+| Variable | Type | Description | 
+|----------|------|-------------|
+|sunrise|chr|The sunrise time|
+|sunset|chr|The sunset time|
+|moonrise|chr|The moonrise time|
+|moonset|chr|The moonset time|
+|moon_phase|chr|The moon phase|
+|moon_illumination|chr|The illumination of the moon|
+
+### 2. Get History Daily Weather 
+
+#### Usage
+`get_history_daily_weather(key,q,dt)`
+
+#### Arguments
+`key` : A string containing the API key  
+`q` : A string containing the location, which can be US Zipcode, UK Postcode, Canada Postalcode, IP address,
+Latitude/Longitude (decimal degree) or city name.  
+`dt` : A string containing the date for query, which should be within the last 7 days.  
+
+#### Value
+A data frame containing the daily weather information for the day.  
+
+#### Examples
+`get_history_daily_weather("YourAPIKeyHere","London","2022-02-12")`     
+`get_history_daily_weather("YourAPIKeyHere","Beijing","2022-02-14")`     
+
+#### Variable description
+The table below summarize the data type and description of the returned variables in the dataframe.  
+
+| Variable | Type | Description | 
+|----------|------|-------------|
+|maxtemp_c|num|Daily max temperature (Celsius)|
+|maxtemp_f|num|Daily max temperature (Fahrenheit)|
+|mintemp_c|num|Daily min temperature (Celsius)|
+|mintemp_f|num|Daily min temperature (Fahrenheit)|
+|avgtemp_c|num|Daily average temperature (Celsius)|
+|avgtemp_f|num|Daily average temperature (Fahrenheit)|
+|maxwind|num|Daily max wind speed (miles per hour)|
+|maxwind_kph|num|Daily max wind speed (kilometers per Hour)|
+|totalprecip_mm|num|Daily total Precipitation(mm)|
+|totalprecip_in|num|Daily total Precipitation(in)|
+|avgvis_km|num|Daily average visibility in kilometer|
+|avgvis_miles|num|Daily average visibility in mile|
+|avghumidity|num|Daily average humidity|
+|condition.text|chr|Weather condition text|
+|condition.icon|chr|Weather icon url|
+|condition.code|num|Weather condition unique code|
+|uv|num|UV Index|
+
+### 3. Get History Hourly Weather
+
+#### Usage
+`get_history_hourly_weather(key,q,dt,h)`
+
+#### Arguments
+`key` : A string containing the API key  
+`q` : A string containing the location, which can be US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name.  
+`dt` : A string containing the date for query, which should be within the last 7 days.  
+`h` : An integer containing the hour for query, which be in the range of 0 to 23.  
+
+#### Value
+A data frame containing the daily weather information for the hour in the day.
+
+#### Examples
+`get_history_hourly_weather("YourAPIKeyHere","London","2022-02-12",4)   
+`get_history_daily_weather("YourAPIKeyHere","Beijing","2022-02-14",23)   
 
 #### Variable description
 The table below summarize the data type and description of the returned variables in the dataframe.
@@ -117,6 +204,79 @@ result <- data.frame(year=years, moon_illumination=moon_illuminations)
 ggplot(data=result, aes(x=year, y=moon_illumination, group=1)) +
   geom_line()+
   labs(title="Moon illumination at Beijing on July 6th", x="", y="", linetype="")
+|time_epoch|int|Local time in epoch|
+|time|chr|Local time in yyyy-MM-dd HH:mm format|
+|temp_c|num|Hourly temperature in Celsius|
+|temp_f|num|Hourly temperature in Fahrenheit|
+|is_day|int|If it is daily data|
+|condition.text|chr|Weather condition text|
+|condition.icon|chr|Weather icon url|
+|condition.code|num|Weather condition unique code|
+|wind_mph|num|Hourly wind speed (miles per hour)|
+|wind_kph|num|Hourly wind speed (kilometers per Hour)|
+|wind_degree|int|Wind direction in degrees|
+|wind_dir|chr|Wind direction|
+|pressure_mb|num|Pressure in millibars|
+|pressure_in|num|Pressure in inches|
+|precip_mm|num|Precipitation amount in millimeters|
+|precip_in|num|Precipitation amount in inches|
+|humidity|int|Humidity as percentage|
+|cloud|int|Cloud cover as percentage|
+|feelslike_c|num|Feels like temperature in Celsius|
+|feelslike_f|num|Feels like temperature in Fahrenheit|
+|windchill_c|num|Wind chill in Celsius|
+|windchill_f|num|Wind chill in Fahrenheit|
+|heatindex_c|num|Heat index in Celsius|
+|heatindex_f|num|Heat index in Fahrenheit|
+|dewpoint_c|num|Dew point in Celsius|
+|dewpoint_f|num|Dew point in Celsius|
+|will_it_rain|int|The prediction about future rain|
+|chance_of_rain|num|Chance of rain|
+|will_it_snow|int|The prediction about future snow|
+|chance_of_snow|num|Chance of snow|
+|vis_km|num|Visibility in kilometer|
+|vis_miles|num|Visibility in miles|
+|gust_mph|num|Wind gust (miles per hour)|
+|gust_kph|num|Wind gust (kilometers per hour)|
+
+## Plotting using the weatherapi package
+
+1. Plot the max and min temperature in Celsius in the past 7 days
+
+The following exercise will show how to get min and max temperature in the past 7 days using the get_history_daily_weather() function and plot it as a line chart.
+
+```{r}
+library(ggplot2)
+library(reshape2)
+min_temp<- vector()
+max_temp<- vector()
+dates<-c("2022-02-10","2022-02-11","2022-02-12","2022-02-13","2022-02-14","2022-02-15","2022-02-16")
+for(i in seq_along(dates)){
+  max_temp<-append(max_temp,get_history_daily_weather("London",dates[i])$maxtemp_c)
+  min_temp<-append(min_temp,get_history_daily_weather("London",dates[i])$mintemp_c)
+}
+df <- data.frame(dates,max_temp, min_temp)
+mdf <- melt(df,id.vars="dates")
+ggplot(mdf, aes(x=dates, y=value, colour=variable, group=variable )) +
+geom_line()
+```
+
+
+2. Plot the 24 hour temperature in Celsius for a specific day
+
+The following exercise will show how to get hourly temperature in a day using the get_history_hourly_weather() function and plot it as a line chart.
+
+```{r}
+library(ggplot2)
+library(reshape2)
+temp<- vector()
+hour<-0:23
+for(i in seq_along(hours)){
+  temp<-append(temp,get_history_hourly_weather("London","2022-02-14",hour[i])$temp_c)
+}
+df <- data.frame(hour,temp)
+ggplot(df, aes(x=hour, y=temp)) +
+  geom_line()
 ```
 
 

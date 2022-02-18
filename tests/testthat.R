@@ -1,4 +1,5 @@
 library(testthat)
-library(project)
 
-test_check("project")
+library(weatherapi)
+test_check("weatherapi")
+

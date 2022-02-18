@@ -1,0 +1,278 @@
+---
+title: "weatherapi-vignette"
+output: rmarkdown::html_vignette
+description: >
+  This vignette describe how to use the weather api package in more    detail.
+vignette: >
+  %\VignetteIndexEntry{weatherapi-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE, message = FALSE, warning=FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+#library(weatherapi)
+devtools::load_all()
+```
+
+This package wraps the Weather API, available from: weatherapi.com. The Weather API provides access to real-time and historical weather info, astronomy, time zone, and sports data.
+
+## Setup
+This package rely on the API key provided by the Weather API. To get started in using this package, please follow these steps:   
+
+1. Sign-up for an account here: https://www.weatherapi.com/signup.aspx   
+2. Go to your "my account" page and copy your API key   
+3. Open RStudio and set your API key in the .Renviron file    
+4. You can do this by running the following code in your R console   
+`usethis::edit_r_environ()`     
+5. Then add this line inside the .Renviron file   
+`API_KEY = <your_api_key>`      
+6. Save and close the .Renviron file and you are good to go!
+
+
+## Error Codes
+This table provides the description of the possible error codes.
+
+|Error Code|Description|
+|---|---|
+|400|Invalid/missing location argument or internal server error|
+|401|Invalid/missing API key|
+|403|API Key disabled or has reached maximum calls quota|
+
+## Functions
+### 1. Set API Key 
+This function can be used to see the API key that you have set during the setup step above. To see if you have entered your API key correctly, you can run `api_key()` and it will output the API key that you have set in the .Renviron file.
+
+This function can also be used as second way to set the API key. Note that this will not change the value of the API key in the .Renviron but it will change the API key being used when calling the functions. To set a temporary API key, you can run `api_key(force=TRUE)` which will require you to enter your API key in the interactive console. Enter your API key in the R console and press enter. Now you have changed the API key that will be used by the functions (but not in the .Renviron file). 
+
+#### Usage
+`api_key(force=FALSE)`
+
+#### Arguments
+`force` : A boolean to force set new API key for current environment. To force set a new API key set it to TRUE, the default value is FALSE.
+
+#### Value
+A vector containing the API key
+
+#### Examples
+`api_key()` # To display API key that was set in the .Renviron file   
+`api_key(force=TRUE)` # To change the API key
+
+
+### 2. Get Current Weather 
+
+#### Usage
+`get_current_weather(location, aqi="yes")`
+  
+#### Arguments
+`location` : 	A vector of location   
+`air_quality` : A string of "yes" or "no" to show air quality information. Default is show air quality information ("yes").   
+
+#### Value
+A data frame of current weather information
+
+#### Examples
+`get_current_weather("Kelowna")`   
+`get_current_weather(c("Kelowna", "Vancouver"), "no")`   
+   
+   
+This function is used to get the current real-time weather information of a specified location. Air quality information of that location is included by default and can be omitted by setting `aqi="no"`. The resulting information will be a data frame.
+
+For instance, if you want to get the current real-time weather condition for Kelowna, you can use:
+
+```{r}
+get_current_weather("Kelowna")
+```
+
+If you want to get a list of current real-time weather condition for Kelowna, Vancouver, and Toronto, you can use:
+
+```{r}
+cities <- c("Kelowna", "Vancouver", "Toronto") 
+get_current_weather(cities)
+```
+
+#### Variable description
+The table below summarize the data type and description of the returned variables in the dataframe.
+
+| Variable | Type | Description | 
+|----------|------|-------------|
+|location.name|chr|Name of the requested location|
+|location.region|chr|Name of the location region|
+|location.country|chr|Name of the location country|
+|location.lat|num|Latitude in decimal degree|
+|location.lon|num|Longitude in decimal degree|
+|location.tz_id|chr|Time zone|
+|location.localtime_epoch|int|Local time in epoch|
+|location.localtime|chr|Local time in yyyy-MM-dd HH:mm format|
+|current.last_updated_epoch|int|Local time when the real time data was updated|
+|current.last_updated|chr|Local time when the real time data was updated in unix time|
+|current.temp_c|num|Temperature in celsius|
+|current.temp_f|num|Temperature in fahrenheit|
+|current.is_day|int|Show day condition icon or night icon (1 = Yes 0 = No)|
+|current.condition.text|chr|Weather condition text|
+|current.condition.icon|chr|Weather icon url|
+|current.condition.code|int|Weather condition unique code|
+|current.wind_mph|num|Wind speed in miles per hour|
+|current.wind_kph|num|Wind speed in kilometer per hour|
+|current.wind_degree|int|Wind direction in degrees|
+|current.wind_dir|chr|Wind direction as 16 point compass. e.g.: NSW|
+|current.pressure_mb|num|Pressure in millibars|
+|current.pressure_in|num|Pressure in inches|
+|current.precip_mm|num|Precipitation amount in millimeters|
+|current.precip_in|num|Precipitation amount in inches|
+|current.humidity|int|Humidity as percentage|
+|current.cloud|int|Cloud cover as percentage|
+|current.feelslike_c|num|Feels like temperature as celcius|
+|current.feelslike_f|num|Feels like temperature as fahrenheit|
+|current.vis_km|num|Visibility in kilometer|
+|current.vis_miles|num|Visibility in miles|
+|current.uv|num|UV Index|
+|current.gust_mph|num|Wind gust in miles per hour|
+|current.gust_kph|num|Wind gust in kilometer per hour|
+|current.air_quality.co|num|Carbon Monoxide (μg/m3)|
+|current.air_quality.no2|num|Nitrogen dioxide (μg/m3)|
+|current.air_quality.o3|num|Ozone (μg/m3)|
+|current.air_quality.so2|num|Sulphur dioxide (μg/m3)|
+|current.air_quality.pm2_5|num|PM2.5 (μg/m3)|
+|current.air_quality.pm10|num|PM10 (μg/m3)|
+|current.air_quality.us.epa.index|int|US - EPA standard(1-Good, 2-Moderate, 3-Unhealthy for Sensitive group, 4-Unhealthy, 5-Very unhealthy, 6-Hazardous)|
+|current.air_quality.gb.defra.index|int|UK Defra Index (1-Low, 10-High)|
+
+
+### 3. Get Time Zone
+
+#### Usage
+`get_time_zone(location)`
+
+#### Arguments
+`location` : A vector of location
+
+#### Value
+A data frame of local time-zone information
+
+#### Examples
+`get_time_zone("Kelowna")`
+`get_time_zone(c("Kelowna", "Vancouver"))`
+   
+   
+This function is used to get the time zone and local time information of a specified location. The resulting information will be a data frame.
+
+For instance, if you want to get the time zone and local time information for Kelowna, you can use:
+
+```{r}
+get_time_zone("Kelowna")
+```
+
+If you want to get the time zone and local time information of multiple locations, you can use:
+
+```{r}
+cities <- c("Kelowna","Vancouver","Toronto")
+get_time_zone(cities)
+```
+
+#### Variable description
+The table below summarize the data type and description of the returned variables in the dataframe.
+
+| Variable | Type | Description | 
+|----------|------|-------------|
+|location.name|chr|Name of the requested location|
+|location.region|chr|Name of the location region|
+|location.country|chr|Name of the location country|
+|location.lat|num|Latitude in decimal degree|
+|location.lon|num|Longitude in decimal degree|
+|location.tz_id|chr|Time zone id|
+|location.localtime_epoch|int|Local time in epoch|
+|location.localtime|chr|Local time in yyyy-MM-dd HH:mm format|
+
+
+### 4. Get Sports Events
+
+#### Usage
+`get_sports_events(location, sport)`
+
+#### Arguments
+`location` : A vector of location
+`sport` : A string of sport type ("football","cricket","golf")
+
+#### Value
+A data frame of upcoming sports events in a location
+
+#### Examples
+`get_sports_events("London", "football")`
+`get_sports_events(c("London", "Oxford"))`
+   
+   
+This function is used to get a list of all upcoming sports events (football, cricket, golf) of a specified location. The resulting information will be a data frame.
+
+For instance, if you want to get a list of all upcoming sports events (football, cricket, golf) for London, you can use:
+
+```{r}
+get_sports_events("London", "football")
+```
+
+
+#### Variable description
+The table below summarize the data type and description of the returned variables in the dataframe.
+
+| Variable | Type | Description | 
+|----------|------|-------------|
+|football.stadium|chr|Name of stadium|
+|football.country|chr|Country|
+|football.region|chr|Region|
+|football.tournament|chr|Tournament name|
+|football.start|chr|Start local date and time for event in yyyy-MM-dd HH:mm format|
+|football.match|chr|Match name|
+
+
+## Plotting using the weatherapi package
+### 1. Plot the current temperature and feels like temperature for different locations
+
+The following exercise will show how to get current temperature and feels like temperature data using the get_current_weather() function and plot it as a line chart.
+
+```{r, warning=FALSE, message=FALSE, fig.width=6,fig.height=4}
+library(ggplot2)
+library(reshape2)
+
+# Get current weather data
+loc <- c("London", "New York", "Paris", "Melbourne", "Singapore") 
+data <- get_current_weather(loc,"no")
+
+# Get temperature info and melt dataframe
+data <- data[c("location.name", "current.temp_c", "current.feelslike_c")]
+data <- melt(data)
+
+# Plot temperature
+ggplot(data=data, aes(x=location.name, y=value, group=variable, linetype=variable)) +
+  geom_line()+
+  geom_point()+
+  labs(title="Temperature by Location", subtitle="(in celcius)", x="", y="", linetype="")
+```
+
+
+### 2. Plot local time zone of different locations in world-map
+
+The following exercise will show you how to extract time-zone of different locations and plot it in a world map.
+
+```{r, warning=FALSE, message=FALSE, fig.width=6,fig.height=4}
+# Get local time zone data
+loc <- c("London", "Los Angeles", "Buenos Aires", "Melbourne", "Singapore")
+data <- get_time_zone(loc)
+
+# Get the world map coordinates
+library(tidyverse)
+world <- map_data("world")
+
+# Plot time zone of different location in world map
+ggplot() +
+  geom_map(
+    data = world, map = world,
+    aes(long, lat, map_id = region),
+    color = "lightgray", fill = "lightgray") +
+  geom_text(data=data, 
+            aes(location.lon, location.lat, label=location.name)) +
+  geom_text(data=data, 
+            aes(location.lon, location.lat, label=location.localtime),nudge_y = -10) +
+  labs(title="Current Time-zone of Different Locations in the World", x="", y="")
+```
+
+
