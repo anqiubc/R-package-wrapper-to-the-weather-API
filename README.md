@@ -1,2 +1,2 @@
 # 534-project
-group project for Data 534
+group project for Data 534.
