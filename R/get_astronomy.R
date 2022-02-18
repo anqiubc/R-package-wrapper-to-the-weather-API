@@ -1,6 +1,5 @@
 # Reference: I learnt most of those from https://httr.r-lib.org/articles/api-packages.html
-library(lubridate)
-library(tidyverse)
+
 
 #' get the astronomy data of specific date time and city from weatherapi.com
 #'
@@ -69,7 +68,7 @@ get_astronomy <- function(city, date) {
 
   # Create dataframe to hold the response data
   result <- data.frame(parsed_res)
-  result <- subset(result, select = -c(location.tz_id, location.localtime_epoch, location.localtime))
+  result <- tidyverse::subset(result, select = -c(location.tz_id, location.localtime_epoch, location.localtime))
   colnames(result) <- c("city", "region", "country", "lat", "lon", "sunrise", "sunset", "moonrise",
                         "moonset", "moon_phase", "moon_illumination")
   result$date <- date
