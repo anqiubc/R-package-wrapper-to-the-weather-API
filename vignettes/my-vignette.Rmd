@@ -14,6 +14,58 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r setup}
+library(project)
+```
+
+
+### 1. Send request
+
+
+#### Introduction
+This function is a helper function to send request to retrieve data from weatherapi.com.
+
+#### Usage
+`data_request(query)`
+
+
+#### Arguments
+`query`: A list contain information of city, date, and api_key, represented by `q`, `dt`, and `key`, respectively. 
+
+
+#### Value
+A HTTP response.
+
+
+#### Examples
+`data_request(list(key="9d56997213e54667a41172101221602", q="Shanghai",dt="2022/01/01"))`
+
+
+
+### 2. Get Astronomy Data
+
+
+#### Introduction
+This function is an API wrapper to retrieve astronomy data from weatherapi.com. Given a desired city and date, the wrapper will return astronomy data such as sunset time and moon rise time. Error messages are given when a user enters invalid input. An helper function is used for sending request.
+
+
+#### Usage
+`get_astronomy(city, date)`
+
+
+#### Arguments
+`city` : 	A string indicating city (e.g., "London", "Beijing").   
+`date`: A string of the form yyyy-mm-dd indicating date (e.g., "2022-02-10").  
+
+
+#### Value
+A dataframe with the columns `sunrise`, `sunset`, `moonrise`, `moonset`, `moon_phase`, and `moon_illumination`.
+
+
+#### Examples
+`get_astronomy("Beijing", "2022-01-10")`   
+`get_astronomy("Kelowna", "2021-06-06")`
+
 ### 1. Get History Astronomical Weather   
 
 #### Usage
@@ -107,6 +159,51 @@ The table below summarize the data type and description of the returned variable
 
 | Variable | Type | Description | 
 |----------|------|-------------|
+|city      |chr   |The desired city|
+|region    |chr   |The region of the city|
+|country   |chr   |The country of the city|
+|lat       |num   | The latitude of the city|
+|lon       |num   |The lognitude of the city |
+|sunrise   |chr   |The sunrise time of the city on a given date|
+|sunset    |chr   |The sunset time of the city on a given date|
+|moonrise  |chr   |The moonrise time of the city on a given date||
+|moonset   |chr   |The moonset time of the city on a given date||
+|moon_phase|chr   |The moon phase of the city on a given date||
+|moon_illumination |chr |The illumination of the moon of the city on a given date||
+|date      |chr    |The given date|
+
+
+###  Plot the moon_illumination at Beijing on same date of different years
+
+The code below describe how to get moon_illumination at Beijing on same date from year 2011 to year 2021 using the `get_astronomy` function and plot the result.
+
+```{r, warning=FALSE, message=FALSE, fig.width=6,fig.height=4}
+library(ggplot2)
+
+years <- c()
+moon_illuminations <- c()
+
+for (i in 2011:2021){
+  year <- as.character(i)
+  date <- paste(year, "-06-06", sep="")
+  
+  # get astronomy data on desired date at Beijing
+  data <- get_astronomy("Beijing", date)
+  
+  # extract moon_illumination 
+  moon_illumination <- data$moon_illumination
+  
+  years <- c(years, year)
+  moon_illuminations <- c(moon_illuminations, moon_illumination)
+}
+
+result <- data.frame(year=years, moon_illumination=moon_illuminations)
+
+
+# Plot moon_illumination
+ggplot(data=result, aes(x=year, y=moon_illumination, group=1)) +
+  geom_line()+
+  labs(title="Moon illumination at Beijing on July 6th", x="", y="", linetype="")
 |time_epoch|int|Local time in epoch|
 |time|chr|Local time in yyyy-MM-dd HH:mm format|
 |temp_c|num|Hourly temperature in Celsius|

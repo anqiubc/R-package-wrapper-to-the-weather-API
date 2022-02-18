@@ -1,0 +1,67 @@
+---
+title: "534 project daily notebook"
+author: "Xin Tian"
+date: "2021/02/13"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 2022/02/13
+
+1. I checked some API documentations such as https://docs.github.com/en/rest/reference/activity to find the best API to write wrapper for, and read the project requirement carefully to make sure that I have fully understood the details.
+
+2. I started to learn how to create R packages and searched for R documentations.
+
+**role in the bigger group picture:**
+I believe it is important to choose the proper API before we start our implementation, and we should try to understand its functionality by reading through the API documentation .
+
+# 2022/02/14
+
+1. Our group had a meeting today and decided to use the API from weatherapi.com that Evelyn found for our project. We decided to use this API over the Github activity API because this API provides historical and forecast weather/astornomy information which we found more interesting. 
+
+2. We divided tasks for each group member.
+
+3. I explored weatherapi.com, got the API key, and read the API documentation, espically for the astronomy API.
+
+4. We built a github repo for our project, and decided to do our work in our own branch before merge it into main. Because by doing this, we will make sure that no broken code in main branch, and this is important in practice. 
+
+Github link for our project: https://github.com/xintian927/534-proejct
+
+**role in the bigger group picture:**
+
+By dividing tasks and creating project repo, we are making sure each team member will have a main focus, and in the main time, we can still help each other and work collaboratively to solve harder questions. 
+
+# 2022/02/15
+
+1. I create R package template for my task.
+
+2. I implemented astronomy API wrapper, include tasks such as write wrapper functions with inline comment. The reason for inline comment is to make the code more readable for other developers.
+
+**role in the bigger group picture:**
+
+By completing today's task, we have a "prototype" of the package, and it is ready for testing.
+
+
+# 2022/02/16
+3. I wrote documentation for my code, and generated `/man` directory which storing the documentation.
+
+4. I wrote specific test code to test the edge case of the wrapper, making sure the function handles errors gracefully and returns helpful error messages to invaild input.
+
+5. I wrote vignette file to create a full work flow for my task.
+
+**role in the bigger group picture:**
+
+After documentation, testing, and writing vignette file, I have finish developing astronomy API wrapper, and our team will meet again to do the integration of our tasks.
+
+
+Link to commit: 
+
+https://github.com/xintian927/534-proejct/commit/ee098dfe4fa0504492daccec713675e5d8af0d22
+
+https://github.com/xintian927/534-proejct/commit/8e30d6a1d05a8644837d3d833a6e8e96373f642f
+
+
+
