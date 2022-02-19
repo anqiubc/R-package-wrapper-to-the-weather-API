@@ -7,12 +7,8 @@ We welcome all contributions to this project! All contributors must abide by our
 Below, briefly describe the specific contribution(s) each team member (including yourself) made to our project. 
 
 ## How the team will work together
-We had a meeting and divided tasks, and 
+We will have a meeting to discuss which API we should be using. Once we come to an agreement, we will divide which functions we each would like to work on. Then, we work individually in our own branches to develop the functions from start to finish including the documentation and the tests. We then create a pull request to get each of our codes reviewed before merging. After reviewing the codes, we solve any pending conflicts. Then we ensure that our packages work properly before configuring the CircleCI. If we encounter any issues, then we will solve it together as a group through direct commits in a zoom call. We will then do integration tests through CircleCI to ensure that we have passing build stamps. Then we will finalize the contributions.md and readme.md file as a group.
 
-
-## Group Work
-
-Everything went well and we learn a lot from each other. Each member actively and equally contributed to the project. We enjoy working together and supporting each other throughout this project. We were able to collaborate more which helped us a lot in carrying out this project. Also, we helped each other and took guidance whenever we thought we need help. Overall it was a combined efforts and as a result we are able to deliver the efficient project on time.
 
 ## Contributions 
 
@@ -28,38 +24,17 @@ Integration: Anqi, Evelyn, Val, Xin
 
 CircleCI configuration: Anqi, Evelyn, Val, Xin
 
-### {Aishwarya Sharma}'s Contributions
+## Group Work
 
-Aishwarya has worked over the data description part, loading data set, research questions, data analysis and visualization, summary and conclusion, follow up research question and have presented along with everybody and have participated in the contributions part. She has contributed equally and was regular on commits and other meetings.
-
-### {Aishwarya Sharma}'s Role
-
-Aishwarya’s role was to do all the above mentioned contributions. She has actively participated in all the meetings and have worked actively as a team member. We together have learned a lot from each other.
-
-
-### {Evelyn Sugihermanto}'s Contributions
-
-Evelyn has worked over the loading data, data exploration, initial thoughts, data analysis and visualization, summary and conclusion, follow up research question and have presented along with everybody and have participated in the contributions part. She has contributed equally and was regular on commits and other meetings.
-
-### {Evelyn Sugihermanto}'s Role
-
-Evelyn's role was to do all the above mentioned contributions. She has actively participated in all the meetings and have worked actively as a team member. We together have learned a lot from each other.
-
-
-### {Xin Tian}'s Contributions
-
-Xin has worked over the load the dataset, wrangling, data analysis and visualization, research questions, summary and conclusion, follow up research question and have presented along with everybody and have participated in the contributions part. He has contributed equally and was regular on commits and other meetings.
-
-### {Xin Tian}'s Role
-
-Xin's role was to do all the above mentioned contributions. He has actively participated in all the meetings and have worked actively as a team member. We together have learned a lot from each other.
-
+Everything went well and we learn a lot from each other. Each member actively and equally contributed to the project. We enjoy working together and supporting each other throughout this project. We were able to collaborate more which helped us a lot in carrying out this project. Also, we helped each other and took guidance whenever we thought we need help. Overall it was a combined efforts and as a result we are able to deliver the efficient project on time.
 
 ## Things that went well
 
-Team work, support learning, time management, improved upon the issues we faced in last mini project.
-The major concern in last mini project was in using git, but this time we managed to improve that by coordinating among ourselves.
+We worked very effiently. We first devided the tasks and did everything based on the contributing.md file plan.
+Team work, support learning, time management.
+Our zoom meetings were frequent and very productive. Our communication was clear and went well.
+The atmosphere is very enthusiastic and productive especially when trying to solve bugs in our codes as a group.
 
 ## Things that went poorly
 
-Technical issues with zoom recording, otherwise everything went well.
+LaTex issues when building vignette to PDF with Windows, but we were able to solve this by using the MacOS of one of our team members.
