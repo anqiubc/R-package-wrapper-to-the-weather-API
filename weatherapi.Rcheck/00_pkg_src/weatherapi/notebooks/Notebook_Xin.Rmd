@@ -46,11 +46,11 @@ By completing today's task, we have a "prototype" of the package, and it is read
 
 
 # 2022/02/16
-3. I wrote documentation for my code, and generated `/man` directory which storing the documentation.
+1. I wrote documentation for my code, and generated `/man` directory which storing the documentation.
 
-4. I wrote specific test code to test the edge case of the wrapper, making sure the function handles errors gracefully and returns helpful error messages to invaild input.
+2. I wrote specific test code to test the edge case of the wrapper, making sure the function handles errors gracefully and returns helpful error messages to invaild input.
 
-5. I wrote vignette file to create a full work flow for my task.
+3. I wrote vignette file to create a full work flow for my task.
 
 **role in the bigger group picture:**
 
@@ -64,4 +64,41 @@ https://github.com/xintian927/534-proejct/commit/ee098dfe4fa0504492daccec713675e
 https://github.com/xintian927/534-proejct/commit/8e30d6a1d05a8644837d3d833a6e8e96373f642f
 
 
+# 2022/02/17
 
+1. We had group meeting for 4 hours to put our code together
+
+2. We had many conflict and issues with code
+
+3. We made our project installable
+
+**role in the bigger group picture:**
+
+After today, our project is ready to be deployed, and the project is almost done.
+
+
+Link to some of the main commit: 
+
+https://github.com/xintian927/534-project/commit/0f7db94910cd7c9e111d233257c600c2f5385979
+https://github.com/xintian927/534-project/commit/36ddd21da181fb4bfb4d01eb901378cf996d8430
+
+
+
+
+# 2022/02/18
+
+1. We had two meetings try to set up the circleCI for our project.
+
+2. We solved some configuration problem.
+
+3. We added documents such as contribution files.
+
+**role in the bigger group picture:**
+
+After today, our project is done.
+
+
+Link to some of the main commit: 
+
+https://github.com/xintian927/534-project/commit/9a6e99e73d0db45d9226c8c62739e7575206f78b
+https://github.com/xintian927/534-project/commit/826b8a090edcad71ab76645e185531ee51891a6c

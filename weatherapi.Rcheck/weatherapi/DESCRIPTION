@@ -25,9 +25,9 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Imports: httr, jsonlite
 RoxygenNote: 7.1.2
-Suggests: rmarkdown, knitr, testthat (>= 3.0.0), devtools, ggplot2,
-        reshape2, tidyverse, maps
+Suggests: rmarkdown, knitr, testthat, devtools, ggplot2, reshape2,
+        tidyverse, maps
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2022-02-18 21:37:33 UTC; xintian
-Built: R 4.1.1; ; 2022-02-18 21:37:50 UTC; unix
+Packaged: 2022-02-19 01:05:51 UTC; xintian
+Built: R 4.1.1; ; 2022-02-19 01:06:08 UTC; unix

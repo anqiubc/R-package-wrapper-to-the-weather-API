@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2021.9.13)  18 FEB 2022 13:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2021.9.13)  18 FEB 2022 17:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -276,8 +276,8 @@ File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count274
 \l__pdf_internal_box=\box55
 )
-(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/RtmpBVa6gc/Rd2pdf1564
-41485277b/Rd2.aux)
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmpl6EJDw/Rd2pdf162f
+f21fdb244/Rd2.aux)
 \openout1 = `Rd2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -316,10 +316,10 @@ LaTeX Info: Redefining \ref on input line 8.
 LaTeX Info: Redefining \pageref on input line 8.
 LaTeX Info: Redefining \nameref on input line 8.
 
-(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/RtmpBVa6gc/Rd2pdf1564
-41485277b/Rd2.out)
-(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/RtmpBVa6gc/Rd2pdf1564
-41485277b/Rd2.out)
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmpl6EJDw/Rd2pdf162f
+f21fdb244/Rd2.out)
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmpl6EJDw/Rd2pdf162f
+f21fdb244/Rd2.out)
 \@outlinefile=\write4
 \openout4 = `Rd2.out'.
 
@@ -463,8 +463,8 @@ LaTeX Font Info:    Trying to load font information for T1+phv on input line 47
 (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
-(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/RtmpBVa6gc/Rd2pdf1564
-41485277b/Rd2.toc
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmpl6EJDw/Rd2pdf162f
+f21fdb244/Rd2.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -505,8 +505,8 @@ Overfull \hbox (3.2165pt too wide) in paragraph at lines 245--246
 [5]
 No file Rd2.ind.
 [6]
-(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/RtmpBVa6gc/Rd2pdf1564
-41485277b/Rd2.aux)
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmpl6EJDw/Rd2pdf162f
+f21fdb244/Rd2.aux)
 Package rerunfilecheck Info: File `Rd2.out' has not changed.
 (rerunfilecheck)             Checksum: 12103F417EB46B97EF69C1FE8ADC82AE;1452.
  ) 
@@ -528,7 +528,7 @@ Inconsolata-zi4r.pfb></Users/xintian/Library/TinyTeX/texmf-dist/fonts/type1/urw
 mes/utmr8a.pfb></Users/xintian/Library/TinyTeX/texmf-dist/fonts/type1/urw/times
 /utmr8a.pfb></Users/xintian/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on Rd2.pdf (6 pages, 87130 bytes).
+Output written on Rd2.pdf (6 pages, 87064 bytes).
 PDF statistics:
  187 PDF objects out of 1000 (max. 8388607)
  164 compressed objects within 2 object streams

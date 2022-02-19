@@ -58,7 +58,7 @@ get_astronomy <- function(city, date) {
     stop(
       sprintf(
         "Weather Astronomy API request failed [%s]\n%s\n<%s>",
-        status_code(res),
+        httr::status_code(res),
         parsed_res$message,
         parsed_res$documentation_url
       ),

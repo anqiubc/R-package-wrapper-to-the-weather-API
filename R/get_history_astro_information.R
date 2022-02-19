@@ -25,7 +25,7 @@ get_history_astro_information<- function(q,dt) {
     stop(
       sprintf(
         "GitHub API request failed [%s]\n%s\n<%s>",
-        status_code(resp),
+        httr::status_code(resp),
         parsed$error$message,
         parsed$error$code
       ),

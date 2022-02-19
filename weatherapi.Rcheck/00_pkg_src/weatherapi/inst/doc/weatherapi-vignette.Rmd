@@ -2,7 +2,7 @@
 title: "weatherapi-vignette"
 output: rmarkdown::html_vignette
 description: >
-  This vignette describe how to use the weather api package in more detail.
+  This vignette describes how to use the weather api package in more detail.
 vignette: >
   %\VignetteIndexEntry{weatherapi-vignette}
   %\VignetteEngine{knitr::rmarkdown}
@@ -19,7 +19,7 @@ devtools::load_all()
 This package wraps the Weather API, available from: weatherapi.com. The Weather API provides access to real-time and historical weather info, astronomy, time zone, and sports data.
 
 ## Setup
-This package rely on the API key provided by the Weather API. To get started in using this package, please follow these steps:   
+This package relies on the API key provided by the Weather API. To get started on using this package, please follow these steps:   
 
 1. Sign-up for an account here: https://www.weatherapi.com/signup.aspx   
 2. Go to your "my account" page and copy your API key   
@@ -32,7 +32,7 @@ This package rely on the API key provided by the Weather API. To get started in 
 
 
 ## Error Codes
-This table provides the description of the possible error codes.
+This table provides descriptions of the possible error codes.
 
 |Error Code|Description|
 |---|---|
@@ -44,13 +44,13 @@ This table provides the description of the possible error codes.
 ### 1. Set API Key 
 This function can be used to see the API key that you have set during the setup step above. To see if you have entered your API key correctly, you can run `api_key()` and it will output the API key that you have set in the .Renviron file.
 
-This function can also be used as second way to set the API key. Note that this will not change the value of the API key in the .Renviron but it will change the API key being used when calling the functions. To set a temporary API key, you can run `api_key(force=TRUE)` which will require you to enter your API key in the interactive console. Enter your API key in the R console and press enter. Now you have changed the API key that will be used by the functions (but not in the .Renviron file). 
+This function can also be used as another way to set the API key. Note that this will not change the value of the API key in the .Renviron file, but it will change the API key being used when calling the functions. To set a temporary API key, you can run `api_key(force=TRUE)` which will require you to enter your API key in the interactive console. Enter your API key in the R console and press enter. You have now changed the API key that will be used by the functions (but not in the .Renviron file). 
 
 #### Usage
 `api_key(force=FALSE)`
 
 #### Arguments
-`force` : A boolean to force set new API key for current environment. To force set a new API key set it to TRUE, the default value is FALSE.
+`force` : A boolean to force-set new API key for current environment. This is done to force-set a new API key to TRUE, the default value is FALSE.
 
 #### Value
 A vector containing the API key
@@ -67,7 +67,7 @@ A vector containing the API key
   
 #### Arguments
 `location` : 	A vector of location   
-`air_quality` : A string of "yes" or "no" to show air quality information. Default is show air quality information ("yes").   
+`air_quality` : A string of "yes" or "no" to show air quality information. The default is show air quality information ("yes").   
 
 #### Value
 A data frame of current weather information
@@ -93,7 +93,7 @@ get_current_weather(cities)
 ```
 
 #### Variable description
-The table below summarize the data type and description of the returned variables in the dataframe.
+The table below summarizes the data type and the descriptions of the returned variables in the dataframe.
 
 | Variable | Type | Description | 
 |----------|------|-------------|
@@ -158,7 +158,7 @@ A data frame of local time-zone information
    
 This function is used to get the time zone and local time information of a specified location. The resulting information will be a data frame.
 
-For instance, if you want to get the time zone and local time information for Kelowna, you can use:
+For instance, if you want to get the time zone and local time information of Kelowna, you can use:
 
 ```{r}
 get_time_zone("Kelowna")
@@ -172,7 +172,7 @@ get_time_zone(cities)
 ```
 
 #### Variable description
-The table below summarize the data type and description of the returned variables in the dataframe.
+The table below summarize the data type and the descriptions of the returned variables in the dataframe.
 
 | Variable | Type | Description | 
 |----------|------|-------------|
@@ -203,9 +203,9 @@ A data frame of upcoming sports events in a location
 `get_sports_events(c("London", "Oxford"))`
    
    
-This function is used to get a list of all upcoming sports events (football, cricket, golf) of a specified location. The resulting information will be a data frame.
+This function is used to get a list of all upcoming sports events (football, cricket, golf) in a specified location. The resulting information will be a data frame.
 
-For instance, if you want to get a list of all upcoming sports events (football, cricket, golf) for London, you can use:
+For instance, if you want to get a list of all upcoming sports events (football, cricket, golf) in London, you can use:
 
 ```{r}
 get_sports_events("London", "football")
@@ -213,7 +213,7 @@ get_sports_events("London", "football")
 
 
 #### Variable description
-The table below summarize the data type and description of the returned variables in the dataframe.
+The table below summarizes the data type and the descriptions of the returned variables in the dataframe.
 
 | Variable | Type | Description | 
 |----------|------|-------------|
@@ -229,14 +229,14 @@ The table below summarize the data type and description of the returned variable
 
 
 #### Introduction
-This function is a helper function to send request to retrieve data from weatherapi.com.
+This is a helper function to send a request to retrieve data from weatherapi.com.
 
 #### Usage
 `data_request(query)`
 
 
 #### Arguments
-`query`: A list contain information of city, date, and api_key, represented by `q`, `dt`, and `key`, respectively. 
+`query`: A list that contains information of city, date, and api_key, represented by `q`, `dt`, and `key`, respectively. 
 
 
 #### Value
@@ -252,7 +252,7 @@ A HTTP response.
 
 
 #### Introduction
-This function is an API wrapper to retrieve astronomy data from weatherapi.com. Given a desired city and date, the wrapper will return astronomy data such as sunset time and moon rise time. Error messages are given when a user enters invalid input. An helper function is used for sending request.
+This function is an API wrapper to retrieve astronomy data from weatherapi.com. Given a desired city and date, the wrapper will return astronomy data such as sunset time and moon rise time. Error messages are given when a user enters invalid input. A helper function is used for sending request.
 
 
 #### Usage
@@ -279,8 +279,8 @@ A dataframe with the columns `sunrise`, `sunset`, `moonrise`, `moonset`, `moon_p
   
 #### Arguments
 `key` : A string containing the API key  
-`q` : A string containing the location, which can be US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name.  
-`dt` : A string containing the date for query, which should be within the last 7 days.  
+`q` : A string containing the location, which can be an US Zipcode, UK Postcode, Canadian Postalcode, IP address, Latitude/Longitude (decimal degree) or city name.  
+`dt` : A string containing the date of query, which should be within the last 7 days.  
 
 #### Value
 A data frame containing the astronomical information for the day.
@@ -290,7 +290,7 @@ A data frame containing the astronomical information for the day.
 `get_history_astro_information("YourAPIKeyHere","Beijing","2022-02-14")`     
 
 #### Variable description
-The table below summarize the data type and description of the returned variables in the dataframe.  
+The table below summarizes the data type and the descriptions of the returned variables in the dataframe.  
 
 | Variable | Type | Description | 
 |----------|------|-------------|
@@ -308,19 +308,19 @@ The table below summarize the data type and description of the returned variable
 
 #### Arguments
 `key` : A string containing the API key  
-`q` : A string containing the location, which can be US Zipcode, UK Postcode, Canada Postalcode, IP address,
+`q` : A string containing the location, which can be an US Zipcode, UK Postcode, Canadaian Postalcode, IP address,
 Latitude/Longitude (decimal degree) or city name.  
-`dt` : A string containing the date for query, which should be within the last 7 days.  
+`dt` : A string containing the date of query, which should be within the last 7 days.  
 
 #### Value
-A data frame containing the daily weather information for the day.  
+A data frame containing the daily weather information of the day.  
 
 #### Examples
 `get_history_daily_weather("YourAPIKeyHere","London","2022-02-12")`     
 `get_history_daily_weather("YourAPIKeyHere","Beijing","2022-02-14")`     
 
 #### Variable description
-The table below summarize the data type and description of the returned variables in the dataframe.  
+The table below summarizes the data type and the descriptions of the returned variables in the dataframe.  
 
 | Variable | Type | Description | 
 |----------|------|-------------|
@@ -334,8 +334,8 @@ The table below summarize the data type and description of the returned variable
 |maxwind_kph|num|Daily max wind speed (kilometers per Hour)|
 |totalprecip_mm|num|Daily total Precipitation(mm)|
 |totalprecip_in|num|Daily total Precipitation(in)|
-|avgvis_km|num|Daily average visibility in kilometer|
-|avgvis_miles|num|Daily average visibility in mile|
+|avgvis_km|num|Daily average visibility in kilometers|
+|avgvis_miles|num|Daily average visibility in miles|
 |avghumidity|num|Daily average humidity|
 |condition.text|chr|Weather condition text|
 |condition.icon|chr|Weather icon url|
@@ -349,26 +349,26 @@ The table below summarize the data type and description of the returned variable
 
 #### Arguments
 `key` : A string containing the API key  
-`q` : A string containing the location, which can be US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name.  
-`dt` : A string containing the date for query, which should be within the last 7 days.  
-`h` : An integer containing the hour for query, which be in the range of 0 to 23.  
+`q` : A string containing the location, which can be an US Zipcode, UK Postcode, Canadian Postalcode, IP address, Latitude/Longitude (decimal degree) or city name.  
+`dt` : A string containing the date of query, which should be within the last 7 days.  
+`h` : An integer containing the hour of query, which be in the range of 0 to 23.  
 
 #### Value
-A data frame containing the daily weather information for the hour in the day.
+A data frame containing the daily weather information of the hour in the day.
 
 #### Examples
 `get_history_hourly_weather("YourAPIKeyHere","London","2022-02-12",4)   
 `get_history_daily_weather("YourAPIKeyHere","Beijing","2022-02-14",23)   
 
 #### Variable description
-The table below summarize the data type and description of the returned variables in the dataframe.
+The table below summarizes the data type and the descriptions of the returned variables in the dataframe.
 
 | Variable | Type | Description | 
 |----------|------|-------------|
 |city      |chr   |The desired city|
 |region    |chr   |The region of the city|
 |country   |chr   |The country of the city|
-|lat       |num   | The latitude of the city|
+|lat       |num   |The latitude of the city|
 |lon       |num   |The lognitude of the city |
 |sunrise   |chr   |The sunrise time of the city on a given date|
 |sunset    |chr   |The sunset time of the city on a given date|
@@ -381,9 +381,9 @@ The table below summarize the data type and description of the returned variable
 
 ## Plotting using the weatherapi package
 
-### 1. Plot the current temperature and feels like temperature for different locations
+### 1. Plot the current temperature and feels-like temperature for different locations
 
-The following exercise will show how to get current temperature and feels like temperature data using the get_current_weather() function and plot it as a line chart.
+The following exercise shows how to get current temperature and feels-like temperature data using the get_current_weather() function and plots it as a line chart.
 
 ```{r, warning=FALSE, message=FALSE, fig.width=6,fig.height=4}
 library(ggplot2)
@@ -406,7 +406,7 @@ ggplot(data=data, aes(x=location.name, y=value, group=variable, linetype=variabl
 
 ### 2. Plot local time zone of different locations in world-map
 
-The following exercise will show you how to extract time-zone of different locations and plot it in a world map.
+The following exercise shows how to extract the time-zone of different locations and plot it in a world map.
 
 ```{r, warning=FALSE, message=FALSE, fig.width=6,fig.height=4}
 # Get local time zone data
@@ -439,7 +439,13 @@ library(ggplot2)
 library(reshape2)
 min_temp<- vector()
 max_temp<- vector()
-dates<-c("2022-02-11","2022-02-12","2022-02-13","2022-02-14","2022-02-15","2022-02-16","2022-02-17")
+
+td <- Sys.Date()
+dates <- c()
+for (i in  6:0){
+  dates <- c(dates, as.character(td-i))
+}
+
 for(i in seq_along(dates)){
   max_temp<-append(max_temp,get_history_daily_weather("London",dates[i])$maxtemp_c)
   min_temp<-append(min_temp,get_history_daily_weather("London",dates[i])$mintemp_c)
@@ -453,7 +459,7 @@ geom_line()
 
 ### 4. Plot the 24 hour temperature in Celsius for a specific day
 
-The following exercise will show how to get hourly temperature in a day using the get_history_hourly_weather() function and plot it as a line chart.
+The following exercise shows how to get hourly temperature in a day using the get_history_hourly_weather() function and plot it as a line chart.
 
 ```{r, warning=FALSE, message=FALSE, fig.width=6,fig.height=4}
 library(ggplot2)
@@ -470,7 +476,7 @@ ggplot(df, aes(x=hour, y=temp)) +
 
 ### 5. Plot the moon_illumination at Beijing on same date of different years
 
-The code below describe how to get moon_illumination at Beijing on same date from year 2011 to year 2021 using the `get_astronomy` function and plot the result.
+The code below describes how to get the moon_illumination at Beijing on same date from year 2011 to year 2021 using the `get_astronomy` function and plot the result.
 
 ```{r, warning=FALSE, message=FALSE, fig.width=6,fig.height=4}
 library(ggplot2)

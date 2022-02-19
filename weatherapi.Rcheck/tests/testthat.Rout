@@ -19,9 +19,9 @@ Type 'q()' to quit R.
 > 
 > library(weatherapi)
 > test_check("weatherapi")
-[ FAIL 0 | WARN 0 | SKIP 0 | PASS 77 ]
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 66 ]
 > 
 > 
 > proc.time()
    user  system elapsed 
-  1.147   0.062   6.459 
+  1.054   0.059   6.309 

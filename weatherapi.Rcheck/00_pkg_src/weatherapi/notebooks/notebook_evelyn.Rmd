@@ -74,7 +74,7 @@ https://github.com/xintian927/534-proejct/commit/d9a13ba6a3a0541ec83e45903ef008f
 
 ## February 17, 2022
 ### What I did for the project:
-1. Have a meeting with the other team members to merge our codes together. We each create a pull request for our branch and have the other team members review and/or solve the conflicts.
+1. Had a meeting with the other team members to merge our codes together. We each create a pull request for our branch and have the other team members review and/or solve the conflicts.
 2. We did a test run on our package to see if we can install it in our computer through devtools::install_github() and solve any problems that we encouter.
 3. Fixed the vignette builder as it was not displaying the vignette when we install the package to our computer.
 
@@ -84,3 +84,22 @@ As a group, we merged all our branches together to create a fully functioning pa
 ### Links to the github commits:
 https://github.com/xintian927/534-project/commit/90e3d42822bf67bd12e6462968fd87643e9778b9
 https://github.com/xintian927/534-project/commit/54390421bfdb5c1666c21a46111d8757c86b6265
+
+
+## February 18, 2022
+### What I did for the project:
+1. Had a meeting with the other team members to go through the steps to implement circle ci for R packages.
+2. Fixed problems related to build issues:
+- Incorrect license file type (changed License.md to license)
+- Added missing packages to the imports and suggests section in the DESCRIPTION file (devtools, ggplot2, reshape2, maps, tidyverse)
+- Renamed files with non-portable file names (code of conduct.md to CODE_OF_CONDUCT.md)
+- Fixed functions (get_astronomy and api_key) that was causing errors.
+3. Added unit test for api_key function.
+
+### Role in the bigger group picture:
+Prepared the package so that it is error-free during the build process which is an essential step prior to circle ci. All team members gather in a zoom call to go through the circle ci configuration and gotten a passing badge for our package in circle ci.
+
+### Links to the github commits:
+https://github.com/xintian927/534-project/commit/8210db34338938927f558cb595a6b0d7a6fecdca
+https://github.com/xintian927/534-project/commit/2aca45296b801df2c7de1caf586d95b3c41980e2
+https://github.com/xintian927/534-project/commit/cc9a3c7ec6fea19171cee9e00f0f2744f1fe8ddc

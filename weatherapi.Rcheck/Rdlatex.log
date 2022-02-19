@@ -105,8 +105,8 @@ Overfull \hbox (3.2165pt too wide) in paragraph at lines 245--246
 [5]
 No file Rd2.ind.
 [6]
-(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/RtmpBVa6gc/Rd2pdf1564
-41485277b/Rd2.aux)
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmpl6EJDw/Rd2pdf162f
+f21fdb244/Rd2.aux)
 
 Package rerunfilecheck Warning: File `Rd2.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
@@ -123,7 +123,7 @@ xintian/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/xin
 tian/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/xintia
 n/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/xintian/L
 ibrary/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (6 pages, 85980 bytes).
+Output written on Rd2.pdf (6 pages, 85915 bytes).
 Transcript written on Rd2.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -221,21 +221,21 @@ Writing index file Rd2.idx
 (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd)
 (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex
 .def)
-(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/RtmpBVa6gc/Rd2pdf1564
-41485277b/Rd2.aux)
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmpl6EJDw/Rd2pdf162f
+f21fdb244/Rd2.aux)
 (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty)
 (/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitles
 tring.sty))
-(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/RtmpBVa6gc/Rd2pdf1564
-41485277b/Rd2.out)
-(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/RtmpBVa6gc/Rd2pdf1564
-41485277b/Rd2.out)
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmpl6EJDw/Rd2pdf162f
+f21fdb244/Rd2.out)
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmpl6EJDw/Rd2pdf162f
+f21fdb244/Rd2.out)
 (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
 (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
 (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1phv.fd)
-(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/RtmpBVa6gc/Rd2pdf1564
-41485277b/Rd2.toc [1{/Users/xintian/Library/TinyTeX/texmf-var/fonts/map/pdftex/
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmpl6EJDw/Rd2pdf162f
+f21fdb244/Rd2.toc [1{/Users/xintian/Library/TinyTeX/texmf-var/fonts/map/pdftex/
 updmap/pdftex.map}]) [2]
 Overfull \hbox (58.43571pt too wide) in paragraph at lines 130--131
 []\T1/ptm/m/n/10 A dataframe with the columns `sun-rise`, `sun-set`, `moon-rise
@@ -255,8 +255,8 @@ Overfull \hbox (3.2165pt too wide) in paragraph at lines 245--246
 [5]
 No file Rd2.ind.
 [6]
-(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/RtmpBVa6gc/Rd2pdf1564
-41485277b/Rd2.aux) )
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmpl6EJDw/Rd2pdf162f
+f21fdb244/Rd2.aux) )
 (see the transcript file for additional information){/Users/xintian/Library/Tin
 yTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{/Users/xintian/Library/TinyTeX/tex
 mf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc} </Users/xintian/Library/TinyTe
@@ -267,8 +267,8 @@ xintian/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/xin
 tian/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/xintia
 n/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/xintian/L
 ibrary/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rd2.pdf (6 pages, 87130 bytes).
+Output written on Rd2.pdf (6 pages, 87064 bytes).
 Transcript written on Rd2.log.
 Saving output to ‘weatherapi-manual.pdf’ ...
 Done
-You may want to clean up by 'rm -Rf /var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T//RtmpBVa6gc/Rd2pdf156441485277b'
+You may want to clean up by 'rm -Rf /var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T//Rtmpl6EJDw/Rd2pdf162ff21fdb244'

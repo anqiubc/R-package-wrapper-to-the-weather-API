@@ -44,3 +44,19 @@ We had a team meeting today
 
 ### Links to the github commits:
 https://github.com/xintian927/534-proejct/commit/d5b04eb3693a7105e1eae655ac5ebfb53ba0ff58
+
+## February 18, 2022
+### What I did for the project:
+
+We had a team meeting today
+
+1. Helped with testing and CircleCI
+2. Proofread the documentation and the vignette
+3. Helped with solving conflicts and merging branches together
+
+### Role in the bigger group picture:
+1. Attended group meeting to hep merge the different repositories together.
+2. Helped with CircleCI testing
+
+### Links to the github commits:
+https://github.com/xintian927/534-project/commit/3d237539654c9f1e586c3ff4ab6b902147e87fec

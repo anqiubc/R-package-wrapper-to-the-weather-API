@@ -30,7 +30,7 @@ get_history_hourly_weather<- function(q,dt,h) {
     stop(
       sprintf(
         "GitHub API request failed [%s]\n%s\n<%s>",
-        status_code(resp),
+        httr::status_code(resp),
         parsed$error$message,
         parsed$error$code
       ),

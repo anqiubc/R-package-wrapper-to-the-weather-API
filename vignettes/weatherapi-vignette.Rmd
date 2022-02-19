@@ -439,7 +439,13 @@ library(ggplot2)
 library(reshape2)
 min_temp<- vector()
 max_temp<- vector()
-dates<-c("2022-02-11","2022-02-12","2022-02-13","2022-02-14","2022-02-15","2022-02-16","2022-02-17")
+
+td <- Sys.Date()
+dates <- c()
+for (i in  6:0){
+  dates <- c(dates, as.character(td-i))
+}
+
 for(i in seq_along(dates)){
   max_temp<-append(max_temp,get_history_daily_weather("London",dates[i])$maxtemp_c)
   min_temp<-append(min_temp,get_history_daily_weather("London",dates[i])$mintemp_c)

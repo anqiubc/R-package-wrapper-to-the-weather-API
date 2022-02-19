@@ -60,60 +60,56 @@ test_that("the output of get_astronomy has right column names", {
 
 
 test_that("get_history_astro_information returns a dataframe", {
-  expect_s3_class(get_history_astro_information("London","2022-02-15"), "data.frame")
+  expect_s3_class(get_history_astro_information("London", as.character(Sys.Date()-3)), "data.frame")
 })
 test_that("get_history_astro_information returns error if location is not found", {
-  expect_error(get_history_astro_information("123","2022-02-15"))
+  expect_error(get_history_astro_information("123", as.character(Sys.Date()-3)))
 })
 test_that("get_history_astro_information returns error if date is not valid", {
   expect_error(get_history_astro_information("London","2022-02-05"))
 })
+
 test_that("get_history_astro_information returns error if API key invalid", {
   key<-Sys.getenv("API_KEY")
   Sys.setenv(API_KEY = "ABC123")
-  expect_error(get_current_weather("Kelowna"))
-  expect_error(get_current_weather(c("Kelowna", "Vancouver")))
-  expect_error(get_current_weather(c("Kelowna", "Vancouver"), "no"))
+  expect_error(get_history_astro_information("Kelowna", as.character(Sys.Date()-3)))
   Sys.setenv(API_KEY = key)
 })
 
 
 test_that("get_history_daily_weather returns a dataframe", {
-  expect_s3_class(get_history_daily_weather("London","2022-02-15"), "data.frame")
+  expect_s3_class(get_history_daily_weather("London", as.character(Sys.Date()-3)), "data.frame")
 })
 test_that("get_history_daily_weather returns error if location is not found", {
-  expect_error(get_history_daily_weather("123","2022-02-15"))
+  expect_error(get_history_daily_weather("123", as.character(Sys.Date()-3)))
 })
 test_that("get_history_daily_weather returns error if date is not valid", {
   expect_error(get_history_daily_weather("London","2022-02-05"))
 })
+
 test_that("get_history_daily_weather returns error if API key invalid", {
   key<-Sys.getenv("API_KEY")
   Sys.setenv(API_KEY = "ABC123")
-  expect_error(get_current_weather("Kelowna"))
-  expect_error(get_current_weather(c("Kelowna", "Vancouver")))
-  expect_error(get_current_weather(c("Kelowna", "Vancouver"), "no"))
+  expect_error(get_history_daily_weather("Kelowna", as.character(Sys.Date()-3)))
   Sys.setenv(API_KEY = key)
 })
 
 test_that("get_history_hourly_weather returns a dataframe", {
-  expect_s3_class(get_history_hourly_weather("London","2022-02-15",23), "data.frame")
+  expect_s3_class(get_history_hourly_weather("London", as.character(Sys.Date()-3), 23), "data.frame")
 })
 test_that("get_history_hourly_weather returns error if location is not found", {
-  expect_error(get_history_hourly_weather("123","2022-02-15",23))
+  expect_error(get_history_hourly_weather("123", as.character(Sys.Date()-3), 23))
 })
-test_that("get_history_daily_weather returns error if date is not valid", {
-  expect_error(get_history_daily_weather("London","2022-02-05",23))
+test_that("get_history_hourly_weather returns error if date is not valid", {
+  expect_error(get_history_hourly_weather("London","2022-02-05",23))
 })
-test_that("get_history_daily_weather returns error if time is not valid", {
-  expect_error(get_history_daily_weather("London","2022-02-15",24))
+test_that("get_history_hourly_weather returns error if time is not valid", {
+  expect_error(get_history_hourly_weather("London", as.character(Sys.Date()-3), 24))
 })
 test_that("get_history_hourly_weather returns error if API key invalid", {
   key<-Sys.getenv("API_KEY")
   Sys.setenv(API_KEY = "ABC123")
-  expect_error(get_current_weather("Kelowna"))
-  expect_error(get_current_weather(c("Kelowna", "Vancouver")))
-  expect_error(get_current_weather(c("Kelowna", "Vancouver"), "no"))
+  expect_error(get_history_hourly_weather("Kelowna", as.character(Sys.Date()-3), 1))
   Sys.setenv(API_KEY = key)
 })
 
@@ -124,11 +120,6 @@ test_that("get_current_weather returns a dataframe", {
 })
 
 
-test_that("get_current_weather returns correct location", {
-  expect_identical(get_current_weather("Kelowna")[[1]], "Kelowna")
-  expect_identical(get_current_weather("Kelowna")[[2]], "British Columbia")
-  expect_identical(get_current_weather("Kelowna")[[3]], "Canada")
-})
 
 
 test_that("get_current_weather returns error if location is not found", {
@@ -155,11 +146,6 @@ test_that("get_time_zone returns a dataframe", {
 })
 
 
-test_that("get_time_zone returns correct location", {
-  expect_identical(get_time_zone("Kelowna")[[1]], "Kelowna")
-  expect_identical(get_time_zone("Kelowna")[[2]], "British Columbia")
-  expect_identical(get_time_zone("Kelowna")[[3]], "Canada")
-})
 
 
 test_that("get_time_zone returns error if location is not found", {
@@ -206,5 +192,13 @@ test_that("get_sports_events returns error if API key invalid", {
   expect_error(get_sports_events("London", "football"))
   expect_error(get_sports_events(c("London", "Oxford"), "football"))
   expect_error(get_sports_events(c("London", "Oxford", "Kent"), "football"))
+  Sys.setenv(API_KEY = key)
+})
+
+
+test_that("api_key() returns API key that was set in the environment", {
+  key<-Sys.getenv("API_KEY")
+  Sys.setenv(API_KEY = "ABC123")
+  expect_equal(api_key(),"ABC123")
   Sys.setenv(API_KEY = key)
 })
