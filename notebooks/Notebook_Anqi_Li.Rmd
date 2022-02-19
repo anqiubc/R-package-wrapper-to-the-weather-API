@@ -133,3 +133,29 @@ https://github.com/xintian927/534-proejct/commit/8d08fa754f9843ed8563728ea55b8ee
 
 ### 3. Link to github commit:   
 https://github.com/xintian927/534-proejct/commit/af2e22367c9a9bec55b47d69ed4a413142d340f2
+
+
+## 2022-02-17
+
+### 1. What I did:   
+- Had a meeting with other group members.
+- Did the integration of all the codes, documents, and vignettes.
+
+### 2. Its role in the bigger group picture:      
+- The final integration.
+
+### 3. Link to github commit:   
+- https://github.com/xintian927/534-project/commit/52ea3fde956058c1f3509654d34467795467bc7f 
+
+## 2022-02-18
+
+
+### 1. What I did:   
+- Finished the remaining task left with all the other group members: circleCI, integration, fixed some errors, and finished some other documents.
+
+### 2. Its role in the bigger group picture:      
+- The final step.
+
+### 3. Link to github commit: 
+- https://github.com/xintian927/534-project/commit/00866da7c13e3924f4e692c5db08666c70fbcdc8
+
