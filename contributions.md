@@ -1,8 +1,14 @@
-# Summary of Contributions
+## Contributing to our package
 
 We welcome all contributions to this project! All contributors must abide by our [code of conduct](CODE_OF_CONDUCT.md).
 
+## Summary of Contributions
+
 Below, briefly describe the specific contribution(s) each team member (including yourself) made to our project. 
+
+## How the team will work together
+We had a meeting and divided tasks, and 
+
 
 ## Group Work
 
