@@ -4,3 +4,4 @@
 ^Meta$
 
 ^\.circleci$
+^README\.Rmd$
