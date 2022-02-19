@@ -1,0 +1,418 @@
+commit 5dcf695fc9c7224c82160e487c3b003a456ef4d6
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Fri Feb 18 18:11:49 2022 -0800
+
+    update readme files
+
+commit ac8d594bd7c0c45f75c4ccfef34f9ef568e9f489
+Author: anqiubc <anqili_ubc@hotmail.com>
+Date:   Fri Feb 18 17:48:06 2022 -0800
+
+    updated notebooks
+
+commit e2b02a15e2880775af63c82fe5147fc54117c407
+Author: Val Veeramani <87038924+LunarNode@users.noreply.github.com>
+Date:   Fri Feb 18 17:46:40 2022 -0800
+
+    Updated the contributions.md file
+
+commit 033cdac894110c801ef977efe73a35d6f719c485
+Author: xintian927 <87065539+xintian927@users.noreply.github.com>
+Date:   Fri Feb 18 17:27:16 2022 -0800
+
+    Update contributions.md
+
+commit 43334a5f40f6cdfb38f9dab46cac0fd5603aeef6
+Author: xintian927 <87065539+xintian927@users.noreply.github.com>
+Date:   Fri Feb 18 17:23:54 2022 -0800
+
+    Update contributions.md
+
+commit d34d42cfcd23c2e7ada60a29b6aada15197f34b6
+Author: xintian927 <xintian927@outlook.com>
+Date:   Fri Feb 18 17:08:25 2022 -0800
+
+    rebuild
+
+commit aec91f2a9f1dfd62b3a95e9d8dc095de4c4b3261
+Author: Val Veeramani <87038924+LunarNode@users.noreply.github.com>
+Date:   Fri Feb 18 16:22:26 2022 -0800
+
+    added html notebook file
+
+commit 6e6eb663f200d2b1a51e8c6b553289d1dc196a75
+Author: Val Veeramani <87038924+LunarNode@users.noreply.github.com>
+Date:   Fri Feb 18 16:22:03 2022 -0800
+
+    Delete notebook_ValVeeramani.html
+
+commit d5d076365928145fdc7630d318a5980b0788d807
+Author: Val Veeramani <87038924+LunarNode@users.noreply.github.com>
+Date:   Fri Feb 18 16:21:27 2022 -0800
+
+    Updated notebook
+
+commit f1ca8c6f1eb52a5c51593f51a3039c41f02db6c9
+Author: xintian927 <xintian927@outlook.com>
+Date:   Fri Feb 18 16:18:58 2022 -0800
+
+    edit notebook
+
+commit c605d3288d65edc0fdd47bb5611f9371294bdaf2
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Fri Feb 18 16:16:38 2022 -0800
+
+    add link to notebook
+
+commit cc9a3c7ec6fea19171cee9e00f0f2744f1fe8ddc
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Fri Feb 18 16:14:15 2022 -0800
+
+    add unit test for api_key
+
+commit 3d237539654c9f1e586c3ff4ab6b902147e87fec
+Author: Val Veeramani <87038924+LunarNode@users.noreply.github.com>
+Date:   Fri Feb 18 15:45:48 2022 -0800
+
+    Proofread weatherapi-vignette
+
+commit 7f00a93dae120971576e40379d63ee9f5aa81b12
+Author: xintian927 <87065539+xintian927@users.noreply.github.com>
+Date:   Fri Feb 18 14:40:12 2022 -0800
+
+    Add files via upload
+
+commit 00866da7c13e3924f4e692c5db08666c70fbcdc8
+Author: anqiubc <87057979+anqiubc@users.noreply.github.com>
+Date:   Fri Feb 18 14:36:43 2022 -0800
+
+    Update get_history_hourly_weather.R
+
+commit 9f253f4b156b5a1f72756a6e2481f20f83cedd22
+Author: anqiubc <87057979+anqiubc@users.noreply.github.com>
+Date:   Fri Feb 18 14:34:59 2022 -0800
+
+    Update get_history_daily_weather.R
+
+commit b7fed15b478815d91c693701e7bd3085f9f98a16
+Author: anqiubc <87057979+anqiubc@users.noreply.github.com>
+Date:   Fri Feb 18 14:33:35 2022 -0800
+
+    Update get_history_astro_information.R
+
+commit a1fc62c82fa1e25e359c61be9f6fc9ae6c776029
+Author: xintian927 <87065539+xintian927@users.noreply.github.com>
+Date:   Fri Feb 18 14:25:15 2022 -0800
+
+    Update README.md
+
+commit 9a6e99e73d0db45d9226c8c62739e7575206f78b
+Author: xintian927 <xintian927@outlook.com>
+Date:   Fri Feb 18 14:14:26 2022 -0800
+
+    fixing test
+
+commit 919c03154f9a6633ec073d815af1facb19a0b90f
+Author: xintian927 <xintian927@outlook.com>
+Date:   Fri Feb 18 14:07:21 2022 -0800
+
+    fixing test code
+
+commit 9ba9c02a23bcf28e65f26a0707f10827c88dc29f
+Author: xintian927 <xintian927@outlook.com>
+Date:   Fri Feb 18 14:02:03 2022 -0800
+
+    fixing
+
+commit 826b8a090edcad71ab76645e185531ee51891a6c
+Author: xintian927 <xintian927@outlook.com>
+Date:   Fri Feb 18 13:58:45 2022 -0800
+
+    add api key
+
+commit 2e633d4e4bcc45fda563ab145861eda9f41df246
+Author: xintian927 <xintian927@outlook.com>
+Date:   Fri Feb 18 13:49:42 2022 -0800
+
+    circle CI set up
+
+commit 2aca45296b801df2c7de1caf586d95b3c41980e2
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Fri Feb 18 13:33:56 2022 -0800
+
+    add maps to suggest desc
+
+commit 8210db34338938927f558cb595a6b0d7a6fecdca
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Fri Feb 18 13:26:13 2022 -0800
+
+    fix problem prior to circle ci
+
+commit 829dc605d812704e0b1c4d3662315ac8a25ed111
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Thu Feb 17 22:13:12 2022 -0800
+
+    solve vignette problem and update notebook
+
+commit 54390421bfdb5c1666c21a46111d8757c86b6265
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Thu Feb 17 21:59:14 2022 -0800
+
+    test vignette
+
+commit 90e3d42822bf67bd12e6462968fd87643e9778b9
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Thu Feb 17 21:55:59 2022 -0800
+
+    test vignette
+
+commit 48ab431e76240e2032aadfc66812b90d31509667
+Author: xintian927 <xintian927@outlook.com>
+Date:   Thu Feb 17 21:01:27 2022 -0800
+
+    fixing again
+
+commit 5f4b6eefe91db339f9861e79425f0baee266689a
+Author: xintian927 <xintian927@outlook.com>
+Date:   Thu Feb 17 20:58:14 2022 -0800
+
+    fixing
+
+commit 19a8d9363b834b424e4005f1a0605ae79fa6c1dc
+Author: xintian927 <87065539+xintian927@users.noreply.github.com>
+Date:   Thu Feb 17 20:53:52 2022 -0800
+
+    Update get_astronomy.R
+
+commit 4d0b9e3ee7da01c591b3b89def6c8b42e11ed3b6
+Author: xintian927 <xintian927@outlook.com>
+Date:   Thu Feb 17 20:49:47 2022 -0800
+
+    modified namespace
+
+commit 1b3d3073dc795401149c2ec15f2b8f2293c2ff8a
+Author: xintian927 <87065539+xintian927@users.noreply.github.com>
+Date:   Thu Feb 17 20:41:02 2022 -0800
+
+    Update get_astronomy.R
+
+commit 901aadb3618b32f96f2d1212ecdb100ae51dd254
+Author: xintian927 <87065539+xintian927@users.noreply.github.com>
+Date:   Thu Feb 17 20:28:18 2022 -0800
+
+    Update get_astronomy.R
+
+commit 8ead431551d3808f67a41fdda78aff8ebadb0680
+Author: xintian927 <87065539+xintian927@users.noreply.github.com>
+Date:   Thu Feb 17 20:21:18 2022 -0800
+
+    Update get_astronomy.R
+
+commit f58d2e94c83ed0d79972fd9f1814c49671a1d0b7
+Author: anqiubc <87057979+anqiubc@users.noreply.github.com>
+Date:   Thu Feb 17 20:13:27 2022 -0800
+
+    Update README.md
+
+commit 36ddd21da181fb4bfb4d01eb901378cf996d8430
+Author: xintian927 <xintian927@outlook.com>
+Date:   Thu Feb 17 20:06:53 2022 -0800
+
+    added export
+
+commit e748ba57f67ed9cf7cfe14ec7cc6e0585ab91259
+Author: Val Veeramani <87038924+LunarNode@users.noreply.github.com>
+Date:   Thu Feb 17 19:59:07 2022 -0800
+
+    Add files via upload
+
+commit 52ea3fde956058c1f3509654d34467795467bc7f
+Author: anqiubc <anqili_ubc@hotmail.com>
+Date:   Thu Feb 17 19:53:08 2022 -0800
+
+    integrated
+
+commit d5b04eb3693a7105e1eae655ac5ebfb53ba0ff58
+Merge: 46a349d 090b4a1
+Author: Val Veeramani <87038924+LunarNode@users.noreply.github.com>
+Date:   Thu Feb 17 19:08:30 2022 -0800
+
+    Merge pull request #3 from xintian927/xintian
+    
+    Xintian
+
+commit 090b4a1142ea1f8d81689ddf9307a14bf5a267b2
+Merge: 7ba30e4 46a349d
+Author: Val Veeramani <87038924+LunarNode@users.noreply.github.com>
+Date:   Thu Feb 17 19:08:13 2022 -0800
+
+    Merge branch 'main' into xintian
+
+commit 46a349d1d0bf762b350dfed73c281460a9240a36
+Merge: ced8e01 e935c70
+Author: evelynsugi <87230465+evelynsugi@users.noreply.github.com>
+Date:   Thu Feb 17 18:58:47 2022 -0800
+
+    Merge pull request #2 from xintian927/anqili
+    
+    Anqili
+
+commit e935c70940d697b89daf0d33c223f3241205edb6
+Merge: fc16b8c ced8e01
+Author: evelynsugi <87230465+evelynsugi@users.noreply.github.com>
+Date:   Thu Feb 17 18:58:39 2022 -0800
+
+    Merge branch 'main' into anqili
+
+commit 7ba30e4a754de24c10ea5d17cca6d771ddf598fa
+Author: xintian927 <xintian927@outlook.com>
+Date:   Thu Feb 17 18:58:37 2022 -0800
+
+    change file name
+
+commit 0f7db94910cd7c9e111d233257c600c2f5385979
+Author: xintian927 <xintian927@outlook.com>
+Date:   Thu Feb 17 18:55:45 2022 -0800
+
+    modified project structure
+
+commit ced8e015ebd7053f0991ef4e7b495e61ada83bda
+Merge: 05c4540 c654dbe
+Author: anqiubc <87057979+anqiubc@users.noreply.github.com>
+Date:   Thu Feb 17 18:51:34 2022 -0800
+
+    Merge pull request #1 from xintian927/evelyn
+    
+    Evelyn
+
+commit 87878025162e2a6f3c2708b70945e6bd739cf6d4
+Author: xintian927 <xintian927@outlook.com>
+Date:   Thu Feb 17 01:47:43 2022 -0800
+
+    update daily log
+
+commit 8e30d6a1d05a8644837d3d833a6e8e96373f642f
+Author: xintian927 <xintian927@outlook.com>
+Date:   Thu Feb 17 01:26:39 2022 -0800
+
+    update daily log
+
+commit ee098dfe4fa0504492daccec713675e5d8af0d22
+Author: xintian927 <xintian927@outlook.com>
+Date:   Thu Feb 17 01:23:00 2022 -0800
+
+    done astronomy API
+
+commit fc16b8c0bae279f3e353c15d9cbbe5420036212c
+Author: anqiubc <anqili_ubc@hotmail.com>
+Date:   Wed Feb 16 16:21:39 2022 -0800
+
+    updated notebook 0216
+
+commit af2e22367c9a9bec55b47d69ed4a413142d340f2
+Author: anqiubc <anqili_ubc@hotmail.com>
+Date:   Wed Feb 16 16:15:12 2022 -0800
+
+    added tests and vignettes
+
+commit c654dbe02f51d7b24278aaa60be4c82d8a3e12d9
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Wed Feb 16 13:19:19 2022 -0800
+
+    add commit link to notebook
+
+commit d9a13ba6a3a0541ec83e45903ef008fe56592ded
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Wed Feb 16 13:18:23 2022 -0800
+
+    minor revision on the documentation
+
+commit 855b41af9328d599f4d19ce149744a7300fd51d0
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Wed Feb 16 00:38:17 2022 -0800
+
+    add commit link to notebook
+
+commit a34d5baab6b59c149640579ad70ec54ec571de6c
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Wed Feb 16 00:36:43 2022 -0800
+
+    reorganize function, add inline comment, add vignette
+
+commit cc25780edf4e57b4b0c5f26b38c1a03d56bbebbd
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Tue Feb 15 18:40:01 2022 -0800
+
+    add commit link to notebook
+
+commit de91064f0fae22a14524602ad4db768830c8486c
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Tue Feb 15 18:39:04 2022 -0800
+
+    add unit tests
+
+commit a9da26d35fc03e01ccd8d10ea03ed6ef3e57e9f8
+Author: anqiubc <anqili_ubc@hotmail.com>
+Date:   Tue Feb 15 18:33:14 2022 -0800
+
+    added 0215 document
+
+commit 8d08fa754f9843ed8563728ea55b8ee561073d88
+Author: anqiubc <anqili_ubc@hotmail.com>
+Date:   Tue Feb 15 18:19:28 2022 -0800
+
+    edited the structure
+
+commit ffcd1735c97964a27059cda62cf09f6094048d9b
+Author: anqiubc <anqili_ubc@hotmail.com>
+Date:   Tue Feb 15 18:17:34 2022 -0800
+
+    created, checked and edited the DESCRIPTION of the package
+
+commit 9d6784dcf35516b100e3346024a50df9b2c7e653
+Author: anqiubc <anqili_ubc@hotmail.com>
+Date:   Tue Feb 15 16:50:14 2022 -0800
+
+    added the package demo
+
+commit 4e5d120d5d94f037c6dba0a16704037e1f943dc6
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Mon Feb 14 23:38:22 2022 -0800
+
+    add commit link to notebook
+
+commit ef92615d323694671c3a72ae3962d58c72de5750
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Mon Feb 14 23:37:34 2022 -0800
+
+    add more functions
+
+commit 0869465a22cce02f3a5a9314c3d4eec08c59d41b
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Mon Feb 14 21:07:50 2022 -0800
+
+    add commit link
+
+commit 28a04a7d21743093d2308a65fafb2221a7024486
+Author: evelynsugi <evelynsugihermanto@yahoo.com>
+Date:   Mon Feb 14 21:05:06 2022 -0800
+
+    add get_current_weather and api_key function
+
+commit 682b99bdb8800a6a6cea09b3a3723bfa36c94a74
+Author: anqiubc <anqili_ubc@hotmail.com>
+Date:   Mon Feb 14 17:36:48 2022 -0800
+
+    added lab note
+
+commit 5f0d6356411705a902f02411c9bbf6824816dfb9
+Author: anqiubc <anqili_ubc@hotmail.com>
+Date:   Mon Feb 14 16:59:27 2022 -0800
+
+    added demo function and use case
+
+commit 05c4540f745364dd980a483bf2e045429129f61d
+Author: xintian927 <87065539+xintian927@users.noreply.github.com>
+Date:   Mon Feb 14 14:36:35 2022 -0800
+
+    Initial commit
