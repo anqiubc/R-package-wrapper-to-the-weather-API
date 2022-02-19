@@ -1,0 +1,18 @@
+api_key                 Get or set API_KEY value
+data_request            get the astronomy data of specific date time
+                        and city from weatherapi.com
+get_astronomy           A wrapper function to obtain the the astronomy
+                        data of a the desired city and date time from
+                        the weatherapi.com.
+get_current_weather     Get current weather information
+get_history_astro_information
+                        Get history astronomical information for a
+                        specific day
+get_history_daily_weather
+                        Get history weather information for a specific
+                        day
+get_history_hourly_weather
+                        Get history hourly weather information for a
+                        specific hour in a specific day
+get_sports_events       Get sports information
+get_time_zone           Get time zone information

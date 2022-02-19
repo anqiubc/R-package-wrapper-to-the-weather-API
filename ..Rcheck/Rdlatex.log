@@ -1,0 +1,274 @@
+Hmm ... looks like a package
+Error in texi2dvi(file = file, pdf = TRUE, clean = clean, quiet = quiet,  : 
+  Running 'texi2dvi' on 'Rd2.tex' failed.
+Messages:
+/opt/R/arm64/bin/texi2dvi: makeindex failed
+Output:
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2021-06-01> patch level 1
+L3 programming layer <2021-08-27>
+(./Rd2.tex
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2021/02/12 v1.4n Standard LaTeX document class
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo))
+(/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/Rd.sty
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/tools/bm.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/alltt.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/psnfss/times.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.tex)))))
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/graphics/color.sty
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def))
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.st
+y
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty)
+)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty)
+
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekey
+s.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+ (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/letltxmacro/letltxmacro.st
+y) (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref-langpatc
+hes.def)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.st
+y)) (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty)
+) (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilech
+eck.sty
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecoun
+ter.sty)))
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line 377.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line 377.
+
+) (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/makeidx.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty)
+Writing index file Rd2.idx
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex
+.def)
+No file Rd2.aux.
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitles
+tring.sty))
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1phv.fd) [1{/Users
+/xintian/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2]
+Overfull \hbox (58.43571pt too wide) in paragraph at lines 130--131
+[]\T1/ptm/m/n/10 A dataframe with the columns `sun-rise`, `sun-set`, `moon-rise
+`, `moon-set`, `moon_phase`, and `moon_illumination`. 
+[3]
+Overfull \hbox (3.2165pt too wide) in paragraph at lines 185--186
+[]\T1/ptm/m/n/10 A string con-tain-ing the lo-ca-tion, which can be US Zip-code
+, UK Post-code, Canada
+
+Overfull \hbox (3.2165pt too wide) in paragraph at lines 215--216
+[]\T1/ptm/m/n/10 A string con-tain-ing the lo-ca-tion, which can be US Zip-code
+, UK Post-code, Canada
+[4]
+Overfull \hbox (3.2165pt too wide) in paragraph at lines 245--246
+[]\T1/ptm/m/n/10 A string con-tain-ing the lo-ca-tion, which can be US Zip-code
+, UK Post-code, Canada
+[5]
+No file Rd2.ind.
+[6]
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmp8vM9Pf/Rd2pdf16cd
+03697caf0/Rd2.aux)
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information){/Users/xintian/Library/Tin
+yTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{/Users/xintian/Library/TinyTeX/tex
+mf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc} </Users/xintian/Library/TinyTe
+X/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></Users/xintian/Library/
+TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/
+xintian/Library/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></Users/
+xintian/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/xin
+tian/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/xintia
+n/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/xintian/L
+ibrary/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (6 pages, 85833 bytes).
+Transcript written on Rd2.log.
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2021-06-01> patch level 1
+L3 programming layer <2021-08-27>
+(./Rd2.tex
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2021/02/12 v1.4n Standard LaTeX document class
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo))
+(/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/Rd.sty
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/tools/bm.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/alltt.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/psnfss/times.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
+(/Users/xi
+
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2021-06-01> patch level 1
+L3 programming layer <2021-08-27>
+(./Rd2.tex
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2021/02/12 v1.4n Standard LaTeX document class
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo))
+(/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/Rd.sty
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/tools/bm.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/alltt.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/psnfss/times.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.tex)))))
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/graphics/color.sty
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def))
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.st
+y
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty)
+)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty)
+
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekey
+s.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+ (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/letltxmacro/letltxmacro.st
+y) (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref-langpatc
+hes.def)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.st
+y)) (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty)
+) (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilech
+eck.sty
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecoun
+ter.sty)))
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line 377.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line 377.
+
+) (/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/makeidx.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty)
+Writing index file Rd2.idx
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex
+.def)
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmp8vM9Pf/Rd2pdf16cd
+03697caf0/Rd2.aux)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitles
+tring.sty))
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmp8vM9Pf/Rd2pdf16cd
+03697caf0/Rd2.out)
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmp8vM9Pf/Rd2pdf16cd
+03697caf0/Rd2.out)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(/Users/xintian/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1phv.fd)
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmp8vM9Pf/Rd2pdf16cd
+03697caf0/Rd2.toc [1{/Users/xintian/Library/TinyTeX/texmf-var/fonts/map/pdftex/
+updmap/pdftex.map}]) [2]
+Overfull \hbox (58.43571pt too wide) in paragraph at lines 130--131
+[]\T1/ptm/m/n/10 A dataframe with the columns `sun-rise`, `sun-set`, `moon-rise
+`, `moon-set`, `moon_phase`, and `moon_illumination`. 
+[3]
+Overfull \hbox (3.2165pt too wide) in paragraph at lines 185--186
+[]\T1/ptm/m/n/10 A string con-tain-ing the lo-ca-tion, which can be US Zip-code
+, UK Post-code, Canada
+
+Overfull \hbox (3.2165pt too wide) in paragraph at lines 215--216
+[]\T1/ptm/m/n/10 A string con-tain-ing the lo-ca-tion, which can be US Zip-code
+, UK Post-code, Canada
+[4]
+Overfull \hbox (3.2165pt too wide) in paragraph at lines 245--246
+[]\T1/ptm/m/n/10 A string con-tain-ing the lo-ca-tion, which can be US Zip-code
+, UK Post-code, Canada
+[5]
+No file Rd2.ind.
+[6]
+(/private/var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T/Rtmp8vM9Pf/Rd2pdf16cd
+03697caf0/Rd2.aux) )
+(see the transcript file for additional information){/Users/xintian/Library/Tin
+yTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{/Users/xintian/Library/TinyTeX/tex
+mf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc} </Users/xintian/Library/TinyTe
+X/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></Users/xintian/Library/
+TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/
+xintian/Library/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></Users/
+xintian/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/xin
+tian/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/xintia
+n/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/xintian/L
+ibrary/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (6 pages, 86985 bytes).
+Transcript written on Rd2.log.
+Saving output to ‘weatherapi-manual.pdf’ ...
+Done
+You may want to clean up by 'rm -Rf /var/folders/qm/rp8w2nyj3hg8mmrg6_m4py300000gn/T//Rtmp8vM9Pf/Rd2pdf16cd03697caf0'
