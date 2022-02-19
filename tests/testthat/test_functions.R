@@ -198,3 +198,11 @@ test_that("get_sports_events returns error if API key invalid", {
   expect_error(get_sports_events(c("London", "Oxford", "Kent"), "football"))
   Sys.setenv(API_KEY = key)
 })
+
+
+test_that("api_key() returns API key that was set in the environment", {
+  key<-Sys.getenv("API_KEY")
+  Sys.setenv(API_KEY = "ABC123")
+  expect_equal(api_key(),"ABC123")
+  Sys.setenv(API_KEY = key)
+})
