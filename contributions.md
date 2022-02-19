@@ -1,27 +1,26 @@
 # Summary of Contributions
 
-Below, briefly describe the specific contribution(s) each team member (including yourself) made to your project. 
-Both partners should contribute to this file from their own perspectives.
-Point form is fine, but you should use the following format:
+We welcome all contributions to this project! All contributors must abide by our [code of conduct](CODE_OF_CONDUCT.md).
+
+Below, briefly describe the specific contribution(s) each team member (including yourself) made to our project. 
 
 ## Group Work
 
-Similar to the first mini project, everything went well and we learn a lot from each other. Each member actively and equally contributed to the project. We enjoy working together and supporting each other throughout this project. We were able to collaborate more as the understanding was build up in the mini project 1 which helped us a lot in carrying out this project. Also, we helped each other and took guidance whenever we thought we need help. Overall it was a combined efforts and as a result we are able to deliver the efficient project on time.
+Everything went well and we learn a lot from each other. Each member actively and equally contributed to the project. We enjoy working together and supporting each other throughout this project. We were able to collaborate more which helped us a lot in carrying out this project. Also, we helped each other and took guidance whenever we thought we need help. Overall it was a combined efforts and as a result we are able to deliver the efficient project on time.
 
 ## Contributions 
 
-Describe your dataset: Aishwarya Sharma
-Load the dataset: Evelyn Sugihermanto, Xin Tian,Aishwarya Sharma
-Explore your dataset: Evelyn Sugihermanto
-Initial thoughts: Evelyn Sugihermanto
-Wrangling: Xin Tian
-Research questions: Aishwarya Sharma, Evelyn Sugihermanto, Xin Tian
-Data analysis and visualizations: Aishwarya Sharma, Evelyn Sugihermanto, Xin Tian
-Summary and conclusions: Aishwarya Sharma, Evelyn Sugihermanto, Xin Tian
-Follow-up research questions: Aishwarya Sharma, Evelyn Sugihermanto, Xin Tian
-Present and record the results: Aishwarya Sharma, Evelyn Sugihermanto, Xin Tian
-Edit the contributions.md file: Aishwarya Sharma, Evelyn Sugihermanto, Xin Tian
+Development: Anqi, Evelyn, Val, Xin
 
+Testing: Anqi, Evelyn, Val, Xin
+
+Documentation: Anqi, Evelyn, Val, Xin
+
+Project configuration: Anqi, Evelyn, Val, Xin
+
+Integration: Anqi, Evelyn, Val, Xin
+
+CircleCI configuration: Anqi, Evelyn, Val, Xin
 
 ### {Aishwarya Sharma}'s Contributions
 
